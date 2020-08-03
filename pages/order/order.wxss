@@ -1,0 +1,12 @@
+page {
+  background: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.category{
+  margin-bottom: 40rpx;
+}

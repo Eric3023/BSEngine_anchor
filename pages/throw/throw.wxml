@@ -1,0 +1,212 @@
+<view class="container">
+	<!-- 顶部地址 -->
+	<view class="header">
+		<view class="city">
+			<text>当前城市： </text>
+			<view catchtap="onJumpToMap">
+				<text>{{location.ad_info.city}}</text>
+				<image class="picker_icon" src="/img/login/icon_pull.png"></image>
+			</view>
+			<view class="change_city">
+				<!-- <image class="point1" src="/img/throw/change_location.png" catchtap="onChangeToCity"></image> -->
+				<!-- <text class="change" catchtap="onChangeToCity">{{location_state==0?'切换至全省投放':'切换至区域投放'}} </text> -->
+				<text class="change" catchtap="onChangeToCity" data-value="area" style="color:{{location_state==0?'#4cbea0':'#969696'}};">区域</text>
+				|
+				<text class="change"  catchtap="onChangeToCity" data-value="province" style="color:{{location_state==2?'#4cbea0':'#969696'}};">全省</text>
+				|
+				<text class="change"  catchtap="onChangeToCity"  data-value="country" style="color:{{location_state==3?'#4cbea0':'#969696'}};">全国</text>
+			</view>
+		</view>
+		<view class="city">
+			<image class="point2" src="/img/icon_location.png"></image>
+			<text class="address" wx:if="{{location_state==0}}">{{(location.title? location.title:location.formatted_addresses.recommend)}}</text>
+			<text class="address" wx:if="{{location_state==2}}">{{location.ad_info.province}}</text>
+			<text class="address" wx:if="{{location_state==3}}">全国投放</text>
+		</view>
+		<!-- <view class="audience">{{location_state==0?'当前位置':location.ad_info.province}}有{{audience}}个用户</view> -->
+		<view class="audience">{{location_state==0?'当前位置':location.ad_info.province}}用户转化指数等级：高</view>
+	</view>
+	<!-- 广告选择 -->
+	<scroll-view class="ad" scroll-x="false" scroll-y="true">
+		<view>
+			<block wx:for="{{codes}}" wx:key="index">
+				<view class="code_container" data-item="{{item}}" data-index="{{index}}" catchtap="onClickUpdate">
+					<image class="code_backgroud" src="{{item.imageUrl? item.imageUrl:'/img/throw/activity_center.png'}}" binderror="onBackgroundError" data-index="{{index}}"></image>
+					<view class="code_messeage">
+						<text class="code_title">{{item.optionName}}</text>
+						<text class="code_content">{{item.description}}</text>
+					</view>
+					<view class="code_btn_container">
+						<text class="btn">上传素材</text>
+						<view class="preview_container" data-item="{{item}}" catchtap="{{item.status!=0?'none':'onPreview'}}">
+							<text class="btn preview" style="background-color:{{adcode.code.optionCode==item.optionCode? '#ffffff':'#bdbdbd'}}; color:{{adcode.code.optionCode==item.optionCode? '#000000':'#ffffff'}};">预览</text>
+						</view>
+					</view>
+					<progress class="code_progress" wx:if="{{adcode.code.optionCode==item.optionCode && progress!=0}}" activeColor="#42c2e2" backgroundColor="#e9e9e9" percent="{{adcode.code.optionCode==item.optionCode? progress:0}}">
+					</progress>
+					<!-- <view class="mask" wx:if="{{position!=item.optionCode && state!=0 && state!=1 || item.status!=0}}"></view> -->
+				</view>
+			</block>
+		</view>
+	</scroll-view>
+	<!-- 遮罩层 -->
+	<v_mask class="mask" wx:if="{{state==1||state==4}}" catchtap="onCancelMaterial" />
+	<!-- 模板选择 -->
+	<form class="model_container" wx:if="{{state==1}}" bindsubmit="onCommitMaterial" bindreset="onCancelMaterial">
+		<scroll-view class="model" scroll-x="false" scroll-y="true">
+			<radio-group name="model" bindchange="onModelChange">
+				<!-- 模板选择 -->
+				<view class="model_selector">
+					<view class="model_header">
+						<radio id="model" checked="true" value="{{0}}" checked></radio>
+						<label class="model_title" for="model"> 模板选择 :</label>
+						<view class="notice_container" catchtap="onNotice">
+							<text class="notice" catchtap="onNotice">注意事项</text>
+							<image class="notice_icon" src="/img/throw/notice.png" catchtap="onNotice"></image>
+						</view>
+					</view>
+					<view class="model_body">
+						<scroll-view scroll-x="true" scroll-y="false">
+							<radio-group name="modelId" bindchange="onModelDetailChange">
+								<view class="model_items">
+									<block wx:for="{{models}}" wx:key="index">
+										<view class="model_item">
+											<image class="model_img" src="{{item.styleImageUrl}}" mode="{{(tmpCode.optionCode==16||tmpCode.optionCode==15)?'aspectFill':'aspectFit'}}" catchtap="onPreviewModel" data-value="{{item.styleImageUrl}}"></image>
+											<radio class="model_radio" checked="{{index==0}}" value="{{item.id}}"></radio>
+										</view>
+									</block>
+								</view>
+							</radio-group>
+						</scroll-view>
+						<view class="photo" hidden="true">
+							<text>选择照片</text>
+							<view class="photo_update" wx:if="{{!model_param.img}}" catchtap="onSelectModelPhoto">+</view>
+							<image class="photo_update" wx:if="{{model_param.img}}" src="{{model_param.img}}" catchtap="onSelectModelPhoto"></image>
+						</view>
+						<view class="input_container">
+							<view class="input_title">
+								<text>输入显示内容</text>
+							</view>
+							<input class="input" name="content" placeholder="文字" placeholder-class="place_class" adjust-position="true" bindblur="onConfirmModelContent"></input>
+							<input class="input" name="phone" placeholder="电话" placeholder-class="place_class" adjust-position="true" bindblur="onConfirmModelPhone"></input>
+						</view>
+					</view>
+				</view>
+				<!-- 直接上传 -->
+				<view class="model_selector">
+					<view class="model_header">
+						<radio id="div" value="{{1}}"></radio>
+						<label class="model_title" for="div">直接上传 :</label>
+					</view>
+					<view class="model_body">
+						<view class="photo" name="divPhoto1" catchtap="onSelectDivPhoto">
+							<text hidden="{{tmpCode.optionCode!=16}}">选择照片(750*1334)</text>
+							<text hidden="{{tmpCode.optionCode!=15}}">选择照片(610*906)</text>
+							<text hidden="{{tmpCode.optionCode!=19}}">选择照片(600*132)</text>
+							<text hidden="{{tmpCode.optionCode!=18}}">选择照片(690*157)</text>
+							<text hidden="{{tmpCode.optionCode!=17}}">选择照片(710*175)</text>
+							<view class="photo_update" wx:if="{{!tmpImgPath1}}">+</view>
+							<image class="photo_update" wx:if="{{tmpImgPath1}}" src="{{tmpImgPath1}}"></image>
+						</view>
+						<view class="photo" name="divPhoto2" wx:if="{{tmpCode.optionCode==16}}" catchtap="onSelectDivPhoto2">
+							<text>选择照片(750*1624)</text>
+							<view class="photo_update" wx:if="{{!tmpImgPath2}}">+</view>
+							<image class="photo_update" wx:if="{{tmpImgPath2}}" src="{{tmpImgPath2}}"></image>
+						</view>
+					</view>
+				</view>
+			</radio-group>
+		</scroll-view>
+		<view class="btn_container">
+			<button class="button" form-type="reset">放弃</button>
+			<button class="button" form-type="submit">确定</button>
+		</view>
+	</form>
+	<!-- 结算 -->
+	<view class="settlement">
+		<view class="audience">监测链接
+			<view class="audience_num form_param">
+				<view class="monitor">
+					<!-- <checkbox id="checkMonitor" color="#f77a51" value="{{1}}"></checkbox> -->
+					<switch id="checkMonitor" type="switch" value="{{1}}" bindchange="onMonitorChange" checked="{{isMonitor!=0}}"></switch>
+					<label for="checkMonitor">是否使用记刻监测</label>
+				</view>
+			</view>
+		</view>
+		<view class="audience" wx:if="{{!isMonitor}}" wx:for="{{monitorUrl}}" wx:key="index">
+			<view class="audience_num form_param">
+				<input class="input_link" placeholder="输入第三方监测链接，选填" placeholder-class="place_class" adjust-position="true" bindblur="onConfirmMonitorUrl" data-index="{{index}}" model:value="{{monitorUrl[index]}}"></input>
+				<button class="input_link_add" catchtap="onAddLink" wx:if="{{index==0}}">+</button>
+			</view>
+		</view>
+		<view class="motto" hidden="true">
+			优选车型
+			<picker bindchange="bindMottoPickerChange" value="0" range="{{mottos}}" range-key='desc'>
+				<view class="picker">{{mottos[model_param.mottoIndex].desc}}
+					<image class="picker_icon" src="/img/login/icon_pull.png"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="audience">
+			投放周期
+			<view class="time_picker_contianer form_param">
+				<picker bindchange="onStartTimeChange" mode="date" value="0" start='{{now}}'>
+					<view class="time_picker time_picker_right_margin">{{start}}
+					</view>
+				</picker>
+				<text>-</text>
+				<picker bindchange="onEndTimeChange" value="0" mode="date" start='{{now}}'>
+					<view class="time_picker time_picker_left_margin">{{end}}
+					</view>
+				</picker>
+			</view>
+		</view>
+		<!-- <view class="audience">影响人群
+			<view class="audience_num">9000+</view>
+		</view> -->
+		<view class="audience">投放类型
+			<radio-group class="audience_num form_param" bindchange="onValuationChanged">
+				<view class="cpm">
+					<radio id="cpm_radio" value="{{0}}" style="transform:scale(0.8);" checked="{{charging==0}}" color="#4cbea0"></radio>
+					<label for="cpm_radio">CPM</label>
+				</view>
+				<view class="cpd">
+					<radio id="cpd_radio" value="{{1}}" style="transform:scale(0.8);" checked="{{charging!=0}}" color="#4cbea0"></radio>
+					<label for="cpd_radio">CPD</label>
+				</view>
+			</radio-group>
+		</view>
+		<view class="audience">投放数量
+			<view class="audience_num form_param">
+				<input class="input_num" hidden="{{charging==1}}" placeholder="输入投放数量" placeholder-class="place_class" type="number" adjust-position="true" bindblur="onConfirmThrowCount" value="{{throwCount==0? '':throwCount}}" maxlength="8"/>
+				<view class="unit">
+					<view hidden="{{charging==0}}">{{days}}</view>
+					<view>　{{charging==0?'CPM':'天'}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="audience">单　　价
+			<view class="audience_num">{{unitPrice}}　{{charging==0?'元/CPM':'元/天'}}</view>
+		</view>
+		<!-- <view class="coupon">已享受首单满减，优惠金额1000元</view> -->
+		<view class="settle">合计：{{totalAmount}}元
+			<view class="settle_btn" catchtap="onSettle">结算</view>
+		</view>
+	</view>
+	<!-- 结算确认 -->
+	<view class="check" wx:if="{{state==4}}">
+		<view class="check_title">支付</view>
+		<view class="check_total_balance">总余额
+			<text class="total_balance">{{balance}}元</text>
+		</view>
+		<view class="check_later_balance">支付后余额
+			<text class="total_balance">{{remain}}元</text>
+		</view>
+		<view class="check_btn_container">
+			<view class="check_cancel" catchtap="onCancleCheck">放弃</view>
+			<view class="check_confirm" catchtap="onConfirmCheck">{{remain<0? '充值':'确定'}}</view>
+		</view>
+	</view>
+	<!-- 注意事项 -->
+	<image class="noticing_container" hidden="{{!noticing}}" src="/img/throw/noticing.jpg" catchtap="onCacelNotice"></image>
+</view>

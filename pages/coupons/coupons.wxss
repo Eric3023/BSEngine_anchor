@@ -1,0 +1,136 @@
+page {
+  background-color: white;
+}
+
+.contianer {
+  margin-top: 5rpx;
+}
+
+.header {
+  width: 100%;
+  height: 20rpx;
+  position: fixed;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  box-shadow: 0 0 8rpx #bdbdbd;
+}
+
+.item {
+  margin: 45rpx 50rpx 0 50rpx;
+  width: 650rpx;
+  height: 175rpx;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20rpx;
+  mask-type: alpha;
+  filter: drop-shadow(3rpx 3rpx 3rpx rgba(0, 0, 0, .1));
+  position: relative;
+}
+
+.item::after {
+  content: '';
+  height: 125rpx;
+  border: 3rpx dashed #fff;
+  position: absolute;
+  left: 168.5rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.sawtooth {
+  width: 10rpx;
+  height: 100%;
+  position: relative;
+  /* 锯齿 */
+  /* background: radial-gradient(transparent 0, transparent 8rpx, #ffb937 8rpx);
+  background-size: 30rpx 30rpx;
+  background-position: 16rpx 0rpx; */
+}
+
+/* 此处width小于background的weidth,无需覆盖 */
+.sawtooth:before {
+  content: ' ';
+  display: block;
+  /* 用相同的颜色覆盖 */
+  background-color: #ffb937;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* 为锯齿保留的距离 */
+  left: 20rpx;
+  right: 0rpx;
+  z-index: -1;
+}
+
+.money_container {
+  width: 160rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  /* 镂空 */
+  /* background:
+    radial-gradient(circle at top right, transparent 25rpx, red 25rpx) top right,
+    radial-gradient(circle at bottom right, transparent 25rpx, red 25rpx) bottom right;
+  background-size: 100% 60%;
+  background-repeat: no-repeat; */
+}
+
+
+.money_container .money {
+  font-size: 42rpx;
+}
+
+.body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  /* background:
+    radial-gradient(circle at top left, transparent 25rpx, red 0) top left,
+    radial-gradient(circle at bottom left, transparent 25rpx, red 0) bottom left;
+  background-size: 100% 60%;
+  background-repeat: no-repeat; */
+}
+
+.content_container {
+  width: 460rpx;
+  display: flex;
+  margin-left: 20rpx;
+  flex-direction: column;
+  font-size: 24rpx;
+}
+
+.content_container text {
+  width: 470rpx;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content_container .condition {
+  font-size: 28rpx;
+}
+
+.content_container .title {
+  margin-top: 32rpx;
+}
+
+.content_container .time {
+  margin-top: 12rpx;
+}
+
+image {
+  width: 72rpx;
+  height: 72rpx;
+  position: absolute;
+  top: 12rpx;
+  right: 28rpx;
+}

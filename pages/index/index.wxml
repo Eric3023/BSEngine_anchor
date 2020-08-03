@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="searchline">
+		<view class="search" bindtap="onSearch">
+			<image src="/img/title_search.png"></image>
+			<text>大家都在搜:热门商圈</text>
+		</view>
+		<image src="/img/more.png" class="image1" bindtap="onSelectCategory"></image>
+	</view>
+
+	<view class='carousel'>
+		<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="true" interval='5000' circular='true'>
+			<block wx:for="{{banners}}" wx:key="key">
+				<swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
+					<image class="carouselImg" src="{{item.imageUrl}}" mode='aspectFill' data-index="{{index}}" binderror="onBannerError"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<!-- <view class="banner">
+      <image src="/img/banner1.jpg" mode="widthFix"></image>
+    </view> -->
+
+	<view class="location" bindtap="onJumpToMap">
+		<image src="/img/icon_point.png"></image>
+		<text class="title">当前位置：{{location.formatted_addresses.recommend?location.formatted_addresses.recommend:location.address}}</text>
+		<view class="user-font">
+			{{location.ad_info.province}}用户转化指数等级：高
+			<!-- 10公里内有
+			<text class="usercount-color" v-model="userCount">{{user_num==0? 'x':user_num}}</text>
+			个用户 -->
+		</view>
+	</view>
+	<view class="case-list">
+		<view class="header">
+			<text>高端广告位展示</text>
+		</view>
+		<view class="list-top">
+			<image src="/img/adcode/app_start.jpg" webp="true" data-code="start" mode="widthFix" bindtap="onShowEffect"></image>
+		</view>
+		<view class="list-right">
+			<image src="/img/adcode/activity_center.jpg" webp="true" data-code="activity" mode="widthFix" bindtap="onShowEffect"></image>
+		</view>
+		<view class="list-left">
+			<image src="/img/adcode/bully.jpg" webp="true" data-code="bully" mode="widthFix" bindtap="onShowEffect"></image>
+		</view>
+		<view class="list-right">
+			<image src="/img/adcode/personal_center.jpg" webp="true" data-code="personal" mode="widthFix" bindtap="onShowEffect"></image>
+		</view>
+		<view class="list-left">
+			<image src="/img/adcode/receive_order.jpg" webp="true" data-code="receive" mode="widthFix" bindtap="onShowEffect"></image>
+		</view>
+	</view>
+
+</view>
+
+<!-- 霸屏 -->
+<v_mask class="mask" wx:if='{{bullying || bullyInfo}}' bind:tap="onCloseCoupon" />
+<v_coupon_bully class="bully" wx:if='{{bullying || bullyInfo}}' bullying='{{bullying}}' bullyInfo="{{bullyInfo}}" couponList="{{coupons}}" bind:close="onCloseCoupon" bind:confirm="onConfirCoupon"></v_coupon_bully>

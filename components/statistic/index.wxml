@@ -1,0 +1,22 @@
+<view class="container">
+	<!-- 背景图片 -->
+	<image class="background" src="img/background.jpg" />
+	<!-- 内容容器 -->
+	<view class="body">
+		<!-- 投放中 -->
+		<view class="content">
+			<text class="count">{{throwing}}</text>
+			<text class="category">审核中</text>
+		</view>
+		<!-- 已曝光 -->
+		<view class="content">
+			<text class="count">{{exposed}}</text>
+			<text class="category">投放中</text>
+		</view>
+		<!-- 影响人群 -->
+		<view class="content">
+			<text class="count">{{audience}}</text>
+			<text class="category">已完成</text>
+		</view>
+	</view>
+</view>
