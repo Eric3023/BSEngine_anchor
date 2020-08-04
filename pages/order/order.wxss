@@ -79,6 +79,20 @@ page {
   margin: 0 29rpx;
 }
 
+.case-list .body_left {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+}
+
+.case-list .body_right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+}
+
 .case-list .body .item{
   width: 310rpx;
   height: max-content;
