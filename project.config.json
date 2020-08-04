@@ -27,7 +27,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
 	"appid": "wx5b4f1f7a11303c71",
-	"projectname": "zhichuxing",
+	"projectname": "order-platform",
 	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {
 		"ignore": []
