@@ -21,7 +21,7 @@
 		<view class="option">
 			<image class="background" src="/img/background/home_options.jpg"></image>
 			<view class="buttons">
-				<view class="button" wx:for="{{4}}" wx:key="index" data-set="{{index}}">
+				<view class="button" wx:for="{{4}}" wx:key="index" data-index="{{index}}" catchtap="onNavigator">
 				</view>
 			</view>
 		</view>

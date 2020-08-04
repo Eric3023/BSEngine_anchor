@@ -25,16 +25,8 @@ Page({
    * 加载页面
    */
   onLoad: function () {
-    // this._getCurrentLocation();//获取当前定位
     this._getBanners();//请求轮播图
     this._getCouponing();//显示优惠券
-  },
-
-  /**
-   * 显示页面
-   */
-  onShow: function () {
-    this._showLocationNoPessimion();
   },
 
   /**
@@ -45,53 +37,36 @@ Page({
   },
 
   /**
-   * 跳转到广告投放效果 
+   * 导航进入其他页面
    */
-  onShowEffect: function (event) {
-    let positionCode = event.currentTarget.dataset.code;
-    let imgPath = config.BaseImgApi;
-    switch (positionCode) {
-      case 'start':
-        imgPath += 'img/effect/effect_app_start.jpg';
+  onNavigator(event) {
+    const index = event.currentTarget.dataset.index;
+    switch (index) {
+      case 0:
+        wx.showToast({
+          title: '邀请好友',
+          icon:'none'
+        })
         break;
-      case 'bully':
-        imgPath += 'img/effect/effect_banner.jpg';
+      case 1:
+        wx.showToast({
+          title: '新手指引',
+          icon:'none'
+        })
         break;
-      case 'activity':
-        imgPath += 'img/effect/effect_activity_center.jpg'
+      case 2:
+        wx.showToast({
+          title: '我的任务',
+          icon:'none'
+        })
         break;
-      case 'receive':
-        imgPath += 'img/effect/effect_receive_order.jpg'
-        break;
-      case 'personal':
-        imgPath += 'img/effect/effect_personal_center.jpg'
-        break;
-      default:
+      case 3:
+        wx.showToast({
+          title: '收益数据',
+          icon:'none'
+        })
         break;
     }
-    if (imgPath) {
-      wx.navigateTo({
-        url: `/pages/show/show?path=${imgPath}`,
-      })
-    }
-  },
-
-  /**
-   * 跳转到行业列表页面
-   */
-  onSelectCategory: function () {
-    wx.navigateTo({
-      url: '../more/more'
-    })
-  },
-
-  /**
-   * 跳转到地图页
-   */
-  onJumpToMap: function () {
-    wx.navigateTo({
-      url: `../map/map?lat=${this.data.location.location.lat}&lng=${this.data.location.location.lng}&currentcity=${this.data.location.ad_info.city}`,
-    })
   },
 
   /**
@@ -109,16 +84,10 @@ Page({
    * 点击顶部搜索按钮
    */
   onSearch(event) {
-    let title = event.detail.title;
-    if (title) {
-      wx.navigateTo({
-        url: `../map/map?searching=true&keyword=${title}`,
-      });
-    } else {
-      wx.navigateTo({
-        url: `../map/map?searching=true`,
-      });
-    }
+    wx.showToast({
+      title: '搜索',
+      icon: 'none'
+    })
   },
 
   /**
@@ -148,36 +117,6 @@ Page({
   },
 
   /**
-   * 获取当前定位
-   */
-  _getCurrentLocation: function () {
-    locationModel.getCurrentLocation()
-      .then(res => {
-        if(res && res.result){
-          this.setData({
-            location: res.result
-          });
-          app.globalData.selectLocation = res.result;
-        }
-      }, error => {
-        // wx.navigateTo({
-        //   url: '/pages/city/city',
-        // }) 
-      });
-  },
-
-  /**
-   * 未授权时，显示选中城市
-   */
-  _showLocationNoPessimion: function(){
-    if (!this.data.location) {
-      this.setData({
-        location: app.globalData.selectLocation,
-      });
-    }
-  },
-
-  /**
    * 获取轮播图
    */
   _getBanners() {
@@ -189,23 +128,6 @@ Page({
             banners: banners
           });
         }
-      },
-      error => {
-        
-      }
-    );
-  },
-
-  /**
-   * 获取周边用户数量
-   */
-  _getAroundUser(lng, lat, distance) {
-    locationModel.getAroundUser(lng, lat, distance).then(
-      res => {
-        const data = res.data;
-        this.setData({
-          user_num: data,
-        });
       },
       error => {
 
