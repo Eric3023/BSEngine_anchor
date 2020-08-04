@@ -1,9 +1,7 @@
 {
   "usingComponents": {
-    "v_statistic": "/components/statistic/index",
-    "v_state": "/components/state/index",
     "v_order": "/components/order/index"
   },
 
-  "navigationBarTitleText": "我的订单"
+  "navigationBarTitleText": "活动"
 }

@@ -169,7 +169,6 @@ page{
 .case-list .body image {
     width: 348rpx;
     height: 284rpx;
-    margin-bottom: 10rpx;
     border-top-right-radius: 10rpx;
     border-top-left-radius: 10rpx;
 }
@@ -190,6 +189,10 @@ page{
     position: absolute;
     right: -60rpx;
     bottom: 0;
+}
+
+.section_down{
+    margin: 20rpx 0rpx;
 }
 
 .mask {

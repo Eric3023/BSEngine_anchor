@@ -38,9 +38,9 @@
 		<scroll-view scroll-x="true" scroll-y="false">
 			<view class="body">
 				<view class="item" wx:for="1...5" wx:key="index">
-					<image src="/img/banner/banner1.jpg">
+					<image src="/img/login/login.jpg">
 					</image>
-					<view>
+					<view class="section_down">
 						<text class="category">饰品带货</text>
 						<text class="num">参与主播3.5万+</text>
 					</view>
@@ -62,9 +62,9 @@
 		<scroll-view scroll-x="true" scroll-y="false">
 			<view class="body">
 				<view class="item" wx:for="1...5" wx:key="index">
-					<image src="/img/banner/banner1.jpg">
+					<image src="/img/login/login.jpg">
 					</image>
-					<view>
+					<view id="section_down">
 						<text class="category">饰品带货</text>
 						<text class="num">参与主播3.5万+</text>
 					</view>
