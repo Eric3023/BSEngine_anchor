@@ -1,35 +1,42 @@
+page{
+    background-color: #ffffff;
+}
+
 .container {
     width: 100%;
     height: 100%;
     position: relative;
+    padding: 0;
+  				overflow: hidden;
     /* overflow-x:hidden;* 消除左右滑动 * */
 }
 
-.searchline {
-    background: #ffffff;
-    height: 80rpx;
-    width: 100%;
-    margin: 0;
-    /* box-shadow: 0px 3px 5px #ecebeb; */
-    position: fixed;
-    top: 0rpx;
-    left: 0;
-    z-index: 9;
+.search_background{
+    width: 510rpx;
+    height: 54rpx;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    opacity: 0.6;
+    border-radius: 25rpx;
+    position: absolute;
+    top: 180rpx;
+    left: 120rpx;
 }
 
 .search {
-    float: left;
-    margin: 5px auto 20px 12px;
-    width: 85%;
-    height: 50rpx;
-    /* 浮动起来后，脱离了行级，高才生效*/
+    width: 510rpx;
+    height: 54rpx;
+    box-sizing: border-box;
+    padding: 0 10rpx;
     border: 1px solid #e6e3e349;
     border-radius: 25rpx;
-    background-size: 100% 100%;
-    background-color: #f7fbfe;
-    align-items: center;
-    /* line-height: 58rpx; */
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 180rpx;
+    left: 120rpx;
 }
 
 .search>image {
@@ -39,6 +46,8 @@
     margin-left: 10rpx;
     width: 35rpx;
     height: 35rpx;
+    /* opacity: 1;
+    background-color: #ff595c; */
 }
 
 .search>text {
@@ -50,122 +59,91 @@
     color: rgb(226, 224, 224);
 }
 
-.carousel {
-
+.header {
     width: 100%;
-    background-color: rebeccapurple;
-    margin: 80rpx 0 0rpx 0;
+    height: 600rpx;
+    position: relative;
 }
 
-.carousel_swiper {
+.header .carousel {
     width: 100%;
-    height: 340rpx;
+}
+
+.header .carousel_swiper {
+    width: 100%;
+    height: 492rpx;
     display: block;
     position: relative;
     background: #f4f4f4;
 }
 
-.carouselImg {
+.header .carouselImg {
     width: 100%;
     height: inherit;
 }
 
-.image1 {
-    padding-top: 12rpx;
-    width: 35rpx;
-    height: 35rpx;
-    float: right;
-    margin: 5px 16px 10px auto;
-}
-
-.location {
-    margin: 16rpx 18rpx;
-    background: white;
-    border: 0rpx #cccccc solid;
-    box-shadow: 0rpx 0rpx 10rpx #e0e0e0;
-    font-size: 22rpx;
-    padding-left: 15rpx;
-    font-family: PingFangSC-Regular, sans-serif;
-    line-height: 4em;
-    color: #070707;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-}
-
-.location>text {
-    font-size: 22rpx;
-    font-family: PingFangSC-Regular, sans-serif;
-    color: #070707;
-
-}
-
-.location>image {
-    vertical-align: middle;
-    width: 18rpx;
-    height: 18rpx;
-    padding-right: 5rpx;
-}
-
-.location .user-font {
-    /* height: 100%; */
-
-    float: right;
-    padding-right: 5px;
-    font-family: PingFangSC-Regular, sans-serif;
-    font-size: 18rpx;
-    color: rgba(78, 75, 75, 0.7);
-    position: absolute;
-    right: 10rpx;
-
-}
-
-.location .user-font .usercount-color {
-    color: rgb(236, 98, 98);
-}
-
-.option{
-    display: flex;
-    flex-direction: row;
-    background-color: white;
+.option {
+    width: 654rpx;
+    height: 154rpx;
+    box-sizing: border-box;
     box-shadow: 0 0 10rpx #ebebeb;
-    margin: 16rpx;
-    padding:16rpx;
+    margin: 16rpx 50rpx;
+    position: absolute;
     border-radius: 12rpx;
-  }
-  
-  .option .content {
+    bottom: 0rpx;
+}
+
+.option .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 12rpx;
+    z-index: 9;
+}
+
+.option .buttons {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 99;
     display: flex;
-    flex-direction: column;
-    width: 25%;
-    align-items: center;
-    margin-top: 18rpx;
-  }
-  
-  .option .icon {
-    width: 48rpx;
-    height: 48rpx;
-  }
-  
-  .option .category {
-    font-size: 24rpx;
-    margin-top: 24rpx;
-  }
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 12rpx;
+}
+
+.option .button {
+    width: 100%;
+    height: 100%;
+}
 
 .case-list {
     background-color: white;
     width: 100%;
     border-radius: 5rpx;
     box-sizing: border-box;
-    padding: 20rpx 15rpx 0 15rpx;
 }
 
 .case-list .header {
     font-style: #242424;
-    font-size: 28rpx;
-    margin: 0 auto 13rpx 32rpx;
+    font-size: 30rpx;
+    margin: 30rpx 30rpx;
     font-weight: 400;
+    width: 690rpx;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.case-list .header .more {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.case-list .header .more .enter{
+    width: 32rpx;
+    height: 32rpx;
 }
 
 .case-list .body {
@@ -175,19 +153,20 @@
     width: max-content;
     height: max-content;
     font-size: 28rpx;
-    margin: 0 auto 13rpx 20rpx;
+    margin: 0 50rpx;
 }
 
-.case-list .body .item{
+.case-list .body .item {
     width: 348rpx;
     height: max-content;
     box-shadow: 0rpx 0rpx 8rpx #e0e0e0;
-    margin: 0 90rpx 0 0;
+    margin: 0 90rpx 10rpx 0;
     font-size: 26rpx;
     border-radius: 10rpx;
+    position: relative;
 }
 
-.case-list .body image{
+.case-list .body image {
     width: 348rpx;
     height: 284rpx;
     margin-bottom: 10rpx;
@@ -195,14 +174,22 @@
     border-top-left-radius: 10rpx;
 }
 
-.case-list .body .category{
+.case-list .body .category {
     color: #484848;
     margin-left: 16rpx;
 }
 
-.case-list .body .num{
+.case-list .body .num {
     color: #ff595c;
     margin-left: 20rpx;
+}
+
+.case-list .body .like {
+    width: 100rpx;
+    height: 100rpx;
+    position: absolute;
+    right: -60rpx;
+    bottom: 0;
 }
 
 .mask {
@@ -217,7 +204,7 @@
     left: 0;
 }
 
-.location .title{
+.location .title {
     width: 60%;
     overflow: hidden;
     white-space: nowrap;

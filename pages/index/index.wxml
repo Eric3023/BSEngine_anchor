@@ -1,44 +1,39 @@
 <!--index.wxml-->
-<view class="container">
-	<view class="searchline">
+<scroll-view class="container" scroll-x="false" scroll-y="false">
+	<view class="header">
+		<!-- 首页轮播 -->
+		<view class='carousel'>
+			<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="true" interval='5000' circular='true'>
+				<block wx:for="{{banners}}" wx:key="key">
+					<swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
+						<image class="carouselImg" src="{{item.imageUrl}}" mode='scaleToFill' data-index="{{index}}" binderror="onBannerError"></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<!-- 首页搜素 -->
+		<view class="search_background" bindtap="onSearch" />
 		<view class="search" bindtap="onSearch">
-			<image src="/img/title_search.png"></image>
-			<text>大家都在搜:热门商圈</text>
+			<image src="/img/icon/icon_list.png"></image>
+			<image src="/img/icon/icon_search.png"></image>
 		</view>
-		<image src="/img/more.png" class="image1" bindtap="onSelectCategory"></image>
-	</view>
-
-	<view class='carousel'>
-		<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="true" interval='5000' circular='true'>
-			<block wx:for="{{banners}}" wx:key="key">
-				<swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
-					<image class="carouselImg" src="{{item.imageUrl}}" mode='aspectFill' data-index="{{index}}" binderror="onBannerError"></image>
-				</swiper-item>
-			</block>
-		</swiper>
-	</view>
-	<view class="option">
-		<view class="content" data-index="0" bindtap="onClick">
-		 <image class="icon" src="{{index==0?'/img/icon/icon_order_category_create_f.jpg':'/img/icon/icon_order_category_create_nf.jpg'}}"></image>
-		 <text class="category">邀请好友</text>
-	  </view>
-	  <view class="content" data-index="1" bindtap="onClick">
-			<image class="icon" src="{{index==1?'/img/icon/icon_order_category_shen_f.jpg':'/img/icon/icon_order_category_shen_nf.jpg'}}"></image>
-			<text class="category">新手指引</text>
-		</view>
-		<view class="content" data-index="2" bindtap="onClick">
-			<image class="icon" src="{{index==2?'/img/icon/icon_order_category_throw_f.jpg':'/img/icon/icon_order_category_throw_nf.png'}}"></image>
-			<text class="category">我的任务</text>
-		</view>
-		<view class="content" data-index="3" bindtap="onClick">
-			<image class="icon" src="{{index==3?'/img/icon/icon_order_category_completed_f.png':'/img/icon/icon_order_category_completed_nf.png'}}"></image> 
-			<text class="category">收益数据</text>
+		<!-- 页面导航 -->
+		<view class="option">
+			<image class="background" src="/img/background/home_options.jpg"></image>
+			<view class="buttons">
+				<view class="button" wx:for="{{4}}" wx:key="index" data-set="{{index}}">
+				</view>
+			</view>
 		</view>
 	</view>
-
+	<!-- 猜你喜欢 -->
 	<view class="case-list">
 		<view class="header">
 			<text>猜你喜欢</text>
+			<view class="more">
+				<text>更多</text>
+				<image class="enter" src="/img/icon/icon_enter.png"></image>
+			</view>
 		</view>
 		<scroll-view scroll-x="true" scroll-y="false">
 			<view class="body">
@@ -49,13 +44,20 @@
 						<text class="category">饰品带货</text>
 						<text class="num">参与主播3.5万+</text>
 					</view>
+					<image class="like" src="/img/icon/icon_like.png">
+					</image>
 				</view>
 			</view>
 		</scroll-view>
 	</view>
+	<!-- 平台推荐 -->
 	<view class="case-list">
 		<view class="header">
 			<text>平台推荐</text>
+			<view class="more">
+				<text>更多</text>
+				<image class="enter" src="/img/icon/icon_enter.png"></image>
+			</view>
 		</view>
 		<scroll-view scroll-x="true" scroll-y="false">
 			<view class="body">
@@ -70,8 +72,7 @@
 			</view>
 		</scroll-view>
 	</view>
-</view>
-
+</scroll-view>
 <!-- 霸屏 -->
 <v_mask class="mask" wx:if='{{bullying || bullyInfo}}' bind:tap="onCloseCoupon" />
 <v_coupon_bully class="bully" wx:if='{{bullying || bullyInfo}}' bullying='{{bullying}}' bullyInfo="{{bullyInfo}}" couponList="{{coupons}}" bind:close="onCloseCoupon" bind:confirm="onConfirCoupon"></v_coupon_bully>
