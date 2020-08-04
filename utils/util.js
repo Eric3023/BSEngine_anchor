@@ -111,6 +111,7 @@ function reLogin() {
   } catch (e) {
     // Do something when catch error
   }
+  wx.hideLoading()
   wx.showModal({
     title: "提示",
     content: "用户未登录或已过期，请重新登录",

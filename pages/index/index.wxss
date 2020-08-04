@@ -125,69 +125,84 @@
     color: rgb(236, 98, 98);
 }
 
+.option{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0 0 10rpx #ebebeb;
+    margin: 16rpx;
+    padding:16rpx;
+    border-radius: 12rpx;
+  }
+  
+  .option .content {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    margin-top: 18rpx;
+  }
+  
+  .option .icon {
+    width: 48rpx;
+    height: 48rpx;
+  }
+  
+  .option .category {
+    font-size: 24rpx;
+    margin-top: 24rpx;
+  }
+
 .case-list {
     background-color: white;
     width: 100%;
-    /* height: 100%; */
     border-radius: 5rpx;
     box-sizing: border-box;
     padding: 20rpx 15rpx 0 15rpx;
 }
 
 .case-list .header {
-    font-style: #000000;
+    font-style: #242424;
+    font-size: 28rpx;
+    margin: 0 auto 13rpx 32rpx;
+    font-weight: 400;
+}
+
+.case-list .body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: max-content;
+    height: max-content;
     font-size: 28rpx;
     margin: 0 auto 13rpx 20rpx;
-    font-weight: bold;
 }
 
-.list-top {
-    float: left;
-    width: 100%;
-    height: auto;
-    border: 0px solid;
-    border-radius: 10px;
-    /* margin: 0 10px 10px 0; */
-    margin: 0 1% 2% 0;
-
-    align-items: center;
-    /** 垂直居中*/
-    justify-content: center;
-    /** flex 属性， 水平居中**/
+.case-list .body .item{
+    width: 348rpx;
+    height: max-content;
+    box-shadow: 0rpx 0rpx 8rpx #e0e0e0;
+    margin: 0 90rpx 0 0;
+    font-size: 26rpx;
+    border-radius: 10rpx;
 }
 
-.case-list .list-left {
-
-    float: left;
-    width: 49%;
-    height: auto;
-    border: 0px solid;
-    border-radius: 10px;
-    /* margin: 0 10px 10px 0; */
-    margin: 0 1% 1% 0;
-
-    align-items: center;
-    /** 垂直居中*/
-    justify-content: center;
-    /** flex 属性， 水平居中**/
+.case-list .body image{
+    width: 348rpx;
+    height: 284rpx;
+    margin-bottom: 10rpx;
+    border-top-right-radius: 10rpx;
+    border-top-left-radius: 10rpx;
 }
 
-.case-list .list-right {
-    float: right;
-    width: 49%;
-    height: auto;
-    border: 0px solid;
-    border-radius: 10px;
-    /* margin: 0 10px 10px 0; */
-    margin: 0 0 1% 0;
+.case-list .body .category{
+    color: #484848;
+    margin-left: 16rpx;
 }
 
-.case-list image {
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-    border-radius: 10px;
-    min-width: 0;
+.case-list .body .num{
+    color: #ff595c;
+    margin-left: 20rpx;
 }
 
 .mask {

@@ -17,41 +17,59 @@
 			</block>
 		</swiper>
 	</view>
-	<!-- <view class="banner">
-      <image src="/img/banner1.jpg" mode="widthFix"></image>
-    </view> -->
-
-	<view class="location" bindtap="onJumpToMap">
-		<image src="/img/icon_point.png"></image>
-		<text class="title">当前位置：{{location.formatted_addresses.recommend?location.formatted_addresses.recommend:location.address}}</text>
-		<view class="user-font">
-			{{location.ad_info.province}}用户转化指数等级：高
-			<!-- 10公里内有
-			<text class="usercount-color" v-model="userCount">{{user_num==0? 'x':user_num}}</text>
-			个用户 -->
+	<view class="option">
+		<view class="content" data-index="0" bindtap="onClick">
+		 <image class="icon" src="{{index==0?'/img/icon/icon_order_category_create_f.jpg':'/img/icon/icon_order_category_create_nf.jpg'}}"></image>
+		 <text class="category">邀请好友</text>
+	  </view>
+	  <view class="content" data-index="1" bindtap="onClick">
+			<image class="icon" src="{{index==1?'/img/icon/icon_order_category_shen_f.jpg':'/img/icon/icon_order_category_shen_nf.jpg'}}"></image>
+			<text class="category">新手指引</text>
 		</view>
+		<view class="content" data-index="2" bindtap="onClick">
+			<image class="icon" src="{{index==2?'/img/icon/icon_order_category_throw_f.jpg':'/img/icon/icon_order_category_throw_nf.png'}}"></image>
+			<text class="category">我的任务</text>
+		</view>
+		<view class="content" data-index="3" bindtap="onClick">
+			<image class="icon" src="{{index==3?'/img/icon/icon_order_category_completed_f.png':'/img/icon/icon_order_category_completed_nf.png'}}"></image> 
+			<text class="category">收益数据</text>
+		</view>
+	</view>
+
+	<view class="case-list">
+		<view class="header">
+			<text>猜你喜欢</text>
+		</view>
+		<scroll-view scroll-x="true" scroll-y="false">
+			<view class="body">
+				<view class="item" wx:for="1...5" wx:key="index">
+					<image src="/img/banner/banner1.jpg">
+					</image>
+					<view>
+						<text class="category">饰品带货</text>
+						<text class="num">参与主播3.5万+</text>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
 	</view>
 	<view class="case-list">
 		<view class="header">
-			<text>高端广告位展示</text>
+			<text>平台推荐</text>
 		</view>
-		<view class="list-top">
-			<image src="/img/adcode/app_start.jpg" webp="true" data-code="start" mode="widthFix" bindtap="onShowEffect"></image>
-		</view>
-		<view class="list-right">
-			<image src="/img/adcode/activity_center.jpg" webp="true" data-code="activity" mode="widthFix" bindtap="onShowEffect"></image>
-		</view>
-		<view class="list-left">
-			<image src="/img/adcode/bully.jpg" webp="true" data-code="bully" mode="widthFix" bindtap="onShowEffect"></image>
-		</view>
-		<view class="list-right">
-			<image src="/img/adcode/personal_center.jpg" webp="true" data-code="personal" mode="widthFix" bindtap="onShowEffect"></image>
-		</view>
-		<view class="list-left">
-			<image src="/img/adcode/receive_order.jpg" webp="true" data-code="receive" mode="widthFix" bindtap="onShowEffect"></image>
-		</view>
+		<scroll-view scroll-x="true" scroll-y="false">
+			<view class="body">
+				<view class="item" wx:for="1...5" wx:key="index">
+					<image src="/img/banner/banner1.jpg">
+					</image>
+					<view>
+						<text class="category">饰品带货</text>
+						<text class="num">参与主播3.5万+</text>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
 	</view>
-
 </view>
 
 <!-- 霸屏 -->

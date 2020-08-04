@@ -10,3 +10,55 @@ page {
 .category{
   margin-bottom: 40rpx;
 }
+
+
+.case-list {
+  background-color: white;
+  border-radius: 5rpx;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+}
+
+.case-list .header {
+  font-style: #242424;
+  font-size: 32rpx;
+  margin: 0 auto 13rpx 32rpx;
+  font-weight: 400;
+}
+
+.case-list .body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+  margin: 0 29rpx;
+}
+
+.case-list .body .item{
+  width: 310rpx;
+  height: max-content;
+  box-shadow: 0rpx 0rpx 8rpx #e0e0e0;
+  margin: 0 0rpx 0 0;
+  font-size: 26rpx;
+  margin: 20rpx 18rpx;
+  border-radius: 10rpx;
+}
+
+.case-list .body image{
+  width: 100%;
+  height: 284rpx;
+  margin-bottom: 10rpx;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
+.case-list .body .category{
+  color: #484848;
+  margin-left: 16rpx;
+}
+
+.case-list .body .num{
+  color: #ff595c;
+  margin-left: 20rpx;
+}
+

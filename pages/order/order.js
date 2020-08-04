@@ -27,14 +27,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this._getOrders();
+    // this._getOrders();
   },
 
   /**
    * 滑动到页面底部
    */
   onReachBottom: function () {
-    this._getOrders();
+    // this._getOrders();
   },
 
 
