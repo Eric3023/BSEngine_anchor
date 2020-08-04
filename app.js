@@ -4,7 +4,6 @@ const locationModel = require('./models/location.js');
 App({
   wxValidate: (rules, messages) => new wxValidate(rules, messages),
   onLaunch: function () {
-    this._getCurrentLocation();//获取当前定位
     this._checkVersion();
   },
 
@@ -48,40 +47,7 @@ App({
     }
   },
 
-  /**
-   * 获取当前定位
-   */
-  _getCurrentLocation: function () {
-    locationModel.getCurrentLocation()
-      .then(res => {
-        if (res && res.result) {
-          this.globalData.selectLocation = res.result;
-          var page = getCurrentPages().pop();
-          if (page == undefined || page == null) return;
-          page.onShow();
-        }
-      }, error => {
-        wx.navigateTo({
-          url: '/pages/city/city',
-        })
-      });
-  },
-
   globalData: {
-    lat: 0,
-    lng: 0,
     hasLogin: false,
-
-    //选中投放位置(投放页面无法传参，全局共享)
-    selectLocation: null,
-    //当前选择地点（未授权）
-    city: "",
-
-    //是否显示优惠券
-    couponing: false,
-
-    //关于枝头
-    version: '1.0.1',
-    time: '2020.06.05'
   }
 })
