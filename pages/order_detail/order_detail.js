@@ -16,13 +16,4 @@ Page({
       data: JSON.parse(value),
     });
   },
-
-  /**
-   * 开具发票
-   */
-  onInvoice(event) {
-    wx.redirectTo({
-      url: `/pages/invoice/invoice?ids=${this.data.data.id}&price=${this.data.data.actualPrice.toFixed(2)}`,
-    })
-  },
 })

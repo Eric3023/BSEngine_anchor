@@ -19,7 +19,7 @@
 		</view>
 		<view class="body">
 			<view class="body_left">
-				<view class="item" wx:for="{{21}}" wx:key="index" wx:if="{{index%2==0}}">
+				<view class="item" wx:for="{{21}}" wx:key="index" wx:if="{{index%2==0}}" catchtap="onClickItem" data-value="{{index}}">
 					<view class="section_up">
 						<image class="img" wx:if="{{index%4==0}}" src="/img/login/login.jpg" mode="widthFix" />
 						<image class="img" wx:if="{{index%4==2}}" src="/img/adcode/bully.jpg" mode="widthFix" />
@@ -44,7 +44,7 @@
 				</view>
 			</view>
 			<view class="body_right">
-				<view class="item" wx:for="{{21}}" wx:key="index" wx:if="{{index%2==1}}">
+				<view class="item" wx:for="{{21}}" wx:key="index" wx:if="{{index%2==1}}" catchtap="onClickItem" data-value="{{index}}">
 					<view class="section_up">
 						<image class="img" wx:if="{{index%4==3}}" src="/img/login/login.jpg" mode="widthFix" />
 						<image class="img" wx:if="{{index%4==1}}" src="/img/adcode/bully.jpg" mode="widthFix" />

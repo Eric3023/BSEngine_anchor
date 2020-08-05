@@ -96,17 +96,9 @@ Page({
     let id = value.id;
     let status = value.status;
     console.log(event);
-    if (id) {
-      if (status == 0 || status == 1) {
-        wx.navigateTo({
-          url: `/pages/throw_detail2/throw_detail2?id=${id}`,
-        })
-      } else if (status == 2 || status == 3) {
-        wx.navigateTo({
-          url: `/pages/throw_detail/throw_detail?id=${id}`,
-        })
-      }
-    }
+    wx.navigateTo({
+      url: `/pages/order_detail/order_detail?id=${id}`,
+    })
   },
 
   /**
