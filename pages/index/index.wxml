@@ -64,7 +64,7 @@
 				<view class="item" wx:for="1...5" wx:key="index">
 					<image src="/img/adcode/personal_center.jpg">
 					</image>
-					<view id="section_down">
+					<view class="section_down">
 						<text class="category">饰品带货</text>
 						<text class="num">参与主播3.5万+</text>
 					</view>
