@@ -6,11 +6,6 @@ Page({
    */
   data: {
     orders: [],
-    extras: {
-      "exposureNum": 3,
-      "launching": 0,
-      "macNum": 1,
-    },
 
     status: 0,
 
@@ -83,9 +78,13 @@ Page({
    * 修改列表中的订单状态
    */
   onChangeType: function (event) {
-    let index = event.detail.index;
+    let index = event.currentTarget.dataset.index;
     this._reset(index);
-    this._getOrders();
+    wx.showToast({
+      title: `index：${index}`,
+      icon: 'none'
+    })
+    // this._getOrders();
   },
 
   /**
@@ -108,52 +107,6 @@ Page({
         })
       }
     }
-  },
-
-  /**
-   * 删除订单
-   */
-  onDeleteItem(event) {
-    let value = event.currentTarget.dataset.value;
-    let id = value.id;
-    let status = value.status;
-    if (status == 0 || status == 1) {
-      wx.showModal({
-        title: "提示",
-        content: "确认删除该订单",
-        cancelText: "取消",
-        confirmText: "确定",
-        success: res => {
-          if (res.confirm) {
-            this._deleteOrder(id);
-          } else if (res.cancel) {
-
-          }
-        }
-      });
-    }
-  },
-
-  /**
-   * 删除订单
-   */
-  _deleteOrder(id) {
-    orderModel.deleteOrder(id)
-      .then(res => {
-        let index = this._getIndexOfItem(id);
-        if (index >= 0) {
-          this.data.orders.splice(index, 1),
-            this.setData({
-              orders: this.data.orders,
-            });
-        }
-      })
-      .catch(e => {
-        wx.showToast({
-          title: '订单删除失败',
-          icon: 'none',
-        })
-      });
   },
 
   /**
