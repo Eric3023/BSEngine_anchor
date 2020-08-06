@@ -1,83 +1,93 @@
-const throwModel = require('../../models/order.js');
-const dateUtil = require('../../utils/date.js');
+var app = getApp()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    detail: {},
+    items: [],
+    startX: 0, //开始坐标
+    startY: 0
+  },
 
-    startTime: '',
-    endTime: '',
-    days: 0,
-
-    monitors: [],
+  onLoad: function () {
+    this.initData()
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 删除事件
    */
-  onLoad: function (options) {
-    let id = options.id;
-    console.log(`id:${id}`);
-    this._getThrowDetail(id);
-  },
-
-  /**
-   * 获取投放详情
-   */
-  _getThrowDetail(id) {
-    throwModel.getThrowDetail(id)
-      .then(res => {
-        console.log(res);
-        res.data.ad.totalAmount = res.data.ad.totalAmount.toFixed(2) + '元';
-        res.data.ad.unitPrice = res.data.ad.unitPrice.toFixed(2) + '元' + (res.data.charing == 1 ? '/CPD' : '/CPM');
-        this.setData({
-          detail: res.data,
-        });
-
-        let start = res.data.ad.startTime;
-        let end = res.data.ad.endTime;
-        this._calDays(start, end);
-        this._getMonitors(res.data.ad.monitor);
-      }).catch(error => {
-        console.log(error);
-      });
-  },
-
-  /**
-   * 计算投放天数
-   */
-  _calDays(start, end) {
-    let endDate = new Date(end);
-    let startDate = new Date(start);
-    let endTime = dateUtil.tsFormatTime(endDate, 'yyyy年MM月dd日');
-    let startTime = dateUtil.tsFormatTime(startDate, 'yyyy年MM月dd日')
-    let days = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-
+  del: function (e) {
+    this.data.items.splice(e.currentTarget.dataset.index, 1)
     this.setData({
-      startTime: startTime,
-      endTime: endTime,
-      days: days,
-    });
+      items: this.data.items
+    })
   },
 
   /**
-   * 获取监测链接
+   * Item触摸反馈
    */
-  _getMonitors: function (monitor) {
-    let monitors = monitor.split('|');
+  touchstart: function (e) {
+    //开始触摸时 重置所有删除
+    this.data.items.forEach(function (v, i) {
+      if (v.isTouchMove)
+        v.isTouchMove = false;
+    })
     this.setData({
-      monitors: monitors,
-    });
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      items: this.data.items
+    })
   },
 
   /**
-   * 用户点击右上角分享
+   * 滑动Item 
    */
-  onShareAppMessage: function () {
+  touchmove: function (e) {
+    var that = this,
+      index = e.currentTarget.dataset.index,//当前索引
+      startX = that.data.startX,//开始X坐标
+      startY = that.data.startY,//开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX,//滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY,//滑动变化坐标
+      //获取滑动角度
+      angle = that.angle({ X: startX, Y: startY }, { X: touchMoveX, Y: touchMoveY });
+    that.data.items.forEach(function (v, i) {
+      v.isTouchMove = false
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+          v.isTouchMove = false
+        else //左滑
+          v.isTouchMove = true
+      }
+    })
+    //更新数据
+    that.setData({
+      items: that.data.items
+    })
+  },
 
+  /**
+   * 计算滑动角度
+   */
+  angle: function (start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
+  },
+
+  /**
+   * 初始化数据
+   */
+  initData: function () {
+    for (var i = 0; i < 10; i++) {
+      this.data.items.push({
+        content: i,
+        isTouchMove: false //默认全隐藏删除
+      })
+    }
+    this.setData({
+      items: this.data.items
+    })    
   }
 })
