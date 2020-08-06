@@ -60,15 +60,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/throw_detail2/throw_detail2",
-					"pathName": "pages/throw_detail2/throw_detail2",
-					"query": "",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }
