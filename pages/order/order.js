@@ -80,11 +80,17 @@ Page({
   onChangeType: function (event) {
     let index = event.currentTarget.dataset.index;
     this._reset(index);
-    wx.showToast({
-      title: `index：${index}`,
-      icon: 'none'
+    switch (index) {
+      case 1:
+        break
+      case 2:
+        break
+      case 0:
+        break
+    }
+    wx.navigateTo({
+      url: '/pages/throw_detail2/throw_detail2',
     })
-    // this._getOrders();
   },
 
   /**
