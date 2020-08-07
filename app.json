@@ -10,10 +10,10 @@
     "pages/mine/mine",
     "pages/login/phoneLogin/phoneLogin",
     "pages/login/login",
-    "pages/order/order",
+    "pages/activity/activity",
     "pages/show/show",
     "pages/login/code/code",
-    "pages/throw_detail/throw_detail",
+    "pages/liveData/liveData",
     "pages/complete/complete",
     "pages/order_detail/order_detail",
     "pages/throw_detail2/throw_detail2",
@@ -48,7 +48,7 @@
         "selectedColor": "#f3864b"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/activity/activity",
         "text": "活动",
         "iconPath": "img/tab/activity_normal.png",
         "selectedIconPath": "img/tab/activity_selected.png",
