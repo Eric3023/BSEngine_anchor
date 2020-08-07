@@ -60,15 +60,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/liveData/liveData",
-					"pathName": "pages/liveData/liveData",
-					"query": "",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }
