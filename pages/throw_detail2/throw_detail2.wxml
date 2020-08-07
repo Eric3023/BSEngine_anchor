@@ -1,5 +1,5 @@
 <view class="container">
-	<text class="header">待质检列表</text>
+	<text class="header">待{{type==0?'执行':'质检'}}列表</text>
 	<view class="list">
 		<view class="item touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{items}}" wx:key="index" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
 			<view class="content">
@@ -28,7 +28,7 @@
 						</view>
 					</view>
 				</view>
-				<text class="button">质检</text>
+				<text class="button" catchtap="onExecue">{{type==0?'执行':'质检'}}</text>
 			</view>
 			<view class="del" catchtap="del" data-index="{{index}}">删除</view>
 		</view>

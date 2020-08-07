@@ -4,11 +4,26 @@ Page({
   data: {
     items: [],
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+
+    //0:待执行
+    //1:待质检
+    type: 0
   },
 
   onLoad: function () {
     this.initData()
+  },
+
+  /**
+   * 执行
+   */
+  onExecue:function(e){
+    if(this.data.type == 0){
+      wx.navigateTo({
+        url: '/pages/liveData/liveData',
+      })
+    }
   },
 
   /**
