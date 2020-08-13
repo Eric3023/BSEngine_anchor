@@ -57,7 +57,7 @@ Page({
     let maxlength = -1
     let index = money.lastIndexOf('.')
     if (index != -1) {
-      maxlength = index + 2 + 13;
+      maxlength = index + 2 + 1;
     }
     this.setData({
       maxlength,
