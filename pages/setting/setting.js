@@ -7,8 +7,8 @@ Page({
    */
   data: {
     list: [
-      '联系客服',
-      '关于枝头'
+      { icon: "/img/mine/icon_mine_collection.jpg", title: "修改密码" },
+      { icon: "/img/mine/icon_mine_setting.png", title: "退出登录" }
     ]
   },
 
@@ -48,15 +48,10 @@ Page({
     let value = event.currentTarget.dataset.item;
     console.log(value);
     switch (value) {
-      case '联系客服':
-        wx.makePhoneCall({
-          phoneNumber: '15801408659',
-        })
+      case '修改密码':
         break;
-      case '关于枝头':
-        wx.navigateTo({
-          url: '/pages/about/about',
-        });
+      case '退出登录':
+        this.loginOut();
         break;
       default:
         break;

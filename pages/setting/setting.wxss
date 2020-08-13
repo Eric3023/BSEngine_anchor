@@ -30,9 +30,16 @@ page {
   position: relative;
 }
 
-.item_container text {
-  margin-left: 54rpx;
+.item_container .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx
 }
+
+/* .item_container text {
+  margin-left: 18rpx;
+} */
 
 .line {
   height: 2rpx;

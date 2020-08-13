@@ -1,7 +1,7 @@
 /* components/user/user.wxss */
 .user_container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -13,26 +13,37 @@
   overflow: hidden;
 }
 
-.uicon image{
+.uicon image {
   width: 125rpx;
   height: 125rpx;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+}
+
+.nickName {
+  font-size: 32rpx;
+  color: white;
+}
+
 .uid {
-  font-size: 30rpx !important;
+  font-size: 28rpx !important;
   color: white !important;
-  margin-top: 18rpx !important;
+  margin-top: 12rpx !important;
   border: none !important;
   background-color: transparent !important;
   line-height: normal;
   padding: 0 !important;
-  border:none !important;
+  border: none !important;
 }
 
-.uid::after{
+.uid::after {
   line-height: normal;
   padding: 0 !important;
-  border:none !important;
+  border: none !important;
 }
 
 /* button[disabled] {

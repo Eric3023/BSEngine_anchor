@@ -9,8 +9,7 @@ page {
 }
 
 .header_container {
-  height: 372rpx;
-  margin-top: 2rpx;
+  height: 628rpx;
   box-shadow: 0rpx 0rpx 10rpx 4rpx #ebebeb;
   position: relative;
   display: flex;
@@ -20,39 +19,67 @@ page {
 
 .header_container .background {
   width: 100%;
-  height: 310rpx;
-  background-color: #ee7f51;
+  height: 100%;
+  background-color: #5e5a58;
   position: absolute;
   top: 0;
   z-index: 0;
 }
 
 .user_info {
+  width: 710rpx;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   position: relative;
-  margin-top: 56rpx;
+  margin-top: 264rpx;
+}
+
+.user_info .header_user_container{
+  margin-left: 30rpx;
 }
 
 .authentication {
-  padding: 0rpx 20rpx 0rpx 20rpx ;
-  position: relative;
-  left: 72rpx;
-  bottom: 94rpx;
-  font-size: 24rpx;
-  border-radius: 20rpx;
+  width: 190rpx;
+  height: 72rpx;
+  background-color: #ffbb00;
+  color: #ab6c29;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0rpx;
+  bottom: 28rpx;
+  border-bottom-left-radius: 40rpx;
+  border-top-left-radius: 40rpx;
 }
 
 .header_user_balance {
-  width: 666rpx;
-  border-radius: 15rpx;
-  box-shadow: 0 0 8 rpx #bcbcbc;
-  background-color: white;
-  position: absolute;
-  top: 275rpx;
-  left: 42rpx;
+  width: 710rpx;
+  margin-top: 80rpx;
   z-index: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.header_user_balance .item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 32rpx;
+}
+
+.header_user_balance .item text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 32rpx;
+  margin-top: 5rpx;
 }
 
 .body_container {
@@ -82,28 +109,3 @@ page {
   border: none;
   font-size: 25rpx;
 }
-
-/* .uicon {
-  width: 95rpx;
-  height: 95rpx;
-}
-
-.uid {
-  margin-left: 18rpx;
-  font-size: 30rpx;
-  color: #373737;
-  border: none;
-  background: #ffffff;
-}
-
-.uid::after {
-  border: none;
-} */
-
-/* button[disabled] {
-  margin-left: 18rpx !important;
-  font-size: 30rpx !important;
-  color: #373737 !important;
-  border: none !important;
-  background: #ffffff !important;
-} */

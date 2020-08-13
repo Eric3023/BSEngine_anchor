@@ -56,7 +56,7 @@
         "selectedColor": "#f3864b"
       },
       {
-        "pagePath": "pages/setting/setting",
+        "pagePath": "pages/mine/mine",
         "text": "媒体",
         "iconPath": "img/tab/media_normal.png",
         "selectedIconPath": "img/tab/media_selected.png",

@@ -1,7 +1,6 @@
 let userModel = require('../../models/user.js');
 let UserInfoHelper = require('../../utils/userInfo.js')
 const userInfoHelper = new UserInfoHelper();
-const app = getApp()
 Page({
 
   /**
@@ -18,21 +17,12 @@ Page({
       flag: false,//是否缓存用户信息
     },
     user_datas: [
-      { icon: "/img/mine/icon_mine_collection.jpg", title: "我的订单" },
-      { icon: "/img/mine/icon_mine_rmb.jpg", title: "充值记录" },
-      { icon: "/img/mine/icon_mine_quan.jpg", title: "优惠券" },
-      // { icon: "/img/mine/icon_mine_proxy.jpg", title: "我是代理" },
+      { icon: "/img/mine/icon_mine_collection.jpg", title: "支付方式" },
+      { icon: "/img/mine/icon_mine_rmb.jpg", title: "订单规则" },
+      // { icon: "/img/mine/icon_mine_quan.jpg", title: "意见反馈" },
+      { icon: "/img/mine/icon_mine_proxy.jpg", title: "意见反馈" },
       { icon: "/img/mine/icon_mine_setting.png", title: "设置" }
     ]
-  },
-
-  /**
-   * 立即充值
-   */
-  recharge(event) {
-    wx.navigateTo({
-      url: '/pages/recharge/recharge',
-    })
   },
 
   /**
