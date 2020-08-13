@@ -60,7 +60,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/withdraw/withdraw",
+					"pathName": "pages/withdraw/withdraw",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

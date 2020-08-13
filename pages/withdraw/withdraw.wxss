@@ -1,0 +1,123 @@
+page {
+  background-color: #eeefec;
+}
+
+.container {
+  width: 700rpx;
+  margin: 25rpx;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .section_first {
+  width: 100%;
+  height: 192rpx;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .section_first_box {
+  width: 596rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.container .section_first_box .picker_contianer {
+  width: 380rpx;
+  margin-left: 32rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .section_first_box .option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container .section_first_box .picker_icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.container .section_first_box .picker_name {
+  margin-left: 16rpx;
+  size: 28rpx;
+}
+
+.container .section_first_box .tip {
+  margin-top: 16rpx;
+  margin-left: 56rpx;
+  size: 28rpx;
+  color: #888888;
+}
+
+.container .section_second {
+  width: 596rpx;
+  font-size: 28rpx;
+  color: black;
+  margin-top: 40rpx;
+}
+
+.container .section_second .num {
+  width: 100%;
+  margin-top: 35rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container .section_second .tag {
+  font-size: 50rpx;
+  font-weight: 600;
+}
+
+.container .section_second input {
+  width: 520rpx;
+  height: 96rpx;
+  margin-left: 18rpx;
+  font-size: 72rpx;
+  font-weight: 600;
+}
+
+.container .section_second .line {
+  margin-top: 16rpx;
+  width: 100%;
+  height: 2rpx;
+  background-color: #cbcbcb;
+}
+
+.container .section_second .remain {
+  margin-top: 35rpx;
+  color: #919191;
+}
+
+.container .section_second .remain .all {
+  color: #50536f;
+}
+
+.container .section_third {
+  width: 590rpx;
+  height: 86rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  margin: 40rpx 0 56rpx 0;
+}
+
+.container .disactive {
+  background-color: #f3f3f3;
+}
+
+.container .active {
+  background-color: #ffbb00;
+}

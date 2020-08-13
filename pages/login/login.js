@@ -107,7 +107,7 @@ Page({
 
   onJumpToPolicy(){
     wx.navigateTo({
-      url: '/pages/policy/policy',
+      url: '/pages/webview/webview',
     })
   }
   

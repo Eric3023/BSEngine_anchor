@@ -25,10 +25,11 @@
     "pages/coupons/coupons",
     "pages/about/about",
     "pages/invoice_record/invoice_record",
-    "pages/policy/policy",
+    "pages/webview/webview",
     "pages/preview/preview",
     "pages/recharge/recharge",
-    "pages/recharge_record/record"
+    "pages/recharge_record/record",
+    "pages/withdraw/withdraw"
   ],
   "window": {
     "backgroundTextStyle": "light",

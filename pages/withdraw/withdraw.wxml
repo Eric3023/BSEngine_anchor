@@ -1,0 +1,29 @@
+<view class="container">
+	<view class="section_first">
+		<view class="section_first_box">
+			<text>到账银行卡</text>
+			<view class="picker_contianer">
+				<picker value="0" range="{{banks}}" range-key='name' bindchange="bindPickerChange">
+					<view class="option">
+						<image class="picker_icon" src="{{banks[selectIndex].icon}}"></image>
+						<text class="picker_name">{{banks[selectIndex].name}}</text>
+					</view>
+				</picker>
+				<text class="tip">2小时内到账</text>
+			</view>
+		</view>
+	</view>
+	<view class="section_second">
+		<text>提现金额</text>
+		<view class="num">
+			<text class="tag">￥</text>
+			<input type="digit" focus="true" model:value="{{money}}" maxlength="{{maxlength}}" bindinput="bindinput"></input>
+		</view>
+		<view class="line"></view>
+		<view class="remain">
+			零钱余额￥7000，
+			<text class="all">全部提现</text>
+		</view>
+	</view>
+	<view class="section_third {{money?'active':'disactive'}}">提现</view>
+</view>

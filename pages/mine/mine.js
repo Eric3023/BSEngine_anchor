@@ -1,5 +1,7 @@
-let userModel = require('../../models/user.js');
-let UserInfoHelper = require('../../utils/userInfo.js')
+const userModel = require('../../models/user.js');
+const UserInfoHelper = require('../../utils/userInfo.js')
+const config = require('../../config/api.js')
+
 const userInfoHelper = new UserInfoHelper();
 Page({
 
@@ -41,9 +43,9 @@ Page({
           url: '/pages/recharge_record/record',
         })
         break;
-      case '优惠券':
+      case '订单规则':
         wx.navigateTo({
-          url: '/pages/coupons/coupons',
+          url: `/pages/webview/webview?url=${config.BaseImgApi + "html/policy.html"}`,
         })
         break;
       case '设置':
@@ -70,6 +72,12 @@ Page({
     // if (this.data.hasLogin === true) {
     //   this._getBalance();
     // }
+  },
+
+  onWithdraw: function () {
+    wx.navigateTo({
+      url: '/pages/withdraw/withdraw',
+    })
   },
 
   onShow() {
