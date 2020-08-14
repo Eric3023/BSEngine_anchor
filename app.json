@@ -26,7 +26,7 @@
     "pages/about/about",
     "pages/invoice_record/invoice_record",
     "pages/webview/webview",
-    "pages/preview/preview",
+    "pages/plateform/plateform",
     "pages/recharge/recharge",
     "pages/recharge_record/record",
     "pages/withdraw/withdraw"

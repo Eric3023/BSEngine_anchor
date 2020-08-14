@@ -204,7 +204,7 @@ Page({
         return;
       }
       wx.navigateTo({
-        url: `/pages/preview/preview?adcode=${this.data.adcode.code.optionCode}&url=${this.data.previewUrl}`,
+        url: `/pages/plateform/plateform?adcode=${this.data.adcode.code.optionCode}&url=${this.data.previewUrl}`,
       })
     }
   },
