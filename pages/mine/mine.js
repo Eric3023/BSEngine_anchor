@@ -38,9 +38,9 @@ Page({
           url: '/pages/activity/activity',
         })
         break;
-      case '充值记录':
+      case '意见反馈':
         wx.navigateTo({
-          url: '/pages/recharge_record/record',
+          url: '/pages/feedback/feedback',
         })
         break;
       case '订单规则':

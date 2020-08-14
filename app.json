@@ -11,7 +11,7 @@
     "pages/login/phoneLogin/phoneLogin",
     "pages/login/login",
     "pages/activity/activity",
-    "pages/show/show",
+    "pages/feedback/feedback",
     "pages/login/code/code",
     "pages/liveData/liveData",
     "pages/complete/complete",

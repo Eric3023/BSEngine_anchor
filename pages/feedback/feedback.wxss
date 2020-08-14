@@ -1,0 +1,46 @@
+.container {
+  width: 710rpx;
+  display: flex;
+  margin: 20rpx;
+  flex-direction: column;
+}
+
+.container textarea {
+  width: 710rpx;
+  height: 270rpx;
+  border: 1rpx solid #fdbb00;
+}
+
+.container .contact {
+  width: 710rpx;
+  display: flex;
+  flex-direction: row-reverse;
+  color: #9d47ee;
+  padding: 0;
+  line-height: 54rpx;
+  font-size: 28rpx;
+  border: none;
+}
+
+.btn {
+  width: 584rpx;
+  height: 80rpx;
+  background-color: #ffbb00;
+  border-radius: 50rpx;
+  margin-top: 150rpx;
+  font-size: 42rpx;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+button {
+  border: none;
+}
+
+button::after {
+  border: none;
+}

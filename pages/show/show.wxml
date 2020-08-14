@@ -1,3 +1,0 @@
-<scroll-view scroll-y="true">
-	<image class="img" src="{{path}}" mode="widthFix" catchtap="onClose"/>
-</scroll-view>
