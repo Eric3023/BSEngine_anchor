@@ -22,14 +22,15 @@
     "pages/developing/developing",
     "pages/heatmap/heatmap",
     "pages/setting/setting",
-    "pages/coupons/coupons",
     "pages/about/about",
     "pages/invoice_record/invoice_record",
     "pages/webview/webview",
     "pages/plateform/plateform",
     "pages/recharge/recharge",
     "pages/recharge_record/record",
-    "pages/withdraw/withdraw"
+    "pages/withdraw/withdraw",
+    "pages/media/media",
+    "pages/addAccount/addAccount"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -57,7 +58,7 @@
         "selectedColor": "#f3864b"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/media/media",
         "text": "媒体",
         "iconPath": "img/tab/media_normal.png",
         "selectedIconPath": "img/tab/media_selected.png",

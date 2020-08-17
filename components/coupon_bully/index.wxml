@@ -1,4 +1,0 @@
-<view class='container'>
-	<image class="bullying" wx:if="{{bullying}}" src="images/bullying.png" catchtap="onConfirm"></image>
-	<image class="bullyInfo" wx:if="{{bullyInfo}}" src="images/bullyInfo.png" catchtap="onClose"></image>
-</view>

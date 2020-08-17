@@ -1,0 +1,174 @@
+.header {
+  color: black;
+  font-size: 36rpx;
+}
+
+.title {
+  color: #333333;
+  font-size: 30rpx;
+}
+
+.sub_container {
+  margin: 20rpx 20rpx 25rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.sub_container .title {
+  margin-top: 36rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sub_container .title image {
+  width: 38rpx;
+  height: 38rpx;
+  margin-left: 100rpx;
+  margin-right: 12rpx;
+}
+
+.sub_container .url {
+  width: 654rpx;
+  height: 68rpx;
+  border-radius: 34rpx;
+  border: 1rpx solid #ffbb00;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.sub_container .link {
+  width: 654rpx;
+  height: 68rpx;
+  border-radius: 34rpx;
+  border: 1rpx solid #ffbb00;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.sub_container .link .extract {
+  width: 172rpx;
+  height: 58rpx;
+  color: white;
+  background-color: #ffbb00;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 36rpx;
+  position: absolute;
+  right: 4rpx;
+  top: 4rpx;
+}
+
+.sub_container .link input {
+  width: 450rpx;
+  height: 100%;
+  margin-left: 20rpx;
+}
+
+.sub_container > .url input {
+  width: 614rpx;
+  height: 100%;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.sub_container .info {
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin: 20rpx 30rpx 0 30rpx;
+  border-radius: 12rpx;
+  background-color: #fee8a7;
+  color: #b58602;
+  padding-bottom: 25rpx;
+}
+
+.sub_container .info .title {
+  margin-top: 25rpx;
+  margin-left: 35rpx;
+  color: #b58602;
+}
+
+.sub_container .info .url {
+  width: 580rpx;
+  height: 60rpx;
+  border-radius: 34rpx;
+  border: 1rpx solid #b58602;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.sub_container .info input {
+  width: 540rpx;
+  height: 100%;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.sub_container .info .area {
+  width: 580rpx;
+  height: 150rpx;
+  border-radius: 34rpx;
+  border: 1rpx solid #b58602;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  position: relative;
+}
+
+.sub_container .info .area textarea {
+  width: 540rpx;
+  height: 100%;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.upload_container {
+  width: 580rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.upload_container .upload {
+  width: 136rpx;
+  height: 136rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b58602;
+  margin-right: 64rpx;
+}
+
+button {
+  width: 584rpx;
+  height: 90rpx;
+  background-color: #ffbb00;
+  color: white;
+  font-size: 42rpx;
+  margin-top: 100rpx;
+  margin-bottom: 160rpx;
+  border-radius: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
