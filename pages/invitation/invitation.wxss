@@ -48,7 +48,7 @@ scroll-view {
 .list {
   width: 686rpx;
   min-height: 440rpx;
-  background-color: white;
+  background-color: #f4f4f4;
   border-radius: 10rpx;
   margin: 24rpx 36rpx 0 36rpx;
   display: flex;
@@ -60,7 +60,7 @@ scroll-view {
 
 .tail {
   width: 686rpx;
-  background-color: white;
+  background-color: #f4f4f4;
   border-radius: 10rpx;
   margin: 24rpx 36rpx;
   display: flex;

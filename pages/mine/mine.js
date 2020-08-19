@@ -19,7 +19,7 @@ Page({
       flag: false,//是否缓存用户信息
     },
     user_datas: [
-      { icon: "/img/mine/icon_mine_collection.jpg", title: "支付方式" },
+      { icon: "/img/mine/icon_mine_collection.jpg", title: "银行卡" },
       { icon: "/img/mine/icon_mine_rmb.jpg", title: "订单规则" },
       // { icon: "/img/mine/icon_mine_quan.jpg", title: "意见反馈" },
       { icon: "/img/mine/icon_mine_proxy.jpg", title: "意见反馈" },
@@ -33,9 +33,9 @@ Page({
   onClickItem(event) {
     let index = event.detail.title;
     switch (index) {
-      case '我的订单':
+      case '银行卡':
         wx.navigateTo({
-          url: '/pages/activity/activity',
+          url: '/pages/banks/banks',
         })
         break;
       case '意见反馈':

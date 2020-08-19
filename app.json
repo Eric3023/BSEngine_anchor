@@ -32,7 +32,9 @@
     "pages/media/media",
     "pages/addAccount/addAccount",
     "pages/guide/guide",
-    "pages/invitation/invitation"
+    "pages/invitation/invitation",
+    "pages/banks/banks",
+    "pages/addBank/addBank"
   ],
   "window": {
     "backgroundTextStyle": "light",

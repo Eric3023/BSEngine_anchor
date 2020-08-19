@@ -11,6 +11,10 @@ scroll-view ::-webkit-scrollbar {
   display: none;
 }
 
+button::after {
+  border: none;
+}
+
 .empty {
   width: 100%;
   height: 100%;

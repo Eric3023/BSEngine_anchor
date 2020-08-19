@@ -1,0 +1,84 @@
+page{
+  background-color: #eeeeee;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item{
+  width: 688rpx;
+  height: 228rpx;
+  background-color: #1a64a2;
+  margin-top: 48rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.item .background{
+  position: absolute;
+  height: 100%;
+  width: 360rpx;
+  left: 260rpx;
+  top: 0rpx;
+  z-index: 0;
+  opacity: 0.05;
+}
+
+.item .info{
+  width: 640rpx;  
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item .info .icon{ 
+  width: 64rpx;  
+  height: 64rpx;
+  border-radius: 50%;
+}
+
+.item .info .content{ 
+  display: flex;
+  flex-direction: column;
+  margin-left: 16rpx;
+}
+
+.item .info .content .name{ 
+  font-size: 32rpx;
+  color: #f8fffe;
+}
+
+.item .info .content .type{ 
+  font-size: 26rpx;
+  color: #90b7dd;
+}
+
+.item .account{
+  margin-top: 30rpx;
+  font-size: 50rpx;
+  color: #f0fbff;
+}
+
+.add{
+  width: 688rpx;
+  height: 148rpx;
+  box-sizing: border-box;
+  margin-top: 48rpx;
+  margin-bottom: 120rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 4rpx #fefefe;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 40rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+}

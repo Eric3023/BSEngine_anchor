@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <text class="header1">添加银行卡</text>
+    <text class="header2">请绑定持卡人本人的银行卡</text>
+  </view>
+  <view class="body">
+    <view class="line"></view>
+    <view class="holder">
+      <text class="title">持卡人</text>
+      <input placeholder="请输入姓名"></input>
+      <image class="icon" src="/img/icon/icon_add.jpg"></image>
+    </view>
+    <view class="line"></view>
+    <view class="holder">
+      <text class="title">卡号</text>
+      <input placeholder="请输入卡号" type="number"></input>
+      <image class="icon" src="/img/icon/icon_add.jpg"></image>
+    </view>
+    <view class="line"></view>
+  </view>
+  <button class="next" hover-class="none">下一步</button>
+</view>
