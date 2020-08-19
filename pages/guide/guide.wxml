@@ -1,0 +1,6 @@
+<view class="container">
+	<image class="header" src="/img/background/guide.jpg"></image>
+	<view class="body">
+		<view class="content"> </view>
+	</view>
+</view>

@@ -30,7 +30,9 @@
     "pages/recharge_record/record",
     "pages/withdraw/withdraw",
     "pages/media/media",
-    "pages/addAccount/addAccount"
+    "pages/addAccount/addAccount",
+    "pages/guide/guide",
+    "pages/invitation/invitation"
   ],
   "window": {
     "backgroundTextStyle": "light",

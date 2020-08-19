@@ -1,0 +1,27 @@
+<scroll-view scroll-x="false" scroll-y="true">
+	<view class="container">
+		<image class="header" src="/img/background/invitation.jpg"></image>
+		<view class="num_container">
+			<image class="background" src="/img/background/invitation_num.png"></image>
+			<text>已邀请好友数</text>
+			<text class="num">61人</text>
+		</view>
+		<view class="list">
+			<view class="title">我的好友</view>
+			<view class="item" wx:for="{{3}}">
+				<image class="icon" src="/img/icon/icon_header.png"></image>
+				<view class="info">
+					<text class="phone">1363****727</text>
+					<text class="tip">已登录注册成功</text>
+				</view>
+				<text class="state">奖励已得</text>
+			</view>
+		</view>
+		<view class="tail">
+			<view class="title">活动详情</view>
+			<view class="content">1、本次活动,只限前三位邀请成功系统有奖励发放,每个500元；</view>
+			<view class="content">2、需要好友下载并登录APP才有效；</view>
+			<view class="content">3、本次活动最终解释权归GALA LIVE所有。</view>
+		</view>
+	</view>
+</scroll-view>

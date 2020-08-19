@@ -43,15 +43,13 @@ Page({
     const index = event.currentTarget.dataset.index;
     switch (index) {
       case 0:
-        wx.showToast({
-          title: '邀请好友',
-          icon:'none'
+        wx.navigateTo({
+          url: '/pages/invitation/invitation',
         })
         break;
       case 1:
-        wx.showToast({
-          title: '新手指引',
-          icon:'none'
+        wx.navigateTo({
+          url: '/pages/guide/guide',
         })
         break;
       case 2:
