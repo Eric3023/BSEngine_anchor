@@ -11,15 +11,51 @@ Page({
     page: 1,
     //搜索结果
     data: [],
+    //是否显示搜索历史和热门搜索
+    show: true,
     //搜索记录
-    history:[],
+    history: [
+      "历史搜索1",
+      "历史搜2",
+      "历史3",
+      "历史4",
+      "历史搜5",
+      "历史搜索6",
+    ],
     //热门搜索
-    hot:[],
+    hot: [
+      "热门搜索1",
+      "热门索2",
+      "热门搜索3",
+      "热门搜4",
+      "热门搜索5",
+      "热门6",
+      "热门搜索7",
+      "热门搜索9",
+    ],
   },
 
   onLoad: function (options) {
-    this._loadHis();//载入搜索历史记录
-    this._loadHot();//载入热门搜索
+    // this._loadHis();//载入搜索历史记录
+    // this._loadHot();//载入热门搜索
+  },
+
+  /**
+   * 确认搜索
+   */
+  onConfirm: function (event) {
+    this.setData({
+      show: false
+    })
+  },
+
+  /**
+   * 清空搜索
+   */
+  onClear: function (event) {
+    this.setData({
+      show: true
+    })
   },
 
   /**

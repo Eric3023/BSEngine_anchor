@@ -4,10 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    currentcity: {
-      type: String,
-    },
-    keyword: String
+    show: Boolean,
+    keyword: String,
+    placeholder: String,
+    history: Array,
+    hot: Array,
   },
 
   /**
@@ -24,28 +25,42 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    //点击确认查询
-    onKeywordConfirm: function (event) {
-      console.log(event);
-      this.triggerEvent("onKeywordConfirm", { value: event.detail.value });
+    /**
+     * 确认搜索
+     */
+    onConfirm: function (event) {
+      this.triggerEvent("onConfirm", { value: event.detail.value });
     },
-    //点击选择城市
-    onSelectCity: function () {
-      this.triggerEvent("onSelectCity");
-    },
-    clearKeyword: function () {
+
+    /**
+     * 清除搜索内容
+     */
+    onClear: function () {
       this.setData({
         keyword: ''
       });
-      this.triggerEvent("clearKeyword");
+      this.triggerEvent("onClear");
     },
-    _hiddenMap: function () {
-      this.triggerEvent("hiddenMap");
+
+    /**
+     * 点击搜索历史
+     */
+    onHistoryClick: function (event) {
+
     },
-    _showMap: function (event) {
 
-      this.triggerEvent("showMap", { value: event.detail.value });
-    }
+    /**
+     * 点击热门搜索
+     */
+    onHotClick: function (event) {
 
+    },
+
+    /**
+     * 清空历史记录
+     */
+    onDeleteHistory: function(event){
+
+    },
   }
 })
