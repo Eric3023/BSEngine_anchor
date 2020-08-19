@@ -82,9 +82,8 @@ Page({
    * 点击顶部搜索按钮
    */
   onSearch(event) {
-    wx.showToast({
-      title: '搜索',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/pages/search/search',
     })
   },
 

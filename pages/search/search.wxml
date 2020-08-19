@@ -1,8 +1,2 @@
-<search_component currentcity="{{currentcity}}" bind:onSelectCity="onSelectCity" bind:onKeywordConfirm="onKeywordConfirm" bind:showMap="showRes" bind:hiddenMap="hiddenRes" bind:clearKeyword="clearKeyword">
-</search_component>
-
-<search_item hiddenMap="{{hiddenRes}}" siteData="{{siteData}}" bind:bindSelect="bindSelect" bind:loadMore="onLoadMore">
-</search_item>
-
-<search_his hiddenHis="{{hiddenHis}}" hisSearchData="{{hisSearchData}}" bind:selectHistory="onSelectHistory" bind:clearHisSearchData="clearHisSearchData">
-</search_his>
+<search bind:onKeywordConfirm="onKeywordConfirm"bbind:clearKeyword="clearKeyword">
+</search>
