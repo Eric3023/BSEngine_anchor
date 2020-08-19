@@ -26,5 +26,5 @@
 			<text class="box">不限</text>
 		</view>
 	</view>
-	<image class="icon" src="/img/icon/icon_qiang.jpg"></image>
+	<image class="icon" src="/img/icon/icon_qiang.jpg" catchtap="onRob"></image>
 </view>
