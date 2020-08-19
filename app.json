@@ -34,7 +34,8 @@
     "pages/guide/guide",
     "pages/invitation/invitation",
     "pages/banks/banks",
-    "pages/addBank/addBank"
+    "pages/addBank/addBank",
+    "pages/password/password"
   ],
   "window": {
     "backgroundTextStyle": "light",

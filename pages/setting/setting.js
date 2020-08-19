@@ -49,6 +49,9 @@ Page({
     console.log(value);
     switch (value) {
       case '修改密码':
+        wx.navigateTo({
+          url: '/pages/password/password',
+        })
         break;
       case '退出登录':
         this.loginOut();
