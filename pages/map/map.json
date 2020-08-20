@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "search_component": "/components/search/search",
-    "search_item": "/components/searchItem/searchItem",
-    "search_his": "/components/searchHis/searchHis",
-    "search_poi": "/components/searchPoi/searchPoi"
-  }
-}
