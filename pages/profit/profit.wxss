@@ -1,0 +1,84 @@
+page {
+  background-color: #fbfbfb;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 50rpx;
+}
+
+.sub_container .title {
+  font-size: 32rpx;
+  color: #969696;
+  margin-right: 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 16rpx;
+}
+
+.num_container {
+  width: 694rpx;
+  height: 110rpx;
+  margin: 20rpx auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.num_container .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -9;
+}
+
+.num {
+  font-size: 36rpx;
+}
+
+.profit {
+  margin-right: 28rpx;
+  margin-top: 20rpx;
+}
+
+.chart {
+  width: 100%;
+  height: 360rpx;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+.total {
+  width: 300rpx;
+  height: 70rpx;
+  margin-top: 220rpx;
+  background-color: #ffbb00;
+  color: white;
+  font-size: 32rpx;
+  display: flex;
+  border-radius: 35rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

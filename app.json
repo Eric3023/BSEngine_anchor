@@ -36,7 +36,9 @@
     "pages/banks/banks",
     "pages/addBank/addBank",
     "pages/password/password",
-    "pages/tasks/tasks"
+    "pages/tasks/tasks",
+    "pages/profit/profit",
+    "pages/collection/collection"
   ],
   "window": {
     "backgroundTextStyle": "light",

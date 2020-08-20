@@ -34,13 +34,14 @@ Page({
     let index = event.currentTarget.dataset.index;
     switch (index) {
       case '我的喜欢':
+        wx.navigateTo({
+          url: '/pages/collection/collection',
+        })
         break;
       case '已经播报':
         wx.navigateTo({
-          url: '/pages/tasks/tasks',
+          url: '/pages/collection/collection',
         })
-        break;
-      case '我的收益':
         break;
     }
   },

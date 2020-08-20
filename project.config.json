@@ -60,7 +60,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/profit/profit",
+					"pathName": "pages/profit/profit",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

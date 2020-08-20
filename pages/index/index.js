@@ -53,15 +53,13 @@ Page({
         })
         break;
       case 2:
-        wx.showToast({
-          title: '我的任务',
-          icon:'none'
+        wx.navigateTo({
+          url: '/pages/tasks/tasks',
         })
         break;
       case 3:
-        wx.showToast({
-          title: '收益数据',
-          icon:'none'
+        wx.navigateTo({
+          url: '/pages/profit/profit',
         })
         break;
     }

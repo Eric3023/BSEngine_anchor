@@ -1,0 +1,22 @@
+<view class="container">
+	<view class="sub_container">
+		<view class="title">
+			<image class="icon" src="/img/icon/icon_date.png"></image>
+			<text>日期、收益(元)</text>
+		</view>
+		<text class="num profit">口播总收益5000元</text>
+		<view class="chart">
+		  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+		</view>
+	</view>
+
+	<view class="sub_container">
+		<text class="title">邀请好友汇总</text>
+		<view class="num_container">
+			<image class="background" src="/img/background/invitation_num.png"></image>
+			<text class="num">邀请好友总收益2000元</text>
+		</view>
+	</view>
+
+	<text class="total">总收益7000元</text>
+</view>

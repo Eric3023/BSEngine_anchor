@@ -19,7 +19,7 @@
 				<text>35</text>
 				<text>已经播报</text>
 			</view>
-			<view class="item" catchtap="onClick" data-index="我的收益">
+			<view class="item" catchtap="onWithdraw" data-index="我的收益">
 				<text>7000</text>
 				<text>收益（元）</text>
 			</view>
