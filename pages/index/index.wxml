@@ -30,7 +30,7 @@
 	<view class="case-list">
 		<view class="header">
 			<text>猜你喜欢</text>
-			<view class="more">
+			<view class="more" data-index="猜你喜欢" catchtap="onClick">
 				<text>更多</text>
 				<image class="enter" src="/img/icon/icon_enter.png"></image>
 			</view>
@@ -54,7 +54,7 @@
 	<view class="case-list">
 		<view class="header">
 			<text>平台推荐</text>
-			<view class="more">
+			<view class="more" data-index="平台推荐" catchtap="onClick">
 				<text>更多</text>
 				<image class="enter" src="/img/icon/icon_enter.png"></image>
 			</view>

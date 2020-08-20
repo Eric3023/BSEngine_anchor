@@ -35,12 +35,12 @@ Page({
     switch (index) {
       case '我的喜欢':
         wx.navigateTo({
-          url: '/pages/collection/collection',
+          url: '/pages/collection/collection?title=我的喜欢',
         })
         break;
       case '已经播报':
         wx.navigateTo({
-          url: '/pages/collection/collection',
+          url: '/pages/collection/collection?title=已经播报',
         })
         break;
     }

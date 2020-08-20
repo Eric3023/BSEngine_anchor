@@ -66,6 +66,25 @@ Page({
   },
 
   /**
+   * 导航进入其他页面
+   */
+  onClick(event) {
+    const index = event.currentTarget.dataset.index;
+    switch (index) {
+      case '猜你喜欢':
+        wx.navigateTo({
+          url: '/pages/collection/collection?title=猜你喜欢',
+        })
+        break;
+      case '平台推荐':
+        wx.navigateTo({
+          url: '/pages/collection/collection?title=平台推荐',
+        })
+        break;
+    }
+  },
+
+  /**
    * Banner图片加载失败(显示默认图片)
    */
   onBannerError(event) {

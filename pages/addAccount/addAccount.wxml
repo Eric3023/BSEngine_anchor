@@ -1,4 +1,4 @@
-<scroll-view>
+<scroll-view scroll-x="false" scroll-y="true">
 	<view class="container">
 		<!-- layout 1 -->
 		<view class="sub_container">
