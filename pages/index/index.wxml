@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<scroll-view class="container" scroll-x="false" scroll-y="false">
+<scroll-view class="container" scroll-x="false" scroll-y="true">
 	<view class="header">
 		<!-- 首页轮播 -->
 		<view class='carousel'>
