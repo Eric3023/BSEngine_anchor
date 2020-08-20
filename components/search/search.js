@@ -12,16 +12,6 @@ Component({
   },
 
   /**
-   * 组件的初始数据
-   */
-  data: {
-    show: true,
-    defaultKeyword: {
-      keyword: '搜索'
-    }
-  },
-
-  /**
    * 组件的方法列表
    */
   methods: {
@@ -29,7 +19,7 @@ Component({
      * 确认搜索
      */
     onConfirm: function (event) {
-      this.triggerEvent("onConfirm", { value: event.detail.value });
+      this._onConfirm(event.detail.value)
     },
 
     /**
@@ -46,21 +36,31 @@ Component({
      * 点击搜索历史
      */
     onHistoryClick: function (event) {
-
+      this._onConfirm(event.currentTarget.dataset.value)
     },
 
     /**
      * 点击热门搜索
      */
     onHotClick: function (event) {
-
+      this._onConfirm(event.currentTarget.dataset.value)
     },
 
     /**
      * 清空历史记录
      */
-    onDeleteHistory: function(event){
+    onDeleteHistory: function (event) {
 
     },
+
+    /**
+     * 确认搜索
+     */
+    _onConfirm: function (value) {
+      this.setData({
+        keyword: value,
+      })
+      this.triggerEvent("onConfirm", { value: value });
+    }
   }
 })

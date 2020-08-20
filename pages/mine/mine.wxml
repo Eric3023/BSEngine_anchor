@@ -1,53 +1,38 @@
 <!-- 我的 -->
-<view class="container">
-	<!-- 1.用户信息 -->
-	<view class="header_container">
-		<!-- 背景 -->
-		<image class="background" src="/img/background/mine.jpg"></image>
-		<!-- 1.1 用户简介：头像和手机号 -->
-		<view class="user_info">
-			<v_user class="header_user_container" authored="{{authored}}" uicon="{{user_info.uicon}}" bind:getWxUserInfo="getWxUserInfo" uid="{{user_info.uid}}" flag="{{user_info.flag}}" />
-			<text class="authentication" catchtap="onWithdraw">提取现金</text>
+<scroll-view class="scroll" scroll-x="false" scroll-y="true">
+	<view class="container">
+		<!-- 1.用户信息 -->
+		<view class="header_container">
+			<!-- 背景 -->
+			<image class="background" src="/img/background/mine.jpg"></image>
+			<!-- 1.1 用户简介：头像和手机号 -->
+			<view class="user_info">
+				<v_user class="header_user_container" authored="{{authored}}" uicon="{{user_info.uicon}}" bind:getWxUserInfo="getWxUserInfo" uid="{{user_info.uid}}" flag="{{user_info.flag}}" />
+				<text class="authentication" catchtap="onWithdraw">提取现金</text>
+			</view>
+			<!-- 1.2 账户余额 -->
+			<view class="header_user_balance">
+				<view class="item" catchtap="onClick" data-index="我的喜欢">
+					<text>400</text>
+					<text>我的喜欢</text>
+				</view>
+				<view class="item" catchtap="onClick" data-index="已经播报">
+					<text>35</text>
+					<text>已经播报</text>
+				</view>
+				<view class="item" catchtap="onWithdraw" data-index="我的收益">
+					<text>7000</text>
+					<text>收益（元）</text>
+				</view>
+			</view>
 		</view>
-		<!-- 1.2 账户余额 -->
-		<view class="header_user_balance">
-			<view class="item" catchtap="onClick" data-index="我的喜欢">
-				<text>400</text>
-				<text>我的喜欢</text>
-			</view>
-			<view class="item" catchtap="onClick" data-index="已经播报">
-				<text>35</text>
-				<text>已经播报</text>
-			</view>
-			<view class="item" catchtap="onWithdraw" data-index="我的收益">
-				<text>7000</text>
-				<text>收益（元）</text>
-			</view>
+		<!-- 2.功能列表 -->
+		<view class="body_container">
+			<v_setting wx:for="{{user_datas}}" wx:key="index" icon="{{item.icon}}" title="{{item.title}}" bindclickItem="onClickItem" />
+		</view>
+		<!-- 3.尾部提示 -->
+		<view class="tail_container">
+			<text>没有更多了</text>
 		</view>
 	</view>
-	<!-- 2.功能列表 -->
-	<view class="body_container">
-		<v_setting wx:for="{{user_datas}}" wx:key="index" icon="{{item.icon}}" title="{{item.title}}" bindclickItem="onClickItem" />
-	</view>
-	<!-- 3.尾部提示 -->
-	<view class="tail_container">
-		<text>没有更多了</text>
-	</view>
-</view>
-
-<wxs module="util">
-	var getAuthed = function(isAuth) {
-		switch (isAuth) {
-			case 1:
-				return "认证中";
-			case 2:
-				return "已认证";
-			default:
-				return "未认证";
-		}
-	}
-
-	module.exports = {
-		getAuthed: getAuthed
-	}
-</wxs>
+</scroll-view>

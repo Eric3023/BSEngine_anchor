@@ -44,9 +44,20 @@ Page({
    * 确认搜索
    */
   onConfirm: function (event) {
-    this.setData({
-      show: false
-    })
+    let value = event.detail.value
+    //搜索内容不为空 
+    if (value) {
+      this.setData({
+        show: false
+      })
+    }
+    //搜索内容不为空 
+    else {
+      wx.showToast({
+        icon: 'none',
+        title: '搜索内容不能为空',
+      })
+    }
   },
 
   /**
@@ -55,6 +66,15 @@ Page({
   onClear: function (event) {
     this.setData({
       show: true
+    })
+  },
+
+  /**
+   * 点击搜索结果
+   */
+  onClickItem: function (event) {
+    wx.navigateTo({
+      url: '/pages/rob/rob',
     })
   },
 

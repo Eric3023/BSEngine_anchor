@@ -40,7 +40,7 @@ Page({
         break;
       case '已经播报':
         wx.navigateTo({
-          url: '/pages/collection/collection?title=已经播报',
+          url: '/pages/tasks/tasks.js',
         })
         break;
     }

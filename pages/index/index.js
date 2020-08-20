@@ -96,6 +96,15 @@ Page({
   },
 
   /**
+   * 点击了活动Item
+   */
+  onClickItem: function (event) {
+    wx.navigateTo({
+      url: '/pages/rob/rob',
+    })
+  },
+
+  /**
    * 点击顶部搜索按钮
    */
   onSearch(event) {

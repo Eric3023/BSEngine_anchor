@@ -16,14 +16,14 @@
 				<image class="clearIcon" src="/img/icon/icon_clear.png" catchtap="onDeleteHistory"></image>
 			</view>
 			<view class="list">
-				<view class="item" wx:for="{{history}}" wx:key="index" catchtap="onHistoryClick">{{item}}</view>
+				<view class="item" wx:for="{{history}}" wx:key="index" catchtap="onHistoryClick" data-value="{{item}}">{{item}}</view>
 			</view>
 		</view>
 		<!-- 热门搜索 -->
 		<view class="child">
 			<text class="title">热门搜索</text>
 			<view class="list">
-				<view class="item" wx:for="{{hot}}" wx:key="index" catchtap="onHotClick">{{item}}</view>
+				<view class="item" wx:for="{{hot}}" wx:key="index" catchtap="onHotClick" data-value="{{item}}">{{item}}</view>
 			</view>
 		</view>
 	</view>

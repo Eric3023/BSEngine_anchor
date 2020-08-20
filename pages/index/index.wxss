@@ -5,12 +5,7 @@ page {
 }
 
 .container {
-    width: 100%;
-    height: 100%;
     position: relative;
-    padding: 0;
-    overflow: hidden;
-    /* overflow-x:hidden;* 消除左右滑动 * */
 }
 
 .search_background {
@@ -149,6 +144,10 @@ page {
     height: 32rpx;
 }
 
+.body_container {
+    margin: 20rpx 0;
+}
+
 .case-list .body {
     display: flex;
     flex-direction: row;
@@ -156,14 +155,15 @@ page {
     width: max-content;
     height: max-content;
     font-size: 28rpx;
-    margin: 0 50rpx 20rpx 50rpx;
+    margin: 0 50rpx 0rpx 50rpx;
+    padding: 8rpx 0;
 }
 
 .case-list .body .item {
     width: 348rpx;
     height: max-content;
     box-shadow: 0rpx 0rpx 8rpx #e0e0e0;
-    margin: 0 90rpx 10rpx 0;
+    margin: 0 90rpx 0 0;
     font-size: 26rpx;
     border-radius: 10rpx;
     position: relative;

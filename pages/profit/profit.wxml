@@ -6,7 +6,7 @@
 		</view>
 		<text class="num profit">口播总收益5000元</text>
 		<view class="chart">
-		  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+
 		</view>
 	</view>
 

@@ -2,12 +2,7 @@ page {
   background-color: white;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.title{
+.title {
   width: 170rpx;
   height: 56rpx;
   margin: 45rpx 28rpx 15rpx 28rpx;
@@ -50,9 +45,16 @@ page {
   position: relative;
 }
 
-.body .img {
+.body .img1 {
   width: 100%;
-  height: 284rpx;
+  height: 410rpx;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
+.body .img2 {
+  width: 100%;
+  height: 316rpx;
   border-top-right-radius: 10rpx;
   border-top-left-radius: 10rpx;
 }

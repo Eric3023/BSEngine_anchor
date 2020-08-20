@@ -1,17 +1,19 @@
-<view class="container">
-	<view class="body">
-		<block wx:for="{{10}}" wx:key="index">
-			<view class="item">
-				<image class="photo" src="/img/banner/banner1.jpg" />
-				<view class="info">
-					<view class="name">半岛咖啡</view>
-					<view class="name">时间：20200819-10100822</view>
-					<view class="num">口播两次（每次200元）</view>
+<scroll-view class="scroll" scroll-x="false" scroll-y="true">
+	<view class="container">
+		<view class="body">
+			<block wx:for="{{10}}" wx:key="index">
+				<view class="item">
+					<image class="photo" src="/img/banner/banner1.jpg" />
+					<view class="info">
+						<view class="name">半岛咖啡</view>
+						<view class="name">时间：20200819-10100822</view>
+						<view class="num">口播两次（每次200元）</view>
+					</view>
+					<view class="state">
+						<text class="{{index<2?'completing':'completed'}}">{{index<2?'待完成':'已完成'}}</text>
+					</view>
 				</view>
-				<view class="state">
-					<text class="{{index<2?'completing':'completed'}}">{{index<2?'待完成':'已完成'}}</text>
-				</view>
-			</view>
-		</block>
+			</block>
+		</view>
 	</view>
-</view>
+</scroll-view>
