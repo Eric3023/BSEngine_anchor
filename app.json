@@ -35,7 +35,8 @@
     "pages/invitation/invitation",
     "pages/banks/banks",
     "pages/addBank/addBank",
-    "pages/password/password"
+    "pages/password/password",
+    "pages/tasks/tasks"
   ],
   "window": {
     "backgroundTextStyle": "light",

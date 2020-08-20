@@ -8,13 +8,13 @@
     <view class="holder">
       <text class="title">持卡人</text>
       <input placeholder="请输入姓名"></input>
-      <image class="icon" src="/img/icon/icon_add.jpg"></image>
+      <!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
     </view>
     <view class="line"></view>
     <view class="holder">
       <text class="title">卡号</text>
       <input placeholder="请输入卡号" type="number"></input>
-      <image class="icon" src="/img/icon/icon_add.jpg"></image>
+      <!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
     </view>
     <view class="line"></view>
   </view>

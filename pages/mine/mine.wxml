@@ -11,15 +11,15 @@
 		</view>
 		<!-- 1.2 账户余额 -->
 		<view class="header_user_balance">
-			<view class="item">
+			<view class="item" catchtap="onClick" data-index="我的喜欢">
 				<text>400</text>
 				<text>我的喜欢</text>
 			</view>
-			<view class="item">
+			<view class="item" catchtap="onClick" data-index="已经播报">
 				<text>35</text>
 				<text>已经播报</text>
 			</view>
-			<view class="item">
+			<view class="item" catchtap="onClick" data-index="我的收益">
 				<text>7000</text>
 				<text>收益（元）</text>
 			</view>

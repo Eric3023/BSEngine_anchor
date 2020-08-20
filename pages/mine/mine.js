@@ -30,6 +30,24 @@ Page({
   /**
    * 进入下级页面
    */
+  onClick: function (event) {
+    let index = event.currentTarget.dataset.index;
+    switch (index) {
+      case '我的喜欢':
+        break;
+      case '已经播报':
+        wx.navigateTo({
+          url: '/pages/tasks/tasks',
+        })
+        break;
+      case '我的收益':
+        break;
+    }
+  },
+
+  /**
+   * 进入下级页面
+   */
   onClickItem(event) {
     let index = event.detail.title;
     switch (index) {
