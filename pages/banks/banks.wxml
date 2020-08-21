@@ -1,6 +1,6 @@
 <view class="container">
   <view class="list">
-    <view class="item" wx:for="{{3}}">
+    <view class="item" wx:for="{{3}}" catchtap="onClickItem" data-index="{{index}}">
       <view class="info">
        <image class="icon" src="/img/plateform/acfun.png"></image>
        <view class="content">

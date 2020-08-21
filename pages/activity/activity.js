@@ -89,7 +89,7 @@ Page({
         break
     }
     wx.navigateTo({
-      url: '/pages/throw_detail2/throw_detail2',
+      url: '/pages/activityList/activityList',
     })
   },
 
@@ -103,7 +103,7 @@ Page({
     let status = value.status;
     console.log(event);
     wx.navigateTo({
-      url: `/pages/order_detail/order_detail?id=${id}`,
+      url: `/pages/rob/rob?id=${id}`,
     })
   },
 

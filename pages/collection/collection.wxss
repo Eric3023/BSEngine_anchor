@@ -35,12 +35,20 @@
   position: relative;
 }
 
-.body .img {
+.body .img1 {
   width: 100%;
-  height: 284rpx;
+  height: 410rpx;
   border-top-right-radius: 10rpx;
   border-top-left-radius: 10rpx;
 }
+
+.body .img2 {
+  width: 100%;
+  height: 316rpx;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
 
 .body .flag {
   width: 48rpx;

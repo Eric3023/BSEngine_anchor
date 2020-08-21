@@ -6,8 +6,8 @@
 		</view>
 		<view class="body">
 			<block wx:for="{{10}}" wx:key="index">
-				<view class="item">
-					<image class="photo" src="/img/banner/banner1.jpg" />
+				<view class="item" catchtap="onClickItem">
+					<image class="photo" src="/img/plateform/bilibili.png" mode="aspectFill"/>
 					<view class="info">
 						<view class="title">
 							<image class="flag" src="/img/plateform/douyin.png"></image>

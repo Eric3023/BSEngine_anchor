@@ -13,11 +13,17 @@ Page({
    */
   onLoad: function (options) {
     let title = options.title
-    if(title){
+    if (title) {
       wx.setNavigationBarTitle({
         title: title,
       })
     }
   },
+
+  onClickItem: function (event) {
+    wx.navigateTo({
+      url: '/pages/rob/rob',
+    })
+  }
 
 })

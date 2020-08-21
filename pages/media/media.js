@@ -40,5 +40,14 @@ Page({
     wx.navigateTo({
       url: '/pages/addAccount/addAccount',
     })
+  },
+
+  /**
+   * 修改查看账号
+   */
+  onClickItem: function (event) {
+    wx.navigateTo({
+      url: '/pages/addAccount/addAccount',
+    })
   }
 })

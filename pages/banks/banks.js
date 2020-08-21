@@ -18,9 +18,27 @@ Page({
   /**
    * 添加银行卡
    */
-  onAdd: function(){
+  onAdd: function () {
     wx.navigateTo({
       url: '/pages/addBank/addBank',
     })
   },
+
+  /**
+   * 删除银行卡
+   */
+  onClickItem: function (event) {
+    wx.showModal({
+      content: '解绑银行卡',
+      cancelText: '否',
+      confirmText: '是',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
 })
