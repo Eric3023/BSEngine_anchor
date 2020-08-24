@@ -1,3 +1,4 @@
+<scroll-view class="scroll" scroll-x="false" scroll-y="true">
 	<view class="body" hidden="{{show}}">
 		<view class="body_left">
 			<view class="item" wx:for="{{21}}" wx:key="index" wx:if="{{index%2==0}}" catchtap="onClickItem" data-value="{{index}}">
@@ -48,3 +49,4 @@
 			</view>
 		</view>
 	</view>
+</scroll-view>

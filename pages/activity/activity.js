@@ -81,15 +81,33 @@ Page({
     let index = event.currentTarget.dataset.index;
     this._reset(index);
     switch (index) {
+      //待接单
+      case 0:
+        break
+      //待执行
       case 1:
         break
+      //待质检
       case 2:
         break
-      case 0:
+      //已质检
+      case 3:
+        break
+      //已完成
+      case 4:
+        break
+      //已拒单
+      case 5:
+        break
+      //已叫停
+      case 6:
+        break
+      //已取消
+      case 7:
         break
     }
     wx.navigateTo({
-      url: '/pages/activityList/activityList',
+      url: `/pages/activityList/activityList?type=${index}`,
     })
   },
 

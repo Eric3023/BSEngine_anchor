@@ -28,6 +28,8 @@ page {
   height: 72rpx;
   margin-top: 24rpx;
   border: 2rpx solid #ffbb00;
+  padding: 0 18rpx;
+  font-size: 30rpx;
 }
 
 button{

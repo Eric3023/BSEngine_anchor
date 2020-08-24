@@ -26,6 +26,7 @@ page {
   margin-top: 30rpx;
   height: 175rpx;
   background-color: white;
+  border-radius: 10rpx;
 }
 
 .content {

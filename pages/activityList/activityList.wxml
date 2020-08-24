@@ -5,7 +5,7 @@
 			<view class="content">
 				<view class="content_container">
 					<view class="sub_container">
-						<image class="icon" src="/img/icon/icon_header.png"></image>
+						<image class="icon" src="/img/plateform/iqiyi.png"></image>
 						<view class="tilte_container">
 							<text class="title">半岛咖啡{{item.content}}</text>
 							<text class="time">活动时间：2020/07/01-2020/07/05</text>

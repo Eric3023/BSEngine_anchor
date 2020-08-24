@@ -1,16 +1,18 @@
-<view class="container">
-  <view class="list">
-    <view class="item" wx:for="{{3}}" catchtap="onClickItem" data-index="{{index}}">
-      <view class="info">
-       <image class="icon" src="/img/plateform/acfun.png"></image>
-       <view class="content">
-        <text class="name">建设银行</text>
-        <text class="type">储蓄卡</text>
-       </view>
-      </view>
-      <view class="account">**** **** **** 9707</view>
-      <image class="background" src="/img/plateform/acfun.png" mode="aspectFill"></image>
-    </view>
-  </view>
-  <view class="add" catchtap="onAdd">+ 添加银行卡</view>
-</view>
+<scroll-view class="scroll" scroll-x="false" scroll-y="true">
+	<view class="container">
+		<view class="list">
+			<view class="item" wx:for="{{10}}" catchtap="onClickItem" data-index="{{index}}">
+				<view class="info">
+					<image class="icon" src="/img/plateform/acfun.png"></image>
+					<view class="content">
+						<text class="name">建设银行</text>
+						<text class="type">储蓄卡</text>
+					</view>
+				</view>
+				<view class="account">**** **** **** 9707</view>
+				<image class="background" src="/img/plateform/acfun.png" mode="aspectFill"></image>
+			</view>
+		</view>
+		<view class="add" catchtap="onAdd">+ 添加银行卡</view>
+	</view>
+</scroll-view>

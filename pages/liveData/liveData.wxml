@@ -7,11 +7,11 @@
 	<!-- 云盘 -->
 	<view class="layout">
 		<text>录屏云盘</text>
-		<text class="code"></text>
+		<input class="code" placeholder="请输入录屏云盘"></input>
 	</view>
 		<view class="layout">
 		<text>云盘提取码</text>
-		<text class="code"></text>
+		<input class="code" placeholder="请输入云盘提取码"></input>
 	</view>
 	<!-- 提交 -->
 	<button hover-class="none">提交</button>
