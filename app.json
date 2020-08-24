@@ -31,7 +31,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "接单平台",
+    "navigationBarTitleText": "播商引擎",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

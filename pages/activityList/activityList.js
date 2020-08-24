@@ -6,20 +6,23 @@ Page({
     startX: 0, //开始坐标
     startY: 0,
 
-    //0:待执行
-    //1:待质检
+    //0：带接单；1:待执行；2:待质检
     type: 0
   },
 
-  onLoad: function () {
+  onLoad: function (option) {
+    let type = parseInt(option.type)
+    this.setData({
+      type,
+    })
     this.initData()
   },
 
   /**
    * 执行
    */
-  onExecue:function(e){
-    if(this.data.type == 0){
+  onExecue: function (e) {
+    if (this.data.type == 0) {
       wx.navigateTo({
         url: '/pages/liveData/liveData',
       })
@@ -103,6 +106,6 @@ Page({
     }
     this.setData({
       items: this.data.items
-    })    
+    })
   }
 })

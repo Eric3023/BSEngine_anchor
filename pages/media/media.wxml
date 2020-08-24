@@ -16,7 +16,7 @@
 						<view>ID：2020081465</view>
 					</view>
 					<view class="state">
-						<text class="stateIcon center">···</text>
+						<image class="stateIcon center" src="/img/icon/icon_media.png"></image>
 						<text>审核中</text>
 					</view>
 				</view>
