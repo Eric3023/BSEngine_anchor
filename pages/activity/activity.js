@@ -16,6 +16,41 @@ Page({
 
     touchStartTime: 0,
     touchEndTime: 0,
+
+    types: [
+      {
+        id: 0x1001,
+        icon: '/img/activity/icon_wait_receive.png'
+      },
+      {
+        id: 0x1002,
+        icon: '/img/activity/icon_wait_action.png'
+      },
+      {
+        id: 0x1003,
+        icon: '/img/activity/icon_wait_exam.png'
+      },
+      {
+        id: 0x1004,
+        icon: '/img/activity/icon_wait_tested.png'
+      },
+      {
+        id: 0x1005,
+        icon: '/img/activity/icon_completed.png'
+      },
+      {
+        id: 0x1006,
+        icon: '/img/activity/icon_refused.png'
+      },
+      {
+        id: 0x1007,
+        icon: '/img/activity/icon_stopped.png'
+      },
+      {
+        id: 0x1001,
+        icon: '/img/activity/icon_cancel.png'
+      },
+    ]
   },
 
   /**

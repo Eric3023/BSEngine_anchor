@@ -6,8 +6,8 @@
 			<image class="background" src="/img/background/activity.jpg" />
 			<scroll-view scroll-x="false" scroll-y="false">
 				<view class="state">
-					<view wx:for="{{8}}" wx:key="index">
-						<image class="icon" src="/img/activity/icon_wait_receive.png" data-index="{{index}}" catchtap="onChangeType"></image>
+					<view wx:for="{{types}}" wx:key="index">
+						<image class="icon" src="{{item.icon}}" data-index="{{index}}" catchtap="onChangeType"></image>
 					</view>
 				</view>
 			</scroll-view>
