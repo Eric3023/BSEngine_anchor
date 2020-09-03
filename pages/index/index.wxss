@@ -114,6 +114,12 @@ page {
     height: 100%;
 }
 
+.img{
+    width: 750rpx;
+    height: 384rpx;
+    margin: 16rpx 0;
+}
+
 .case-list {
     background-color: white;
     width: 100%;

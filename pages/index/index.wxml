@@ -27,8 +27,17 @@
 				</view>
 			</view>
 		</view>
-		<!-- 猜你喜欢 -->
+
+		<!-- 平台海报 -->
 		<view class="case-list">
+			<text  class="header">平台推荐</text>
+			<image class="img" src="/img/adcode/post0.jpg"></image>
+			<image class="img" src="/img/adcode/post1.jpg"></image>
+			<image class="img" src="/img/adcode/post2.jpg"></image>
+		</view>
+
+		<!-- 猜你喜欢 -->
+		<!-- <view class="case-list">
 			<view class="header">
 				<text>猜你喜欢</text>
 				<view class="more" data-index="猜你喜欢" catchtap="onClick">
@@ -50,9 +59,9 @@
 					</view>
 				</view>
 			</scroll-view>
-		</view>
+		</view> -->
 		<!-- 平台推荐 -->
-		<view class="case-list">
+		<!-- <view class="case-list">
 			<view class="header">
 				<text>平台推荐</text>
 				<view class="more" data-index="平台推荐" catchtap="onClick">
@@ -74,6 +83,6 @@
 					</view>
 				</view>
 			</scroll-view>
-		</view>
+		</view> -->
 	</view>
 </scroll-view>
