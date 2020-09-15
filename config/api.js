@@ -1,17 +1,39 @@
 // 本机开发API地址
 // var BaseApi = 'http://127.0.0.1:8070/';
 // 局域网开发API地址
-// var BaseApi = 'http://192.168.1.105:8070/';
+var BaseApi = 'http://192.168.1.105:9000/';
 // var BaseApi = 'http://192.168.1.19:8070/';
 // 线上云平台api地址
-var BaseApi = "https://zt.ottauto.tv/"
+// var BaseApi = "https://zt.ottauto.tv/"
 
 var WxApiRoot = BaseApi + 'wx/';
 
 module.exports = {
 
-  AuthLoginByWeixin: WxApiRoot + 'auth/login_by_weixin', //微信登录
-  AuthPhoneLoginByWeixin: WxApiRoot + 'auth/phone_login_by_weixin', //根据手机号登录
+  //微信登录
+  AuthLoginByWeixin: WxApiRoot + 'auth/login_by_weixin',
+  //根据手机号登录
+  AuthPhoneLoginByWeixin: WxApiRoot + 'auth/phone_login_by_weixin',
+
+  //获取账号列表
+  mediaList: BaseApi + '/api/mediaAccount/getListByUserId',
+  //获取平台类型
+  mediaType: BaseApi + '/api/mediaAccount/getMedias',
+  //获取账号类型
+  liveType: BaseApi + '/api/mediaAccount/getLiveTypes',
+  //主播主页信息
+  mediaMsg: BaseApi + '/api/mediaAccount/getMsgForUrl',
+  //主播报价类型
+  priceType: BaseApi + '/api/mediaAccount/getBroadcastTypes',
+  //添加主播账号
+  addAcount: BaseApi + '/api/mediaAccount/addMediaAccount',
+
+  //活动了列表
+  activityList: BaseApi + '/api/activity/getLiveActivitys',
+
+  //上传图片接口
+  Upload: WxApiRoot + 'storage/upload',
+
 
   //图片根地址
   BaseImgApi: BaseApi,
@@ -29,8 +51,6 @@ module.exports = {
   Templates: WxApiRoot + 'advertising/getTemplates',
   //投放
   DoAdvertising: WxApiRoot + 'advertising/doAdvertising',
-  //上传图片接口
-  Upload: WxApiRoot + 'storage/upload',
   //充值记录接口
   PayRecord: WxApiRoot + 'pay/payRecord',
   //用户信息接口
@@ -50,7 +70,7 @@ module.exports = {
   //获取模板预览图片
   PreviewImage: WxApiRoot + 'advertising/getTemplateImgUrl',
   //投放价格表
-  AllPrices: WxApiRoot+'advertising/getAllPrices',
+  AllPrices: WxApiRoot + 'advertising/getAllPrices',
   //删除订单
   delOrder: WxApiRoot + '/advertising/delAdvertising',
 

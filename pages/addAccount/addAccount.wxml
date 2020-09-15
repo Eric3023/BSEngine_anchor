@@ -1,68 +1,74 @@
 <scroll-view class="scroll" scroll-x="false" scroll-y="true">
-	<view class="container">
-		<!-- layout 1 -->
-		<view class="sub_container">
-			<text class="header">信息自动抓取</text>
-			<text class="title">主页链接（URL）</text>
-			<view class="link">
-				<input placeholder="请输入主页链接"></input>
-				<text class="extract">一键抽取</text>
+	<form bindsubmit="onSubmit">
+		<view class="container">
+			<!-- layout 1 -->
+			<view class="sub_container">
+				<text class="header">信息自动抓取</text>
+				<text class="title">主页链接（URL）</text>
+				<view class="link">
+					<input placeholder="请输入主页链接" model:value="{{url}}"></input>
+					<text class="extract" catchtap="onAnylise">一键抽取</text>
+				</view>
 			</view>
+			<!-- layout 2 -->
+			<view class="sub_container">
+				<text class="header">账号基本信息</text>
+				<view class="title">
+					<text>账号平台</text>
+					<image src="{{plateform.icon}}"></image>
+					<text>{{plateform.name}}</text>
+				</view>
+				<view class="info">
+					<view class="title">账号名称</view>
+					<view class="url">
+						<input name="name" model:value="{{data.accountName}}" disabled="{{disabled}}"></input>
+					</view>
+					<view class="title">账号ID</view>
+					<view class="url">
+						<input name="id" model:value="{{data.accountId}}" disabled="{{disabled}}"></input>
+					</view>
+					<view class="title">主页链接</view>
+					<view class="url">
+						<input name="url" model:value="{{url}}" disabled="{{disabled}}"></input>
+					</view>
+					<view class="title">头像</view>
+					<view class="upload_container">
+						<text class="upload" wx:if="{{!data.headImg}}" catchtap="onUpdate">点击上传</text>
+						<image class="upload" wx:if="{{data.headImg}}" src="{{data.headImg}}" catchtap="{{disabled? '': 'onUpdate'}}"></image>
+						<text>请上传100M以内的头像</text>
+					</view>
+					<view class="title">账号简介</view>
+					<view class="area">
+						<textarea name="desc" maxlength="-1" model:value="{{data.accountDesc}}" disabled="{{disabled}}"></textarea>
+					</view>
+					<text class="title">粉丝数</text>
+					<view class="url">
+						<input name="fans" model:value="{{data.fansNum}}" type="number" disabled="{{disabled}}"></input>
+					</view>
+					<text class="title">账号分类</text>
+					<view class="url">
+						<picker name="liveType" model:value="{{index}}" range="{{types}}" range-key="name">
+							<view class="picker">
+								{{types[index].name}}
+								<image class="pull" src="/img/login/icon_pull.png"></image>
+							</view>
+						</picker>
+					</view>
+				</view>
+			</view>
+			<!-- layout 4 -->
+			<view class="sub_container">
+				<text class="header">账号参考报价（报价不含税）</text>
+				<block wx:for="{{prices}}" wx:key="index">
+					<text class="title">{{item.name}}</text>
+					<view class="url">
+						<input data-index="{{index}}" bindblur="onPriceChanged" type="digit" bindinput="bindinput" maxlength="{{maxlength}}"></input>
+					</view>
+				</block>
+			</view>
+			<!-- layout 5 -->
+			<button hover-class="none" form-type="submit">提交</button>
 		</view>
-		<!-- layout 2 -->
-		<view class="sub_container">
-			<text class="header">账号基本信息</text>
-			<view class="title">
-				<text>账号平台</text>
-				<image src="/img/plateform/douyin.png"></image>
-				<text>抖音</text>
-			</view>
-			<view class="info">
-				<view class="title">账号名称</view>
-				<view class="url">
-					<input></input>
-				</view>
-				<view class="title">账号ID</view>
-				<view class="url">
-					<input></input>
-				</view>
-				<view class="title">主页链接</view>
-				<view class="url">
-					<input></input>
-				</view>
-				<view class="title">头像</view>
-				<view class="upload_container">
-					<text class="upload">点击上传</text>
-					<text>请上传100M以内的头像</text>
-				</view>
-				<view class="title">账号简介</view>
-				<view class="area">
-					<textarea maxlength="-1"></textarea>
-				</view>
-				<text class="title">粉丝数</text>
-				<view class="url">
-					<input></input>
-				</view>
-			</view>
-		</view>
-		<!-- layout 4 -->
-		<view class="sub_container">
-			<text class="header">账号参考报价（报价不含税）</text>
-			<text class="title">原创视频发布</text>
-			<view class="url">
-				<input></input>
-			</view> <text class="title">视频发布</text>
-			<view class="url">
-				<input></input>
-			</view> <text class="title">口播</text>
-			<view class="url">
-				<input></input>
-			</view> <text class="title">直播中露出产品</text>
-			<view class="url">
-				<input></input>
-			</view>
-		</view>
-		<!-- layout 5 -->
-		<button hover-class="none">提交</button>
-	</view>
+	</form>
+
 </scroll-view>

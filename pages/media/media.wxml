@@ -5,15 +5,15 @@
 			<text class="{{type==1? 'active':'disactive'}} other" data-type="{{1}}" catchtap="onChangeType">其他</text>
 		</view>
 		<view class="body">
-			<block wx:for="{{10}}" wx:key="index">
-				<view class="item" catchtap="onClickItem">
-					<image class="photo" src="/img/plateform/bilibili.png" mode="aspectFill"/>
+			<block wx:for="{{list}}" wx:key="index">
+				<view class="item" catchtap="onClickItem" data-value="item">
+					<image class="photo" src="{{item.headImg}}" mode="aspectFill" />
 					<view class="info">
 						<view class="title">
-							<image class="flag" src="/img/plateform/douyin.png"></image>
-							<view>李荣浩</view>
+							<image class="flag" src="{{item.mediaIcon}}"></image>
+							<view>{{item.accountName}}</view>
 						</view>
-						<view>ID：2020081465</view>
+						<view>ID：{{item.id}}</view>
 					</view>
 					<view class="state">
 						<image class="stateIcon center" src="/img/icon/icon_media.png"></image>
@@ -22,6 +22,6 @@
 				</view>
 			</block>
 		</view>
-		<image class="add" src="/img/icon/icon_add.jpg" catchtap="addAccount"/>
+		<image class="add" src="/img/icon/icon_add.jpg" catchtap="addAccount" />
 	</view>
 </scroll-view>

@@ -1,4 +1,5 @@
-// pages/media/media.js
+const mediaModel = require('../../models/media.js');
+
 Page({
 
   /**
@@ -6,13 +7,16 @@ Page({
    */
   data: {
     type: 0,
+    page: 0,
+    list: [],
+    hasMore: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getMediaList(this.data.page)
   },
 
   /**
@@ -34,11 +38,18 @@ Page({
   },
 
   /**
+   * 到达页面底部加载更多
+   */
+  onReachBottom: function () {
+    this._getMediaList()
+  },
+
+  /**
    * 添加账号
    */
   addAccount: function (event) {
     wx.navigateTo({
-      url: '/pages/addAccount/addAccount',
+      url: '/pages/plateform/plateform',
     })
   },
 
@@ -46,8 +57,34 @@ Page({
    * 修改查看账号
    */
   onClickItem: function (event) {
+    let value = JSON.stringify(event.currentTarget.data.value)
     wx.navigateTo({
-      url: '/pages/addAccount/addAccount',
+      url: `/pages/addAccount/addAccount?value=${value}`,
+    })
+  },
+
+  /**
+   * 获取账号列表
+   */
+  _getMediaList: function (page) {
+    if (!this.data.hasMore) return
+
+    mediaModel.getMediaList({
+      page: page
+    }).then(res => {
+      this.data.list = this.data.list.concat(res.data.list)
+      this.setData({
+        list: this.data.list
+      })
+
+      if (res.data.empty) {
+        this.data.hasMore = false
+      } else {
+        this.data.hasMore = true
+        this.data.page++
+      }
+    }).catch(exp => {
+
     })
   }
 })

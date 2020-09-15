@@ -1,11 +1,11 @@
-let orderModel = require('../../models/order.js');
+let activityModel = require('../../models/activity.js');
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    orders: [],
+    list: [],
 
     status: 0,
 
@@ -57,34 +57,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this._getOrders();
+    this._getActivities();
   },
 
   /**
    * 滑动到页面底部
    */
   onReachBottom: function () {
-    // this._getOrders();
+    this._getActivities();
   },
 
 
   /**
    * 获取我的订单列表
    */
-  _getOrders() {
+  _getActivities() {
     if (this._isLock() || !this.data.hasMore) return;
     this._addLock();
     wx.showLoading();
-    orderModel.getOrders(this.data.status, this.data.page, this.data.size).then(
+    activityModel.getActivityList({
+      page: this.data.page,
+      size: this.data.size,
+    }).then(
       res => {
+        console.log(res);
+        
         this.data.page++;
         let hasNext = res.data.pageData.hasNext;
-        this.data.orders = this.data.orders.concat(res.data.list);
-        this.setData({
-          hasMore: hasNext,
-          orders: this.data.orders,
-          extras: res.data.extras,
-        });
+        // this.data.list = this.data.list.concat(res.data.list);
+        // this.setData({
+        //   hasMore: hasNext,
+        //   list: this.data.list,
+        //   extras: res.data.extras,
+        // });
         this._removeLock();
         wx.hideLoading();
       }, error => {
@@ -166,7 +171,7 @@ Page({
   _reset(status) {
     this.setData({
       status,
-      orders: [],
+      list: [],
       page: 1,
       lock: false,
       hasMore: true,
@@ -210,8 +215,8 @@ Page({
    */
   _getIndexOfItem(id) {
     let index = -1;
-    for (let i = 0; i < this.data.orders.length; i++) {
-      if (this.data.orders[i].id == id) {
+    for (let i = 0; i < this.data.list.length; i++) {
+      if (this.data.list[i].id == id) {
         index = i;
         break;
       }
