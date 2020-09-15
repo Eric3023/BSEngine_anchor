@@ -7,6 +7,7 @@ page {
 }
 
 .txt {
+  min-width: 640rpx;
   display: flex;
   flex-direction: column;
   margin: 28rpx 50rpx;

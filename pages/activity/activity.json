@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-
+    "activity": "/components/activity/index",
+    "empty": "/components/empty/index"
   },
-
   "navigationBarTitleText": "活动"
 }

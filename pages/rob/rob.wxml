@@ -1,9 +1,10 @@
+<wxs src="../../utils/date.wxs" module="date" />
 <view class="container">
 	<view class="txt">
 		<!-- 需求名称 -->
 		<view class="title">
 			<text>需求名称：</text>
-			<text class="box">精制手工皂</text>
+			<text class="box">{{data.name}}</text>
 		</view>
 		<!-- 需求描述 -->
 		<view class="desc">
@@ -13,12 +14,12 @@
 		<!-- 推广时间 -->
 		<view class="time">
 			<text>推广时间：</text>
-			<text class="box">2020年07月01日-2020年07月06日</text>
+			<text class="box">{{data.startTime}}至{{data.endTime}}</text>
 		</view>
 		<!-- 反馈时间 -->
 		<view class="end">
 			<text>结束反馈时间：</text>
-			<text class="box">2020年07月15日</text>
+			<text class="box">{{date.trim(data.feedbackTime)}}</text>
 		</view>
 		<!-- 活动标的行业 -->
 		<view class="category">
@@ -26,5 +27,5 @@
 			<text class="box">不限</text>
 		</view>
 	</view>
-	<image class="icon" src="{{true? '/img/icon/icon_rob.png':'/img/icon/icon_rob_disabled.png'}}" catchtap="onRob"></image>
+	<image class="icon" src="{{hasRob? '/img/icon/icon_rob_disabled.png':'/img/icon/icon_rob.png'}}" catchtap="{{hasRob? '':'onRob'}}"></image>
 </view>

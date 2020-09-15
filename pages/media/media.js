@@ -10,6 +10,7 @@ Page({
     page: 0,
     list: [],
     hasMore: true,
+    lock: false,
   },
 
   /**
@@ -67,24 +68,63 @@ Page({
    * 获取账号列表
    */
   _getMediaList: function (page) {
-    if (!this.data.hasMore) return
+    if (this._isLock() || !this.data.hasMore) return;
+    this._addLock();
+    wx.showLoading();
 
     mediaModel.getMediaList({
       page: page
     }).then(res => {
+      this.data.page++
       this.data.list = this.data.list.concat(res.data.list)
+      let hasNext = res.data.pageData.hasNext;
       this.setData({
-        list: this.data.list
+        list: this.data.list,
+        hasMore:hasNext
       })
-
-      if (res.data.empty) {
-        this.data.hasMore = false
-      } else {
-        this.data.hasMore = true
-        this.data.page++
-      }
+      
+      this._removeLock();
+      wx.hideLoading();
     }).catch(exp => {
-
+      this._removeLock();
+      wx.hideLoading();
     })
-  }
+  },
+
+  /**
+ * 重置数据
+ */
+  _reset(status) {
+    this.setData({
+      list: [],
+      page: 1,
+      lock: false,
+      hasMore: true,
+    });
+  },
+
+  /**
+   * 是否加锁（正在请求数据）
+   */
+  _isLock() {
+    return this.data.lock;
+  },
+
+  /**
+   * 加锁
+   */
+  _addLock() {
+    this.setData({
+      lock: true,
+    });
+  },
+
+  /**
+   * 解锁
+   */
+  _removeLock() {
+    this.setData({
+      lock: false,
+    });
+  },
 })

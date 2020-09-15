@@ -28,8 +28,14 @@ module.exports = {
   //添加主播账号
   addAcount: BaseApi + '/api/mediaAccount/addMediaAccount',
 
-  //活动了列表
+  //活动列表
   activityList: BaseApi + '/api/activity/getLiveActivitys',
+  //活动详情
+  activityDetail: BaseApi + '/api/activity/getActivityDeatil',
+  //活动抢单
+  activityRob: BaseApi + '/api/activity/receivingOrder',
+  //活动收藏
+  activityLike: BaseApi + '/api/activity/likeActivity',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',

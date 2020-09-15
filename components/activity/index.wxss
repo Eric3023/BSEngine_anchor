@@ -1,0 +1,108 @@
+.ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+}
+
+.item {
+  width: 310rpx;
+  height: max-content;
+  box-shadow: 0rpx 0rpx 8rpx #e0e0e0;
+  margin: 0 0rpx 0 0;
+  font-size: 22rpx;
+  margin: 20rpx 18rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.item .section_up {
+  position: relative;
+}
+
+.img {
+  width: 100%;
+  height: 360rpx;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
+
+.flag {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.hot {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  right: 12rpx;
+  bottom: 16rpx;
+}
+
+.container_progress {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  font-size: 20rpx;
+  color: #ffbc00;
+  top: 50%;
+  left: 0;
+  z-index: 99;
+}
+
+.container_progress .container_progress_sub {
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: row;
+  /* margin-bottom: 12rpx; */
+  align-items: center;
+}
+
+progress {
+  width: 168rpx;
+  margin-right: 12rpx;
+}
+
+.section_down {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-end;
+  margin: 10rpx 0;
+}
+
+.section_down .goods {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section_down .text {
+  width: 100%;
+  color: #484848;
+  /* white-space: nowrap; */
+  margin: 4rpx;
+}
+
+.section_down .price {
+  width: 36%;
+  color: #ff595c;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 4rpx 8rpx;
+  padding: 2rpx 6rpx;
+  box-sizing: border-box;
+  border: 1rpx #ff595c solid;
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

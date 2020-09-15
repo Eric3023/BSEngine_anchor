@@ -1,0 +1,23 @@
+<view class="item">
+	<view class="section_up">
+		<image class="img" src="{{img}}" mode="widthFix" />
+		<image class="flag" wx:if="{{first}}" src="img/icon_first.png" />
+		<image class="flag" wx:if="{{chance}}" src="img/icon_chance.png" />
+		<image class="hot" wx:if="{{hot}}" src="img/icon_hot.png" />
+		<view class="container_progress">
+			<view class="container_progress_sub">
+				<progress class="progress" activeColor="#ffbc00" backgroundColor="#787b89" percent="{{use*100/total}}" border-radius="5" stroke-width="10rpx">
+				</progress>
+				<text>剩{{total-use}}单</text>
+			</view>
+			<view>{{start}}-{{end}}</view>
+		</view>
+	</view>
+	<view class="section_down">
+		<view class="goods">
+			<text class="text ell">{{title}}</text>
+			<text class="text">{{type}}{{num}}次</text>
+		</view>
+		<text class="price">{{price}}元</text>
+	</view>
+</view>

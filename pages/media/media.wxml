@@ -23,5 +23,6 @@
 			</block>
 		</view>
 		<image class="add" src="/img/icon/icon_add.jpg" catchtap="addAccount" />
+		<empty show="{{!(list&&list.length!=0)&&!lock}}" message="暂时没有媒体账号，请添加~~~"/>
 	</view>
 </scroll-view>
