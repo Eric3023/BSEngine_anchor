@@ -9,6 +9,14 @@ function getBanners() {
   return check.checkResult(util.request(config.Banner));
 }
 
+/**
+ * 获取宣传数据
+ */
+function getPublicity() {
+  return check.checkResult(util.request(config.index));
+}
+
 module.exports = {
-  getBanners: getBanners
+  getBanners: getBanners,
+  getPublicity: getPublicity,
 }

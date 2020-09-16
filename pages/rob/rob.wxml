@@ -27,5 +27,5 @@
 			<text class="box">不限</text>
 		</view>
 	</view>
-	<image class="icon" src="{{hasRob? '/img/icon/icon_rob_disabled.png':'/img/icon/icon_rob.png'}}" catchtap="{{hasRob? '':'onRob'}}"></image>
+	<image class="icon" src="{{data.isReceiving!=0? '/img/icon/icon_rob_disabled.png':'/img/icon/icon_rob.png'}}" catchtap="{{data.isReceiving!=0? '':'onRob'}}"></image>
 </view>

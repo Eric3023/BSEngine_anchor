@@ -1,6 +1,4 @@
 const homeModel = require('../../models/home.js');
-const locationModel = require('../../models/location.js');
-const config = require('../../config/api.js');
 
 //获取应用实例
 const app = getApp()
@@ -13,8 +11,8 @@ Page({
     ],
     defaultBanner: '/img/banner/banner1.jpg',
 
-    //周边用户数量
-    user_num: 0,
+    //宣传图
+    publicity: [],
 
     //是否显示霸屏
     bullying: false,
@@ -26,6 +24,7 @@ Page({
    */
   onLoad: function () {
     this._getBanners();//请求轮播图
+    this._getPublicity();//获取宣传图片
     this._getCouponing();//显示优惠券
   },
 
@@ -156,6 +155,19 @@ Page({
 
       }
     );
+  },
+
+  /**
+   * 获取宣传图
+   */
+  _getPublicity() {
+    homeModel.getPublicity().then(res => {
+      this.setData({
+        publicity: res.data,
+      })
+    }).catch(exp => {
+
+    })
   },
 
   /**

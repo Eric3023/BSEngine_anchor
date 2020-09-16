@@ -15,6 +15,9 @@ module.exports = {
   //根据手机号登录
   AuthPhoneLoginByWeixin: WxApiRoot + 'auth/phone_login_by_weixin',
 
+  //首页宣传
+  index: BaseApi + '/wx/index/static',
+
   //获取账号列表
   mediaList: BaseApi + '/api/mediaAccount/getListByUserId',
   //获取平台类型
@@ -36,6 +39,8 @@ module.exports = {
   activityRob: BaseApi + '/api/activity/receivingOrder',
   //活动收藏
   activityLike: BaseApi + '/api/activity/likeActivity',
+  //已抢订单
+  liveOrders: BaseApi + '/api/activity/getLiveOrders',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',

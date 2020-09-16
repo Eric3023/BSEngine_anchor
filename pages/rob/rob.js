@@ -8,7 +8,6 @@ Page({
   data: {
     id: 0,
     data: {},
-    hasRob: false,
   },
 
   /**

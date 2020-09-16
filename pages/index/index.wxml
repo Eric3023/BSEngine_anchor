@@ -31,9 +31,9 @@
 		<!-- 平台海报 -->
 		<view class="case-list">
 			<text  class="header">平台推荐</text>
-			<image class="img" src="/img/adcode/post0.jpg"></image>
-			<image class="img" src="/img/adcode/post1.jpg"></image>
-			<image class="img" src="/img/adcode/post2.jpg"></image>
+			<block wx:for="{{publicity}}" wx:key="index">
+				<image class="img" src="{{item.imageUrl}}" mode="widthFix"></image>
+			</block>
 		</view>
 
 		<!-- 猜你喜欢 -->
