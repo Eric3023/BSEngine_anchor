@@ -49,8 +49,8 @@
 					<view class="url">
 						<picker name="liveType" model:value="{{index}}" range="{{types}}" range-key="name">
 							<view class="picker">
+								<image class="pull" src="/img/icon/icon_pull.png"></image>
 								{{types[index].name}}
-								<image class="pull" src="/img/login/icon_pull.png"></image>
 							</view>
 						</picker>
 					</view>

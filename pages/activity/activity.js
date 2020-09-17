@@ -91,11 +91,14 @@ Page({
    */
   onChangeType: function (event) {
     let index = event.currentTarget.dataset.index;
-    this._reset(index);
+    // this._reset(index);
     switch (index) {
       //待接单
       case 0:
-        break
+        wx.navigateTo({
+          url: `/pages/activities/index`,
+        })
+        return
       //待执行
       case 1:
         break

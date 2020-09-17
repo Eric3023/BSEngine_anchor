@@ -25,7 +25,7 @@ var getTitle = function (type) {
     case 7:
       return '已取消'
     default:
-      return '其他'
+      return '我的订单'
   }
 }
 

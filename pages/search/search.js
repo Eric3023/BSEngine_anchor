@@ -1,7 +1,4 @@
-
-var qqmaputil = require('../../utils/qqmaputil.js');
-
-const app = getApp();
+const activityModel = require('../../models/activity.js');
 
 Page({
   data: {
@@ -9,35 +6,30 @@ Page({
     keyword: '',
     //搜索页码
     page: 1,
-    //搜索结果
-    data: [],
     //是否显示搜索历史和热门搜索
     show: true,
     //搜索记录
-    history: [
-      "历史搜索1",
-      "历史搜2",
-      "历史3",
-      "历史4",
-      "历史搜5",
-      "历史搜索6",
-    ],
-    //热门搜索
-    hot: [
-      "热门搜索1",
-      "热门索2",
-      "热门搜索3",
-      "热门搜4",
-      "热门搜索5",
-      "热门6",
-      "热门搜索7",
-      "热门搜索9",
-    ],
+    history: [],
+
+    page: 1,
+    size: 20,
+    lock: false,
+    hasMore: true,
+    //搜索结果
+    list: [],
+
+    leftData: [],
+    rightData: [],
+    leftHeight: 0,
+    rightHeight: 0,
   },
 
   onLoad: function (options) {
-    // this._loadHis();//载入搜索历史记录
-    // this._loadHot();//载入热门搜索
+    this._loadHis();//载入搜索历史记录
+  },
+
+  onReachBottom: function(){
+    this._getActivities()
   },
 
   /**
@@ -47,6 +39,8 @@ Page({
     let value = event.detail.value
     //搜索内容不为空 
     if (value) {
+      this._addHistory(value)
+      this._searchList(value)
       this.setData({
         show: false
       })
@@ -64,6 +58,7 @@ Page({
    * 清空搜索
    */
   onClear: function (event) {
+    this._reset('')
     this.setData({
       show: true
     })
@@ -79,10 +74,17 @@ Page({
   },
 
   /**
+   * 清空搜素历史
+   */
+  onClearHistory: function (event) {
+    this._clearHistory()
+  },
+
+  /**
    * 加载搜索历史
    */
   _loadHis() {
-    let history = wx.getStorageSync("searchHisArray");
+    let history = wx.getStorageSync("searchHistory");
     if (Array.isArray(history)) {
       this.setData({
         history: history
@@ -91,29 +93,17 @@ Page({
   },
 
   /**
-   * 加载热门搜索
-   */
-  _loadHot() {
-    let history = wx.getStorageSync("searchHisArray");
-    if (Array.isArray(history)) {
-      this.setData({
-        hot: history
-      })
-    }
-  },
-
-  /**
    * 添加历史记录
    */
-  addHistory: function (value) {
-    let history = wx.getStorageSync("searchHisArray");
+  _addHistory: function (value) {
+    let history = wx.getStorageSync("searchHistory");
     if (!Array.isArray(history)) {//判断本地缓存是否有数组，如果没有，则新建
-      that.setData({
+      this.setData({
         history: [value]//更新历史显示列表
       })
       wx.setStorage({//更新存储的历史
-        key: 'searchHisArray',
-        data: that.data.history
+        key: 'searchHistory',
+        data: this.data.history
       })
       return;
     }
@@ -136,11 +126,11 @@ Page({
 
     //存储搜索记录
     wx.setStorage({
-      key: "searchHisArray",
+      key: "searchHistory",
       data: history
     })
 
-    that.setData({
+    this.setData({
       history: history
     })
 
@@ -149,11 +139,11 @@ Page({
   /**
    * 清空历史记录
    */
-  clearHistory: function () {
+  _clearHistory: function () {
     this.setData({
-      hisSearchData: []
+      history: []
     });
-    wx.clearStorage("searchHisArray");
+    wx.clearStorage("searchHistory");
   },
 
   /**
@@ -161,13 +151,8 @@ Page({
    */
   _searchList(value) {
     //重新搜索，页码和搜索结果需要重置
-    this.data.page = 1;
-    this.data.siteData = [];
-    //修改搜索框的显示内容
-    this.setData({
-      keyword: value
-    });
-    this.getSearchResult(value);
+    this._reset(value)
+    this._getActivities(value);
   },
 
   /**
@@ -177,5 +162,114 @@ Page({
     //加载更多，页码递增
     this.data.page++;
     this.getSearchResult(value);
-  }
+  },
+
+  /**
+   * 重置数据
+   */
+  _reset(value) {
+    this.setData({
+      keyword: value,
+      list: [],
+      page: 1,
+      lock: false,
+      hasMore: true,
+
+      leftData: [],
+      rightData: [],
+      leftHeight: 0,
+      rightHeight: 0,
+    });
+  },
+
+  /**
+   * 是否加锁（正在请求数据）
+   */
+  _isLock() {
+    return this.data.lock;
+  },
+
+  /**
+   * 加锁
+   */
+  _addLock() {
+    this.setData({
+      lock: true,
+    });
+  },
+
+  /**
+   * 解锁
+   */
+  _removeLock() {
+    this.setData({
+      lock: false,
+    });
+  },
+
+  /**
+   * 是否还有更多数据
+   */
+  _hasMore() {
+    return this.data.hasMore;
+  },
+
+  /**
+   * 获取搜索结果
+   */
+  _getActivities() {
+    if (this._isLock() || !this.data.hasMore) return;
+    this._addLock();
+    wx.showLoading();
+    activityModel.getActivityList({
+      // name: this.data.keyword,
+      page: this.data.page,
+      size: this.data.size,
+    }).then(
+      res => {
+        console.log(res);
+
+        this.data.page++;
+        let hasNext = res.data.pageData.hasNext;
+        this._initData(res.data.list);
+        this.data.list = this.data.list.concat(res.data.list);
+        this.setData({
+          hasMore: hasNext,
+          list: this.data.list,
+        });
+        this._removeLock();
+        wx.hideLoading();
+      }, error => {
+        this._removeLock();
+        wx.hideLoading();
+      }
+    );
+  },
+
+  /**
+   * 数据分列
+   */
+  _initData: function (list) {
+    for (var i = 0; i < list.length; i++) {
+      var item = list[i]
+      let resolution = item.resolution
+      var dimens = resolution.split("*")
+      //放在右侧
+      if (this.data.leftHeight > this.data.rightHeight) {
+        this.data.rightData.push(item)
+        this.data.rightHeight += dimens[1] / dimens[0]
+      }
+      //放在左侧
+      else {
+        this.data.leftData.push(item)
+        this.data.leftHeight += dimens[1] / dimens[0]
+      }
+    }
+
+    this.setData({
+      leftData: this.data.leftData,
+      rightData: this.data.rightData,
+    })
+
+  },
 })

@@ -1,4 +1,4 @@
-var app = getApp()
+const activityModel = require('../../models/activity.js')
 
 Page({
   data: {
@@ -7,7 +7,12 @@ Page({
     startY: 0,
 
     //0：带接单；1:待执行；2:待质检
-    type: 0
+    type: 0,
+
+    page: 1,
+    size: 20,
+    lock: false,
+    hasMore: true,
   },
 
   onLoad: function (option) {
@@ -15,7 +20,8 @@ Page({
     this.setData({
       type,
     })
-    this.initData()
+
+    this._getOrders();
   },
 
   /**
@@ -95,17 +101,74 @@ Page({
   },
 
   /**
-   * 初始化数据
+   * 重置数据
    */
-  initData: function () {
-    for (var i = 0; i < 10; i++) {
-      this.data.items.push({
-        content: i,
-        isTouchMove: false //默认全隐藏删除
-      })
-    }
+  _reset(status) {
     this.setData({
-      items: this.data.items
-    })
-  }
+      items: [],
+      page: 1,
+      lock: false,
+      hasMore: true,
+    });
+  },
+
+  /**
+ * 是否加锁（正在请求数据）
+ */
+  _isLock() {
+    return this.data.lock;
+  },
+
+  /**
+   * 加锁
+   */
+  _addLock() {
+    this.setData({
+      lock: true,
+    });
+  },
+
+  /**
+   * 解锁
+   */
+  _removeLock() {
+    this.setData({
+      lock: false,
+    });
+  },
+
+  /**
+   * 是否还有更多数据
+   */
+  _hasMore() {
+    return this.data.hasMore;
+  },
+
+  /**
+   * 获取待接单列表
+   */
+  _getOrders: function () {
+    if (this._isLock() || !this.data.hasMore) return;
+    this._addLock();
+    wx.showLoading();
+    activityModel.getLiveOrders({
+      page: this.data.page,
+      size: this.data.size,
+    }).then(
+      res => {
+        this.data.page++;
+        let hasNext = res.data.pageData.hasNext;
+        this.data.items = this.data.items.concat(res.data.list);
+        this.setData({
+          hasMore: hasNext,
+          items: this.data.items,
+        });
+        this._removeLock();
+        wx.hideLoading();
+      }, error => {
+        this._removeLock();
+        wx.hideLoading();
+      }
+    );
+  },
 })

@@ -15,8 +15,6 @@ page {
 }
 
 .list {
-  margin-left: 20rpx;
-  margin-right: 20rpx;
   margin-bottom: 20rpx;
   display: flex;
   flex-direction: column;
@@ -24,16 +22,21 @@ page {
 
 .item {
   margin-top: 30rpx;
-  height: 175rpx;
   background-color: white;
+  box-shadow: 0 0 10rpx #cecece;
   border-radius: 10rpx;
 }
 
 .content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: 280rpx;
 }
 
 .item .button {
@@ -48,84 +51,37 @@ page {
   border-radius: 40rpx;
 }
 
-.item .content_container {
-  width: 516rpx;
-}
-
 .item .sub_container {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 12rpx 0rpx;
 }
 
-.item .sub_container .icon {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
+.item .btn_container {
+  width: 250rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.item .sub_container .tilte_container {
-  margin-left: 18rpx;
-  width: 416rpx;
-  height: 70rpx;
+.item .sub_container .title_container {
+  margin: 10rpx 16rpx;
+  width: 450rpx;
   display: flex;
   flex-direction: column;
 }
 
 .title {
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: black;
 }
 
 .time {
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #a8a8a8;
-  margin-top: 4rpx;
+  margin-top: 16rpx;
   line-height: 28rpx;
-}
-
-.sell_container {
-  width: 208rpx;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.order_container {
-  width: 188rpx;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.follow_container {
-  width: 118rpx;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.name {
-  font-size: 20rpx;
-  color: #787878;
-  line-height: 28rpx;
-}
-
-.count {
-  font-size: 22rpx;
-  color: #303030;
-  line-height:28rpx;
-}
-
-.line {
-  font-size: 24rpx;
-  color: #fea9a6;
 }
 
 .touch-item {
@@ -134,19 +90,20 @@ page {
   justify-content: space-between;
   width: 100%;
   overflow: hidden
- }
- .content {
+}
+
+.content {
   width: 100%;
-  padding: 10px;
   line-height: 22px;
-  margin-right:0;
+  margin-right: 0;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   -webkit-transform: translateX(90px);
   transform: translateX(90px);
   margin-left: -90px
- }
- .del {
+}
+
+.del {
   background-color: orangered;
   width: 90px;
   display: flex;
@@ -158,9 +115,10 @@ page {
   transform: translateX(90px);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
- }
- .touch-move-active .content,
- .touch-move-active .del {
+}
+
+.touch-move-active .content,
+.touch-move-active .del {
   -webkit-transform: translateX(0);
   transform: translateX(0);
- }
+}

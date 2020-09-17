@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "search": "/components/search/search",
     "activity": "/components/activity/index",
     "empty": "/components/empty/index"
-  }
+  },
+  "navigationBarTitleText": "待接单列表"
 }

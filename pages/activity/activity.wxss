@@ -73,12 +73,13 @@ page {
 .case-list .body {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: space-between;
   font-size: 28rpx;
-  margin: 0 29rpx;
+  margin: 0 50rpx;
 }
 
 .case-list .body_left {
+  width: 315rpx;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -86,6 +87,7 @@ page {
 }
 
 .case-list .body_right {
+  width: 315rpx;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

@@ -4,28 +4,38 @@
   white-space: pre-wrap;
 }
 
+.mask {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.25;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
 .item {
-  width: 310rpx;
+  width: 100%;
   height: max-content;
   box-shadow: 0rpx 0rpx 8rpx #e0e0e0;
-  margin: 0 0rpx 0 0;
   font-size: 22rpx;
-  margin: 20rpx 18rpx;
+  margin: 10rpx 0;
   border-radius: 10rpx;
   position: relative;
 }
 
 .item .section_up {
   position: relative;
+  line-height: 0;
 }
 
 .img {
   width: 100%;
   height: 360rpx;
-  border-top-right-radius: 10rpx;
-  border-top-left-radius: 10rpx;
 }
-
 
 .flag {
   width: 48rpx;
@@ -49,7 +59,8 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  font-size: 20rpx;
+  font-size: 22rpx;
+  line-height: 28rpx;
   color: #ffbc00;
   top: 50%;
   left: 0;
@@ -57,10 +68,8 @@
 }
 
 .container_progress .container_progress_sub {
-  font-size: 20rpx;
   display: flex;
   flex-direction: row;
-  /* margin-bottom: 12rpx; */
   align-items: center;
 }
 
@@ -82,22 +91,21 @@ progress {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
 }
 
 .section_down .text {
   width: 100%;
   color: #484848;
-  /* white-space: nowrap; */
-  margin: 4rpx;
+  margin: 4rpx 0;
 }
 
 .section_down .price {
   width: 36%;
   color: #ff595c;
   font-size: 24rpx;
-  text-align: center;
-  margin: 4rpx 8rpx;
-  padding: 2rpx 6rpx;
+  padding: 0 6rpx;
   box-sizing: border-box;
   border: 1rpx #ff595c solid;
   border-radius: 24rpx;
@@ -105,4 +113,6 @@ progress {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
 }

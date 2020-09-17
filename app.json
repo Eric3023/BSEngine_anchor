@@ -26,7 +26,8 @@
     "pages/password/password",
     "pages/tasks/tasks",
     "pages/profit/profit",
-    "pages/collection/collection"
+    "pages/collection/collection",
+    "pages/activities/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

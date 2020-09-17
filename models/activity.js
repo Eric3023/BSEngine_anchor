@@ -6,7 +6,10 @@ const check = require('./check.js');
  * 获取活动列表
  */
 function getActivityList({ name = '', status = 0, page = 0, size = 10 }) {
-  return check.checkResult(util.request(config.activityList, { page: page, size: size }));
+  if (name)
+    return check.checkResult(util.request(config.activityList, { name: name, page: page, size: size }));
+  else
+    return check.checkResult(util.request(config.activityList, { page: page, size: size }));
 }
 
 /**

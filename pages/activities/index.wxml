@@ -1,0 +1,16 @@
+<view class="container">
+	<text class="header">待接单列表</text>
+	<view class="body">
+		<view class="body_left">
+			<block wx:for="{{leftData}}" wx:key="index">
+				<activity img="{{item.picUrl}}" title="{{item.name}}" type="{{item.broadcastName}}" num="{{item.broadcastTimes}}" price="{{item.unitPrice}}" chance="false" hot="false" start="{{item.startTime}}" end="{{item.endTime}}" total="{{item.orderNum}}" use="{{item.orderNumUse}}" catchtap="onClickItem" data-value="{{item}}" />
+			</block>
+		</view>
+		<view class="body_right">
+			<block wx:for="{{rightData}}" wx:key="index">
+				<activity img="{{item.picUrl}}" title="{{item.name}}" type="{{item.broadcastName}}" num="{{item.broadcastTimes}}" price="{{item.unitPrice}}" chance="false" hot="false" start="{{item.startTime}}" end="{{item.endTime}}" total="{{item.orderNum}}" use="{{item.orderNumUse}}" catchtap="onClickItem" data-value="{{item}}" />
+			</block>
+		</view>
+	</view>
+</view>
+<empty show="{{false}}" message="暂时没有活动~~~" />
