@@ -28,7 +28,7 @@ Page({
     this._loadHis();//载入搜索历史记录
   },
 
-  onReachBottom: function(){
+  onReachBottom: function () {
     this._getActivities()
   },
 
@@ -68,8 +68,10 @@ Page({
    * 点击搜索结果
    */
   onClickItem: function (event) {
+    let item = event.currentTarget.dataset.value;
+    let id = item.id;
     wx.navigateTo({
-      url: '/pages/rob/rob',
+      url: `/pages/rob/rob?id=${id}`,
     })
   },
 

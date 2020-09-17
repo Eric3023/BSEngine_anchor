@@ -1,9 +1,12 @@
 var trim = function (date) {
-  return date.split(' ')[0]
+  if (date)
+    return date.split(' ')[0]
+  else
+    return date
 }
 
 var parse = function (date) {
-  while(date.indexOf('-') != -1){
+  while (date.indexOf('-') != -1) {
     date = date.replace('-', '/')
   }
   return date
