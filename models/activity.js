@@ -33,17 +33,8 @@ function likeActivity({ id }) {
 
 }
 
-/**
- * 获取已抢订单
- */
-function getLiveOrders({ status, page = 1, size = 10 }) {
-  return check.checkResult(util.request(config.liveOrders, { page: page, size: size }));
-}
-
-
 module.exports = {
   getActivityList: getActivityList,
   getActivityDetail: getActivityDetail,
   robActivity: robActivity,
-  getLiveOrders: getLiveOrders,
 }

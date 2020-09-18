@@ -3,46 +3,36 @@ var config = require('../config/api.js');
 const check = require('../models/check.js');
 
 /**
- * 获取我的订单(投放)列表
+ * 获取订单
  */
-function getOrders(status, page, size) {
-  return check.checkResult(util.request(
-    config.Order,
-    {
-      status: status,
-      page: page,
-      size: size
-    }
-  ));
+function getLiveOrders({ status, page = 1, size = 10 }) {
+  return check.checkResult(util.request(config.liveOrders, { status: status, page: page, size: size }));
+}
+
+/**
+ * 取消订单
+ */
+function cancelOrder({ id }) {
+  return check.checkResult(util.request(config.cancelOrder, { orderId: id }, 'POST'));
 }
 
 /**
  * 删除订单
  */
-function deleteOrder(id) {
-  return check.checkResult(util.request(
-    config.delOrder,
-    {
-      id: id
-    },
-    "POST"
-  ));
+function delOrder({ id }) {
+  return check.checkResult(util.request(config.delOrder, { orderId: id }, 'POST'));
 }
 
 /**
- * 获取订单列表(投放)详情
+ * 质检订单
  */
-function getThrowDetail(id) {
-  return check.checkResult(util.request(
-    config.ThrowDetail,
-    {
-      id: id
-    }
-  ));
+function qualityOrder({ id }) {
+  return check.checkResult(util.request(config.qualityOrder, { orderId: id }, 'POST'));
 }
 
 module.exports = {
-  getOrders: getOrders,
-  deleteOrder: deleteOrder,
-  getThrowDetail: getThrowDetail,
+  getLiveOrders: getLiveOrders,
+  cancelOrder: cancelOrder,
+  delOrder: delOrder,
+  qualityOrder: qualityOrder,
 };

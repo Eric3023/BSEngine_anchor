@@ -24,7 +24,12 @@ Page({
       // { icon: "/img/mine/icon_mine_quan.jpg", title: "意见反馈" },
       { icon: "/img/mine/icon_mine_proxy.jpg", title: "意见反馈" },
       { icon: "/img/mine/icon_mine_setting.png", title: "设置" }
-    ]
+    ],
+    data: {
+      likesNum: 0,
+      orderNum: 0,
+      totalAmount: 0.00,
+    }
   },
 
   /**
@@ -88,9 +93,6 @@ Page({
   onLoad: function (option) {
     this._resetUserInfo();
     this._checkLogin();
-    // if (this.data.hasLogin === true) {
-    //   this._getBalance();
-    // }
   },
 
   onWithdraw: function () {
@@ -183,16 +185,15 @@ Page({
   },
 
   /**
-   * 获取账户余额
+   * 获取用户信息
    */
   _getBalance() {
     userModel.getUserInfo().then(
       res => {
         let balance = res.data.totalAmount;
-        balance = balance.toFixed(2);
+        res.data.balance = balance.toFixed(2);
         this.setData({
-          balance: balance,//账号余额
-          authored: res.data.isAuth,//是否认证
+          data: res.data,
         });
       }
     ).catch(e => {

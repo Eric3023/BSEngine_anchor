@@ -1,4 +1,4 @@
-const activityModel = require('../../models/activity.js')
+const orderModel = require('../../models/order.js')
 
 Page({
   data: {
@@ -25,13 +25,28 @@ Page({
   },
 
   /**
+   * 取消
+   */
+  onCancel: function (e) {
+    if (this.data.type == 1 || this.data.type == 2) {
+      let order = e.currentTarget.dataset.item
+      this._cancelOrder(order.id)
+    }
+  },
+
+  /**
    * 执行
    */
   onExecue: function (e) {
-    if (this.data.type == 0) {
-      wx.navigateTo({
-        url: '/pages/liveData/liveData',
-      })
+    let order = e.currentTarget.dataset.item
+    switch (this.data.type) {
+      case 1:
+        wx.navigateTo({
+          url: `/pages/liveData/liveData?id=${order.id}`,
+        })
+        break
+      case 2:
+        this._qualityOrder(order.id)
     }
   },
 
@@ -39,10 +54,10 @@ Page({
    * 删除事件
    */
   del: function (e) {
-    this.data.items.splice(e.currentTarget.dataset.index, 1)
-    this.setData({
-      items: this.data.items
-    })
+    if (this.type == 3 || this.type == 4) return
+    let order = e.currentTarget.dataset.item
+    let index = e.currentTarget.dataset.index
+    this._delOrder(order.id, index)
   },
 
   /**
@@ -65,6 +80,7 @@ Page({
    * 滑动Item 
    */
   touchmove: function (e) {
+    if (this.data.type == 3 || this.data.type == 4) return
     var that = this,
       index = e.currentTarget.dataset.index,//当前索引
       startX = that.data.startX,//开始X坐标
@@ -151,7 +167,8 @@ Page({
     if (this._isLock() || !this.data.hasMore) return;
     this._addLock();
     wx.showLoading();
-    activityModel.getLiveOrders({
+    orderModel.getLiveOrders({
+      status: this.data.type - 1,
       page: this.data.page,
       size: this.data.size,
     }).then(
@@ -170,5 +187,66 @@ Page({
         wx.hideLoading();
       }
     );
+  },
+
+  /**
+   * 取消订单
+   */
+  _cancelOrder: function (id) {
+    orderModel.cancelOrder({ id: id }).then(res => {
+      wx.showToast({
+        title: '取消成功',
+        icon: 'none'
+      })
+
+      //刷新页面
+      this._getOrders()
+
+    }).catch(exp => {
+      wx.showToast({
+        title: '取消失败',
+        icon: 'none'
+      })
+    })
+  },
+
+  /**
+   * 删除订单
+   */
+  _delOrder: function (id, index) {
+    orderModel.delOrder({ id: id }).then(res => {
+      wx.showToast({
+        title: '删除成功',
+        icon: 'none'
+      })
+
+      //更新界面
+      this.data.items.splice(index, 1)
+      this.setData({
+        items: this.data.items
+      })
+    }).catch(exp => {
+      wx.showToast({
+        title: '删除失败',
+        icon: 'none'
+      })
+    })
+  },
+
+  /**
+   * 质检订单
+   */
+  _qualityOrder: function (id, index) {
+    orderModel.qualityOrder({ id: id }).then(res => {
+      wx.showToast({
+        title: '已提交质检',
+        icon: 'none'
+      })
+    }).catch(exp => {
+      wx.showToast({
+        title: '提交质检失败',
+        icon: 'none'
+      })
+    })
   },
 })

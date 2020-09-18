@@ -15,6 +15,8 @@ module.exports = {
   //根据手机号登录
   AuthPhoneLoginByWeixin: WxApiRoot + 'auth/phone_login_by_weixin',
 
+  //首页Banner
+  Banner: BaseApi + '/wxindex/banner',
   //首页宣传
   index: BaseApi + '/wx/index/static',
 
@@ -39,8 +41,18 @@ module.exports = {
   activityRob: BaseApi + '/api/activity/receivingOrder',
   //活动收藏
   activityLike: BaseApi + '/api/activity/likeActivity',
+
   //已抢订单
   liveOrders: BaseApi + '/api/activity/getLiveOrders',
+  //取消订单
+  cancelOrder: BaseApi + '/api/activity/cancelOrder',
+  //删除订单
+  delOrder: BaseApi + '/api/activity/delOrder',
+  //质检订单
+  qualityOrder: BaseApi + '/api/activity/qualityAssessment',
+
+  //用户信息接口
+  UserInfo: BaseApi + '/wx/user/index',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',
@@ -48,8 +60,7 @@ module.exports = {
 
   //图片根地址
   BaseImgApi: BaseApi,
-  //首页Banner
-  Banner: WxApiRoot + 'index/banner',
+
   //行业分类
   LocationCategory: WxApiRoot + 'index/allCategory',
   //周边用户数
@@ -64,8 +75,6 @@ module.exports = {
   DoAdvertising: WxApiRoot + 'advertising/doAdvertising',
   //充值记录接口
   PayRecord: WxApiRoot + 'pay/payRecord',
-  //用户信息接口
-  UserInfo: WxApiRoot + 'user/index',
   //订单列表
   Order: WxApiRoot + 'advertising/getAdvertisings',
   //企业认证
@@ -82,8 +91,6 @@ module.exports = {
   PreviewImage: WxApiRoot + 'advertising/getTemplateImgUrl',
   //投放价格表
   AllPrices: WxApiRoot + 'advertising/getAllPrices',
-  //删除订单
-  delOrder: WxApiRoot + '/advertising/delAdvertising',
 
 
   //用户余额接口

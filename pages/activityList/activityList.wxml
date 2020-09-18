@@ -4,7 +4,7 @@
 <view class="container">
 	<text class="header">{{util.getTitle(type)}}列表</text>
 	<view class="list">
-		<view class="item touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{items}}" wx:key="index" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" catchtap="onExecue">
+		<view class="item touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{items}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" bindtouchstart="touchstart" bindtouchmove="touchmove" catchtap="onExecue">
 			<view class="content">
 				<image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
 				<view class="sub_container">
@@ -13,11 +13,14 @@
 						<text class="time">活动时间：{{date.parse(item.startTime)}}-{{date.parse(item.endTime)}}</text>
 					</view>
 					<view class="btn_container center">
-						<text class="button" catchtap="onExecue">{{util.getAction(type)}}</text>
+						<!-- 待执行或待质检时，显示取消按钮 -->
+						<text class="cancel" wx:if="{{type==1||type==2}}" catchtap="onCancel" data-item="{{item}}">取消</text>
+						<text class="button" wx:if="{{type==1||type==2}}" catchtap="onExecue" data-item="{{item}}">{{util.getAction(type)}}</text>
 					</view>
 				</view>
 			</view>
-			<view class="del" catchtap="del" data-index="{{index}}">删除</view>
+			<!-- 已质检和已完成，不能删除 -->
+			<view class="del" wx:if="{{!(type==3||type==4)}}" catchtap="del" data-index="{{index}}" data-item="{{item}}">删除</view>
 		</view>
 	</view>
 </view>
