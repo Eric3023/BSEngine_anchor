@@ -62,6 +62,7 @@ page{
 
 .item .account{
   margin-top: 30rpx;
+  margin-right: 40rpx;
   font-size: 50rpx;
   color: #f0fbff;
 }

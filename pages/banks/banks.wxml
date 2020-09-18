@@ -1,15 +1,16 @@
+<wxs src="../../utils/format.wxs" module="format" />
 <scroll-view class="scroll" scroll-x="false" scroll-y="true">
 	<view class="container">
 		<view class="list">
-			<view class="item" wx:for="{{10}}" catchtap="onClickItem" data-index="{{index}}">
+			<view class="item" wx:for="{{list}}" wx:key="index" catchtap="onClickItem" data-item="{{item}}"  data-index="{{index}}">
 				<view class="info">
 					<image class="icon" src="/img/plateform/acfun.png"></image>
 					<view class="content">
-						<text class="name">建设银行</text>
-						<text class="type">储蓄卡</text>
+						<text class="name">{{item.bankName}}</text>
+						<!-- <text class="type">储蓄卡</text> -->
 					</view>
 				</view>
-				<view class="account">**** **** **** 9707</view>
+				<view class="account">**** **** **** {{format.substring(item.bankCardNo, 4)}}</view>
 				<image class="background" src="/img/plateform/acfun.png" mode="aspectFill"></image>
 			</view>
 		</view>

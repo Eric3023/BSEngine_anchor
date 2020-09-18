@@ -1,24 +1,32 @@
-<scroll-view class="scroll" scroll-x="false" scroll-y="true">
-	<view class="container">
-		<view class="header">
-			<text class="header1">添加银行卡</text>
-			<text class="header2">请绑定持卡人本人的银行卡</text>
-		</view>
-		<view class="body">
-			<view class="line"></view>
-			<view class="holder">
-				<text class="title">持卡人</text>
-				<input placeholder="请输入姓名"></input>
-				<!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
+<form bindsubmit="onSubmit">
+	<scroll-view class="scroll" scroll-x="false" scroll-y="true">
+		<view class="container">
+			<view class="header">
+				<text class="header1">添加银行卡</text>
+				<text class="header2">请绑定持卡人本人的银行卡</text>
 			</view>
-			<view class="line"></view>
-			<view class="holder">
-				<text class="title">卡号</text>
-				<input placeholder="请输入卡号" type="number"></input>
-				<!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
+			<view class="body">
+				<view class="line"></view>
+				<view class="holder">
+					<text class="title">持卡人</text>
+					<input name="cardholder" placeholder="请输入姓名" model:value="{{cardholder}}"></input>
+					<!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
+				</view>
+				<view class="line"></view>
+				<view class="holder">
+					<text class="title">卡号</text>
+					<input name="bankCardNo" placeholder="请输入卡号" type="number" model:value="{{bankCardNo}}" bindinput="onNoChanged"></input>
+					<!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
+				</view>
+				<view class="line"></view>
+				<view class="holder">
+					<text class="title">开户银行</text>
+					<input name="bankName" placeholder="请输入开户银行" type="text" model:value="{{bankName}}"></input>
+					<!-- <image class="icon" src="/img/icon/icon_add.jpg"></image> -->
+				</view>
+				<view class="line"></view>
 			</view>
-			<view class="line"></view>
+			<button class="next" hover-class="none" form-type="submit">绑定</button>
 		</view>
-		<button class="next" hover-class="none">下一步</button>
-	</view>
-</scroll-view>
+	</scroll-view>
+</form>

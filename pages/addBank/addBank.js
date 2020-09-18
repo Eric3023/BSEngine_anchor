@@ -1,11 +1,14 @@
-// pages/addBank/addBank.js
+const bankModel = require('../../models/bank.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    cardholder: '',
+    bankName: '',
+    bankCardNo: '',
   },
 
   /**
@@ -16,51 +19,43 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 提交表单
    */
-  onReady: function () {
-
+  onSubmit: function (event) {
+    this._bindBankCard()
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 卡号自动添加空格
    */
-  onShow: function () {
-
+  onNoChanged: function (e) {
+    var no = e.detail.value
+    var bankCardNo = no.replace(/(\d{4})(?=\d)/g, "$1 ")
+    this.setData({
+      bankCardNo: bankCardNo
+    })
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 绑定银行卡
    */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  _bindBankCard() {
+    let no = this.data.bankCardNo.replace(/\s|\xA0/g, "")
+    bankModel.addBank({
+      cardholder: this.data.cardholder,
+      bankName: this.data.bankName,
+      bankCardNo: no,
+    }).then(res => {
+      wx.showToast({
+        title: '银行卡绑定成功',
+        icon: 'none',
+      })
+      setTimeout(_ => wx.navigateBack(1), 1000)
+    }).catch(exp => {
+      wx.showToast({
+        title: '银行卡绑定失败，请检查相关信息',
+        icon: 'none',
+      })
+    })
   }
 })

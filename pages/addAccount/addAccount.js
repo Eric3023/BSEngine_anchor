@@ -181,7 +181,7 @@ Page({
         title: '账号添加成功',
         icon: 'none',
       })
-      setTimeout(wx.navigateBack(1), 1000)
+      setTimeout(_ => wx.navigateBack(1), 1000)
     }).catch(exp => {
       let msg = exp.errmsg;
       wx.showToast({

@@ -5,7 +5,15 @@ var numberFormat = function (number, count) {
     return "";
 }
 
+var substring = function (str, number) {
+  if (number < str.length) {
+    str = str.substring(str.length - number)
+  }
+  return str
+}
+
 module.exports = {
   numberFormat: numberFormat,
+  substring: substring,
 }
 

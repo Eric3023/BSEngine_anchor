@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 32rpx;
+  font-size: 30rpx;
 }
 
 .body .holder .icon{
@@ -50,12 +50,12 @@
 
 .body .holder input{
   margin-left: 40rpx;
-  width: 440rpx;
+  width: 420rpx;
   color: #484848;
 }
 
 .body .holder .title{
-  width: 100rpx;
+  width: 120rpx;
 }
 
 .next{

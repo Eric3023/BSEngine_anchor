@@ -150,7 +150,7 @@ Page({
         icon: 'none'
       })
 
-      setTimeout(wx.navigateBack(1), 1000)
+      setTimeout(_ => wx.navigateBack(1), 1000)
     }).catch(exp => {
       wx.showToast({
         title: '提交失败',

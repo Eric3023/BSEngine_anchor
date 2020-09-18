@@ -57,6 +57,12 @@ module.exports = {
   UserInfo: BaseApi + '/wx/user/index',
   //意见反馈
   feedback: BaseApi + '/wx/feedback/add',
+  //绑定银行卡
+  addBank: BaseApi + '/wx/bank/add',
+  //查询银行卡
+  listBank: BaseApi + '/wx/bank/list',
+  //解绑银行卡
+  delBank: BaseApi + '/wx/bank/del',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',

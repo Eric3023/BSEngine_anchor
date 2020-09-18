@@ -77,13 +77,6 @@ Page({
           url: '/pages/setting/setting',
         })
         break;
-      default:
-        let title = '进入【' + event.detail.title + '】页面';
-        wx.showToast({
-          title: title,
-          icon: 'none'
-        })
-        break
     }
   },
 
