@@ -1,3 +1,5 @@
+const feedbackModel = require('../../models/feedback.js')
+
 Page({
 
   /**
@@ -12,10 +14,25 @@ Page({
    */
   bindsubmit: function (event) {
     let content = event.detail.value.content
-    console.log(content);
 
+    feedbackModel.feedback({
+      content: content
+    }).then(res => {
+      wx.showToast({
+        title: '反馈已提交',
+        icon: 'none',
+      })
+    }).catch(exp => {
+      wx.showToast({
+        title: '反馈提交失败，请重试',
+        icon: 'none',
+      })
+    })
   },
 
+  /**
+   * 联系客服
+   */
   handleContact: function (event) {
     console.log(event)
   }

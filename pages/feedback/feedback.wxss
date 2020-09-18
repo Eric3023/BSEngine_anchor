@@ -13,6 +13,7 @@ page{
   width: 710rpx;
   height: 270rpx;
   border: 1rpx solid #fdbb00;
+  padding: 10rpx 8rpx;
 }
 
 .container .contact {

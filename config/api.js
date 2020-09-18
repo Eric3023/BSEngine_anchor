@@ -55,6 +55,8 @@ module.exports = {
 
   //用户信息接口
   UserInfo: BaseApi + '/wx/user/index',
+  //意见反馈
+  feedback: BaseApi + '/wx/feedback/add',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',
