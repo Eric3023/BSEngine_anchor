@@ -29,6 +29,7 @@ page {
   margin-top: 24rpx;
   border: 2rpx solid #ffbb00;
   padding: 0 18rpx;
+  box-sizing: border-box;
   font-size: 30rpx;
 }
 
@@ -37,10 +38,23 @@ button{
   height: 90rpx;
   background-color: #ffbb00;
   margin-top: 50rpx;
+  margin-bottom: 50rpx;
   border-radius: 50rpx;
   font-size: 40rpx;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.guide{
+  width: 650rpx;
+  height: 72rpx;
+  background-color: #c0c0c0;
+  margin-top: 24rpx;
+  box-shadow: 0 0 4rpx #efefef;
+  border-radius: 10rpx;
+  line-height: 32rpx;
+  font-size: 32rpx;
+  color: white;
 }

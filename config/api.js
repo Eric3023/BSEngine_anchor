@@ -48,6 +48,8 @@ module.exports = {
   cancelOrder: BaseApi + '/api/activity/cancelOrder',
   //删除订单
   delOrder: BaseApi + '/api/activity/delOrder',
+  //执行订单
+  exeOrder: BaseApi + '/api/activity/implementOrder',
   //质检订单
   qualityOrder: BaseApi + '/api/activity/qualityAssessment',
 

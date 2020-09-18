@@ -46,6 +46,13 @@ button::after {
   z-index: -1;
 }
 
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 根布局 */
 .container {
   height: fit-content;

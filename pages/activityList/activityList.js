@@ -41,12 +41,14 @@ Page({
     let order = e.currentTarget.dataset.item
     switch (this.data.type) {
       case 1:
+        this._exeOrder(order.id)
+        break
+      case 2:
+        this._qualityOrder(order.id)
         wx.navigateTo({
           url: `/pages/liveData/liveData?id=${order.id}`,
         })
         break
-      case 2:
-        this._qualityOrder(order.id)
     }
   },
 
@@ -234,17 +236,20 @@ Page({
   },
 
   /**
-   * 质检订单
+   * 执行订单
    */
-  _qualityOrder: function (id, index) {
-    orderModel.qualityOrder({ id: id }).then(res => {
+  _exeOrder: function (id, index) {
+    orderModel.exeOrder({ id: id }).then(res => {
       wx.showToast({
-        title: '已提交质检',
+        title: '已提交执行',
         icon: 'none'
       })
+
+      //刷新页面
+      this._getOrders()
     }).catch(exp => {
       wx.showToast({
-        title: '提交质检失败',
+        title: '执行质检失败',
         icon: 'none'
       })
     })

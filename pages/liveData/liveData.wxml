@@ -2,17 +2,20 @@
 	<!-- 直播数据截图 -->
 	<view class="layout">
 		<text>直播数据截图</text>
-		<image class="screenshot" src="/img/background/data.jpg"/>
+		<block class="item" wx:for="{{imgs}}" wx:key="index">
+			<image class="screenshot" src="{{item}}" catchtap="onPreview" catchlongtap="onDelete" data-src="{{item}}" data-index="{{index}}"></image>
+		</block>
+		<text class="guide center" catchtap="onUpdate">上传数据截图</text>
 	</view>
 	<!-- 云盘 -->
 	<view class="layout">
 		<text>录屏云盘</text>
-		<input class="code" placeholder="请输入录屏云盘"></input>
+		<input class="code" placeholder="请输入录屏云盘地址" model:value="{{pan}}"></input>
 	</view>
-		<view class="layout">
+	<view class="layout">
 		<text>云盘提取码</text>
-		<input class="code" placeholder="请输入云盘提取码"></input>
+		<input class="code" placeholder="请输入云盘提取码" model:value="{{code}}"></input>
 	</view>
 	<!-- 提交 -->
-	<button hover-class="none">提交</button>
+	<button hover-class="none" catchtap="onSubmit">提交</button>
 </view>

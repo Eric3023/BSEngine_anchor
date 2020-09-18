@@ -7,6 +7,7 @@ Component({
     uicon: {
       type: String
     },
+    uname: String,
     uid: {
       type: String
     },
@@ -26,12 +27,12 @@ Component({
    */
   methods: {
 
-    getUserInfo:function(event){
-      this.triggerEvent("getWxUserInfo", { event: event.detail.value});
+    getUserInfo: function (event) {
+      this.triggerEvent("getWxUserInfo", { event: event.detail.value });
     },
 
-    getWxUserInfo:function(event){
-      this.triggerEvent("getWxUserInfo", { event: event.detail});
+    getWxUserInfo: function (event) {
+      this.triggerEvent("getWxUserInfo", { event: event.detail });
     }
   }
 })

@@ -1,5 +1,5 @@
-const throwModel = require('../../models/order.js');
-const dateUtil = require('../../utils/date.js');
+const imageModel = require('../../models/file.js');
+const orderModel = require('../../models/order.js');
 
 Page({
 
@@ -7,90 +7,155 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: {},
+    //订单id
+    id: -1,
+    //上传截图
+    imgs: [],
+    //云盘地址
+    pan: '',
+    //云盘提取码
+    code: '',
 
-    startTime: '',
-    endTime: '',
-    totalDays: 0,//总共需要投放天数
-    days: 0,//已投放天数
-    remainDays: 0,//剩余天数
+    touchStartTime: 0,
+    touchEndTime: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = options.id;
-    console.log(`id:${id}`);
-    this._getThrowDetail(id);
+    this.data.id = options.id;
   },
 
+  /**
+   * 按钮触摸开始触发的事件
+   */
+  onTouchStart: function (e) {
+    this.data.touchStartTime = e.timeStamp;
+  },
 
   /**
-   * 获取投放详情
+   * 按钮触摸结束触发的事件
    */
-  _getThrowDetail(id) {
-    throwModel.getThrowDetail(id)
-      .then(res => {
-        console.log(res);
-        res.data.ad.totalAmount = res.data.ad.totalAmount.toFixed(2) + '元';
-        res.data.ad.unitPrice = res.data.ad.unitPrice.toFixed(2) + '元' + (res.data.charing == 1 ? '/CPD' : '/CPM');
-        this.setData({
-          detail: res.data,
-        });
+  onTouchEnd: function (e) {
+    this.data.touchEndTime = e.timeStamp;
+  },
 
-        let start = res.data.ad.startTime;
-        let end = res.data.ad.endTime;
-        this._calDays(start, end);
-        this._getMonitors(res.data.ad.monitor);
-      }).catch(error => {
-        console.log(error);
+  /**
+   * 提交数据
+   */
+  onSubmit: function (e) {
+    this, this._qualityOrder();
+  },
+
+  /**
+   * 上传数据截图
+   */
+  onUpdate: function (event) {
+    this._chooseImage()
+      .then(res => {
+        return this._updateImage(res);
+      })
+      .then(res => {
+        console.log(res)
+        this.data.imgs.push(res.data.url)
+        this.setData({
+          imgs: this.data.imgs
+        });
+        console.log(this.data.imgs);
+      }, error => {
+        console.log(`上传失败：${error}`);
       });
   },
 
   /**
-   * 计算投放天数
+   * 预览数据截图
    */
-  _calDays(start, end) {
-    let endDate = new Date(end);
-    let startDate = new Date(start);
-    let nowDate = new Date();
-    let endTime = dateUtil.tsFormatTime(endDate, 'yyyy.MM.dd');
-    let startTime = dateUtil.tsFormatTime(startDate, 'yyyy.MM.dd')
+  onPreview: function (event) {
+    if (this.data.touchEndTime - this.data.touchStartTime > 350) return;
+    let url = event.currentTarget.dataset.src
+    wx.previewImage({
+      urls: [url],
+    })
+  },
 
-    let days = 0;
-    if (endDate - nowDate > 0) {
-      days = Math.ceil((nowDate - startDate) / (1000 * 60 * 60 * 24));
-    } else {
-      days = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+  /**
+   * 删除数据截图
+   */
+  onDelete: function (event) {
+    let index = event.currentTarget.dataset.index
+    wx.showModal({
+      content: '确认删除图片？',
+      success: res => {
+        this.data.imgs.splice(index, 1)
+        this.setData({
+          imgs: this.data.imgs
+        })
+      }
+    })
+  },
+
+  /**
+   * 选择照片
+   */
+  _chooseImage: function () {
+    return new Promise((resolve, reject) => {
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['origin'],
+        sourceType: ['album', 'camera'],
+        success: (res) => {
+          let path = res.tempFiles[0].path;
+          resolve(path)
+        },
+        fail: e => {
+          reject(e);
+        }
+      })
+    });
+  },
+
+  /**
+   * 上传照片
+   */
+  _updateImage(path) {
+    return imageModel.uploadImage({
+      path: path,
+      progress: res => {
+        console.log('上传进度', res.progress);
+      }
+    });
+  },
+
+  /**
+   * 提交质检
+   */
+  _qualityOrder() {
+
+    let screenshot = ''
+    for (var i = 0; i < this.data.imgs.length; i++) {
+      screenshot += this.data.imgs[i]
+      if (i != this.data.imgs.length - 1)
+        screenshot += ','
     }
-    let totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
 
-    this.setData({
-      startTime: startTime,
-      endTime: endTime,
-      days: days,
-      remainDays: totalDays - days,
-      totalDays: totalDays,
-    });
-  },
+    orderModel.qualityOrder({
+      id: this.data.id,
+      url: this.data.pan,
+      code: this.data.code,
+      imgs: screenshot
+    }).then(res => {
+      wx.showToast({
+        title: '提交成功',
+        icon: 'none'
+      })
 
-  /**
-   * 获取监测链接
-   */
-  _getMonitors: function (monitor) {
-    let monitors = monitor.split('|');
-    this.setData({
-      monitors: monitors,
-    });
-  },
-
-  /**
-   * 查看详情
-   */
-  onClickDetail() {
-    // wx.navigateTo({
-    //   url: '/pages/throw_detail2/throw_detail2',
-    // })
-  },
+      setTimeout(wx.navigateBack(1), 1000)
+    }).catch(exp => {
+      wx.showToast({
+        title: '提交失败',
+        icon: 'none'
+      })
+    })
+  }
 })

@@ -24,15 +24,30 @@ function delOrder({ id }) {
 }
 
 /**
+ * 执行订单
+ */
+function exeOrder({ id, url, code, imgs }) {
+  return check.checkResult(util.request(config.exeOrder, {
+    "orderId": id,
+  }, 'POST'));
+}
+
+/**
  * 质检订单
  */
-function qualityOrder({ id }) {
-  return check.checkResult(util.request(config.qualityOrder, { orderId: id }, 'POST'));
+function qualityOrder({ id, url, code, imgs }) {
+  return check.checkResult(util.request(config.qualityOrder, {
+    "cloudUrl": url,
+    "extractionCode": code,
+    "orderId": id,
+    "screenshot": imgs
+  }, 'POST'));
 }
 
 module.exports = {
   getLiveOrders: getLiveOrders,
   cancelOrder: cancelOrder,
   delOrder: delOrder,
+  exeOrder: exeOrder,
   qualityOrder: qualityOrder,
 };
