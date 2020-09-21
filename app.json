@@ -27,7 +27,8 @@
     "pages/tasks/tasks",
     "pages/profit/profit",
     "pages/collection/collection",
-    "pages/activities/index"
+    "pages/activities/index",
+    "pages/register/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

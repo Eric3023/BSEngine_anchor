@@ -88,7 +88,7 @@ Page({
 
     });
   },
-  accountLogin: function () {
+  accountLogin: function () {    
     var that = this;
     if(!that.data.disabled) {
       wx.navigateTo({

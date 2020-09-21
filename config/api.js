@@ -64,6 +64,15 @@ module.exports = {
   //解绑银行卡
   delBank: BaseApi + '/wx/bank/del',
 
+  //手机验证码
+  regCaptcha: BaseApi + '/wx/auth/regCaptcha',
+  //手机号注册
+  register: BaseApi + '/wx/auth/register',
+  //手机号登录
+  login: BaseApi + '/wx/auth/login',
+  //手机号登录
+  changePassword: BaseApi + '/wx/auth/reset',
+
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',
 

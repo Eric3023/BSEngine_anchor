@@ -94,7 +94,7 @@ input {
   font-size: 28rpx;
 }
 
-.login {
+.btn {
   width: 584rpx;
   height: 90rpx;
   color: white;
@@ -102,16 +102,5 @@ input {
   font-size: 36rpx;
   line-height: 36rpx;
   margin-top: 168rpx;
-  border-radius: 50rpx;
-}
-
-.register {
-  width: 584rpx;
-  height: 90rpx;
-  color: white;
-  background-color: #bbbbbb;
-  font-size: 36rpx;
-  line-height: 36rpx;
-  margin-top: 36rpx;
   border-radius: 50rpx;
 }
