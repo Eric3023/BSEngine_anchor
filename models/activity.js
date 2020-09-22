@@ -30,11 +30,28 @@ function robActivity({ id }) {
  * 收藏活动
  */
 function likeActivity({ id }) {
+  return check.checkResult(util.request(config.activityLike, { aid: id }, 'POST'));
+}
 
+/**
+ * 取消活动收藏
+ */
+function cancelLikeActivity({ id }) {
+  return check.checkResult(util.request(config.activityDelLike, { aid: id }, 'POST'));
+}
+
+/**
+ * 活动收藏列表
+ */
+function getActivityLikeList({ page, size }) {
+  return check.checkResult(util.request(config.activityLikeList, { page: page, size: size }));
 }
 
 module.exports = {
   getActivityList: getActivityList,
   getActivityDetail: getActivityDetail,
   robActivity: robActivity,
+  likeActivity: likeActivity,
+  cancelLikeActivity: cancelLikeActivity,
+  getActivityLikeList: getActivityLikeList,
 }

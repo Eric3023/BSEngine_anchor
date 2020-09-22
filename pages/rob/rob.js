@@ -48,6 +48,60 @@ Page({
   },
 
   /**
+   * 点击了收藏
+   */
+  onCollection: function (event) {
+    //已收藏
+    if (this.data.data.isLiving == 1) {
+      activityModel.cancelLikeActivity({ id: this.data.data.id }).then(res => {
+        wx.showToast({
+          title: '取消收藏成功',
+          icon: 'none',
+        })
+
+        this.data.data.isLiving = 0
+        this.setData({
+          data: this.data.data
+        })
+      }).catch(exp => {
+        wx.showToast({
+          title: '取消收藏失败',
+          icon: 'none',
+        })
+
+        this.data.data.isLiving = 1
+        this.setData({
+          data: this.data.data
+        })
+      })
+    }
+    //未收藏
+    else if (this.data.data.isLiving == 0) {
+      activityModel.likeActivity({ id: this.data.data.id }).then(res => {
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'none',
+        })
+
+        this.data.data.isLiving = 1
+        this.setData({
+          data: this.data.data
+        })
+      }).catch(exp => {
+        wx.showToast({
+          title: '收藏失败',
+          icon: 'none',
+        })
+
+        this.data.data.isLiving = 0
+        this.setData({
+          data: this.data.data
+        })
+      })
+    }
+  },
+
+  /**
    * 获取数据
    */
   _getData: function () {

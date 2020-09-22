@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "activity": "/components/activity/index",
+    "empty": "/components/empty/index"
+  },
+  "navigationBarTitleText": "我的喜欢"
 }

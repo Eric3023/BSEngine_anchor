@@ -41,6 +41,10 @@ module.exports = {
   activityRob: BaseApi + '/api/activity/receivingOrder',
   //活动收藏
   activityLike: BaseApi + '/api/activity/likeActivity',
+  //活动取消收藏
+  activityDelLike: BaseApi + '/api/activity/delLikeActivity',
+  //活动收藏列表
+  activityLikeList: BaseApi + '/api/activity/getLikeActivity',
 
   //已抢订单
   liveOrders: BaseApi + '/api/activity/getLiveOrders',
@@ -76,41 +80,17 @@ module.exports = {
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',
 
-
   //图片根地址
   BaseImgApi: BaseApi,
 
-  //行业分类
-  LocationCategory: WxApiRoot + 'index/allCategory',
-  //周边用户数
-  AroundUsers: WxApiRoot + 'index/userNums',
-  //获取投放广告位
-  AdPlaces: WxApiRoot + 'advertising/getAdPlaces',
-  //车型列表
-  CarTypes: WxApiRoot + 'advertising/getCarTypes',
-  //投放模板
-  Templates: WxApiRoot + 'advertising/getTemplates',
-  //投放
-  DoAdvertising: WxApiRoot + 'advertising/doAdvertising',
   //充值记录接口
   PayRecord: WxApiRoot + 'pay/payRecord',
-  //订单列表
-  Order: WxApiRoot + 'advertising/getAdvertisings',
-  //企业认证
-  Author: WxApiRoot + 'ocr/auth',
   //优惠券列表
   Coupons: WxApiRoot + 'coupon/mylist',
   //代开发票列表
   NoUserInvoice: WxApiRoot + 'pay/noUseInvoice',
   //开具发票
   OpenInvoice: WxApiRoot + 'pay/openInvoice',
-  //投放详情
-  ThrowDetail: WxApiRoot + 'advertising/getAdvertisingInfo',
-  //获取模板预览图片
-  PreviewImage: WxApiRoot + 'advertising/getTemplateImgUrl',
-  //投放价格表
-  AllPrices: WxApiRoot + 'advertising/getAllPrices',
-
 
   //用户余额接口
   UserBalance: WxApiRoot + 'recharge/userBalance',

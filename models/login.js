@@ -27,9 +27,10 @@ function regCaptcha(mobile) {
 /**
  * 用户注册
  */
-function register({ username, password, mobile, code, wxCode }) {
+function register({ type = 0, username, password, mobile, code, wxCode }) {
   return check.checkResult(util.request(config.register,
     {
+      type: type,
       password: password,
       mobile: mobile,
       code: code,
@@ -41,9 +42,10 @@ function register({ username, password, mobile, code, wxCode }) {
 /**
  * 手机号登录
  */
-function login({ username, password }) {
+function login({ type = 0, username, password }) {
   return check.checkResult(util.request(config.login,
     {
+      type: type,
       username: username,
       password: password,
     },

@@ -1,5 +1,9 @@
 <wxs src="../../utils/date.wxs" module="date" />
 <view class="container">
+	<view class="like_container" catchtap="onCollection">
+		<text>收藏</text>
+		<image src="{{data.isLiving==1? '/img/icon/icon_like_selected.png':'/img/icon/icon_like_normal.png'}}"></image>
+	</view>
 	<view class="txt">
 		<!-- 需求名称 -->
 		<view class="title">
