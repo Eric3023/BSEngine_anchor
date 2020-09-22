@@ -24,6 +24,10 @@ Page({
     this._getOrders();
   },
 
+  onReachBottom: function(){
+    this._getOrders()
+  },
+
   /**
    * 取消
    */

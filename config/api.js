@@ -16,7 +16,7 @@ module.exports = {
   AuthPhoneLoginByWeixin: WxApiRoot + 'auth/phone_login_by_weixin',
 
   //首页Banner
-  Banner: BaseApi + '/wxindex/banner',
+  Banner: BaseApi + '/wx/index/banner',
   //首页宣传
   index: BaseApi + '/wx/index/static',
 

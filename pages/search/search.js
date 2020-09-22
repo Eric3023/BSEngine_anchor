@@ -158,15 +158,6 @@ Page({
   },
 
   /**
-   * 不修改检索关键词，加载更多结果
-   */
-  _searchMoreList(value) {
-    //加载更多，页码递增
-    this.data.page++;
-    this.getSearchResult(value);
-  },
-
-  /**
    * 重置数据
    */
   _reset(value) {
@@ -224,7 +215,7 @@ Page({
     this._addLock();
     wx.showLoading();
     activityModel.getActivityList({
-      // name: this.data.keyword,
+      name: this.data.keyword,
       page: this.data.page,
       size: this.data.size,
     }).then(

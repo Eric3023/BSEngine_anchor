@@ -5,8 +5,8 @@ const check = require('./check.js');
 /**
  * 获取账号列表
  */
-function getMediaList({ page, size = 10 }) {
-  return check.checkResult(util.request(config.mediaList, { page: page, size: size }));
+function getMediaList({ isLive = 0, page, size = 10 }) {
+  return check.checkResult(util.request(config.mediaList, { isLive: isLive, page: page, size: size }));
 }
 
 /**

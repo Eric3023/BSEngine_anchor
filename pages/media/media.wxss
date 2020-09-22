@@ -56,7 +56,7 @@
 
 .item .info {
   margin-left: 24rpx;
-  width: 450rpx;
+  width: 420rpx;
   font-size: 32rpx;
   color: black;
 }

@@ -17,6 +17,6 @@
 				</block>
 			</view>
 		</view>
-		<empty show="{{false}}" message="搜索结果为空~~~" />
+		<empty show="{{!(list&&list.length!=0)&&!lock}}" message="搜索结果为空~~~" />
 	</view>
 </scroll-view>

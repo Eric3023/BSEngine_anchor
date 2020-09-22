@@ -45,7 +45,7 @@ Page({
         break;
       case '已经播报':
         wx.navigateTo({
-          url: '/pages/tasks/tasks',
+          url: '/pages/tasks/tasks?type=2,3',
         })
         break;
     }

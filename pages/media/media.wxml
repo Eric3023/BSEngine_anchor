@@ -17,12 +17,12 @@
 					</view>
 					<view class="state">
 						<image class="stateIcon center" src="/img/icon/icon_media.png"></image>
-						<text>审核中</text>
+						<text>{{item.status==0? '审核中': item.status==1? '审核成功':'审核失败'}}</text>
 					</view>
 				</view>
 			</block>
 		</view>
 		<image class="add" src="/img/icon/icon_add.jpg" catchtap="addAccount" />
-		<empty show="{{!(list&&list.length!=0)&&!lock}}" message="暂时没有媒体账号，请添加~~~"/>
+		<empty show="{{!(list&&list.length!=0)&&!lock}}" message="暂时没有媒体账号，请添加~~~" />
 	</view>
 </scroll-view>

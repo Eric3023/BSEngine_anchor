@@ -1,19 +1,25 @@
+<wxs src="../../utils/date.wxs" module="date" />
+<wxs src="util.wxs" module="util" />
+
 <scroll-view class="scroll" scroll-x="false" scroll-y="true">
 	<view class="container">
-		<view class="body">
-			<block wx:for="{{10}}" wx:key="index">
-				<view class="item">
-					<image class="photo" src="/img/banner/banner1.jpg" />
-					<view class="info">
-						<view class="name">半岛咖啡</view>
-						<view class="name">时间：20200819-10100822</view>
-						<view class="num">口播两次（每次200元）</view>
-					</view>
-					<view class="state">
-						<text class="{{index<2?'completing':'completed'}}">{{index<2?'待完成':'已完成'}}</text>
+		<view class="list">
+			<view class="item" wx:for="{{list}}" wx:key="index">
+				<view class="content">
+					<image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
+					<view class="sub_container">
+						<view class="title_container">
+							<text class="title">{{item.name}}</text>
+							<text class="time">活动时间：{{date.parse(item.startTime)}}-{{date.parse(item.endTime)}}</text>
+						</view>
+						<view class="btn_container center">
+							<!-- 待执行或待质检时，显示取消按钮 -->
+							<text class="cancel">{{util.getTitle(item.status)}}</text>
+						</view>
 					</view>
 				</view>
-			</block>
+			</view>
 		</view>
+		<empty show="{{!(list&&list.length!=0)&&!lock}}" message="未查询到订单~~~" />
 	</view>
 </scroll-view>

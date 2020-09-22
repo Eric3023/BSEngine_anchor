@@ -6,7 +6,10 @@ const check = require('../models/check.js');
  * 获取订单
  */
 function getLiveOrders({ status, page = 1, size = 10 }) {
-  return check.checkResult(util.request(config.liveOrders, { status: status, page: page, size: size }));
+  if (status != undefined)
+    return check.checkResult(util.request(config.liveOrders, { status: status, page: page, size: size }));
+  else
+    return check.checkResult(util.request(config.liveOrders, { page: page, size: size }));
 }
 
 /**

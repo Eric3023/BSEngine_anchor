@@ -7,7 +7,7 @@ Page({
    */
   data: {
     type: 0,
-    page: 0,
+    page: 1,
     list: [],
     hasMore: true,
     lock: false,
@@ -24,11 +24,10 @@ Page({
    * 更改类型
    */
   onChangeType: function (event) {
-    this.setData({
-      type: event.currentTarget.dataset.type
-    })
-    console.log(`type:${this.data.type}`);
+    let type = event.currentTarget.dataset.type
 
+    this._reset(type)
+    this._getMediaList(this.data.page)
   },
 
   /**
@@ -73,6 +72,7 @@ Page({
     wx.showLoading();
 
     mediaModel.getMediaList({
+      isLive: this.data.type,
       page: page
     }).then(res => {
       this.data.page++
@@ -80,9 +80,9 @@ Page({
       let hasNext = res.data.pageData.hasNext;
       this.setData({
         list: this.data.list,
-        hasMore:hasNext
+        hasMore: hasNext
       })
-      
+
       this._removeLock();
       wx.hideLoading();
     }).catch(exp => {
@@ -94,8 +94,9 @@ Page({
   /**
  * 重置数据
  */
-  _reset(status) {
+  _reset(type) {
     this.setData({
+      type: type,
       list: [],
       page: 1,
       lock: false,
