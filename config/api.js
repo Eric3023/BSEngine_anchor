@@ -76,6 +76,8 @@ module.exports = {
   login: BaseApi + '/wx/auth/login',
   //手机号登录
   changePassword: BaseApi + '/wx/auth/reset',
+  //分享验证码
+  shareUrl: BaseApi + '/wx/user/getSharedUrl',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',
