@@ -228,7 +228,9 @@ Page({
     for (var i = 0; i < list.length; i++) {
       var item = list[i]
       let resolution = item.resolution
-      var dimens = resolution.split("*")
+      var dimens = [320, 320]
+      if (resolution)
+        dimens = resolution.split("*")
       //放在右侧
       if (this.data.leftHeight > this.data.rightHeight) {
         this.data.rightData.push(item)

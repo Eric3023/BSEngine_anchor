@@ -23,6 +23,10 @@ Page({
    */
   onRob: function (event) {
     activityModel.robActivity({ id: this.data.id }).then(res => {
+      this.data.isReceiving == 1
+      this.setData({
+        data: this.data.data
+      })
       wx.showModal({
         content: '抢单成功！\n请在订单里查看执行',
         cancelText: '返回',

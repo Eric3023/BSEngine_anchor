@@ -31,6 +31,6 @@
 				</view>
 			</view>
 		</view>
-		<empty show="{{false}}" message="暂时没有活动~~~"/>
+		<empty show="{{!(list&&list.length!=0)&&!lock}}" message="暂时没有活动~~~"/>
 	</view>
 </scroll-view>

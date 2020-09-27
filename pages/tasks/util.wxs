@@ -1,28 +1,25 @@
 var getTitle = function (type) {
   switch (type) {
-    //待接单
-    case 0:
-      return '待接单'
     //待执行
-    case 1:
+    case 0:
       return '待执行'
     //待质检
-    case 2:
+    case 1:
       return '待质检'
     //已质检
-    case 3:
+    case 2:
       return '已质检'
     //已完成
-    case 4:
+    case 3:
       return '已完成'
     //已拒单
-    case 5:
+    case 4:
       return '已拒单'
     //已叫停
-    case 6:
+    case 5:
       return '已叫停'
     //已取消
-    case 7:
+    case 6:
       return '已取消'
     default:
       return '我的订单'
