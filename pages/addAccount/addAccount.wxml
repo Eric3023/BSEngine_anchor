@@ -60,7 +60,7 @@
 			<view class="sub_container">
 				<text class="header">账号参考报价（报价不含税）</text>
 				<block wx:for="{{prices}}" wx:key="index">
-					<text class="title">{{item.name}}</text>
+					<text class="title">{{item.name}}（单位:元）</text>
 					<view class="url">
 						<input data-index="{{index}}" bindblur="onPriceChanged" type="digit" bindinput="bindinput" maxlength="{{maxlength}}"></input>
 					</view>

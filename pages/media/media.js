@@ -18,7 +18,7 @@ Page({
    */
   onShow: function () {
     this._reset(this.data.type)
-    this._getMediaList(this.data.page)
+    this._getMediaList()
   },
 
   /**
@@ -28,7 +28,7 @@ Page({
     let type = event.currentTarget.dataset.type
 
     this._reset(type)
-    this._getMediaList(this.data.page)
+    this._getMediaList()
   },
 
   /**
@@ -67,14 +67,14 @@ Page({
   /**
    * 获取账号列表
    */
-  _getMediaList: function (page) {
+  _getMediaList: function () {
     if (this._isLock() || !this.data.hasMore) return;
     this._addLock();
     wx.showLoading();
 
     mediaModel.getMediaList({
       isLive: this.data.type,
-      page: page
+      page: this.data.page
     }).then(res => {
       this.data.page++
       this.data.list = this.data.list.concat(res.data.list)
