@@ -14,9 +14,10 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数
    */
-  onLoad: function (options) {
+  onShow: function () {
+    this._reset(this.data.type)
     this._getMediaList(this.data.page)
   },
 

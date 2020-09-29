@@ -13,7 +13,7 @@
 		<!-- 需求描述 -->
 		<view class="desc">
 			<text>需求描述：</text>
-			<text class="box desc_box"></text>
+			<text class="box desc_box">{{data.desc}}</text>
 		</view>
 		<!-- 推广时间 -->
 		<view class="time">

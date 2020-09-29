@@ -21,11 +21,11 @@
 				<view class="info">
 					<view class="title">账号名称</view>
 					<view class="url">
-						<input name="name" model:value="{{data.accountName}}" disabled="{{disabled}}"></input>
+						<input name="name" model:value="{{accountName}}" disabled="{{disabled}}"></input>
 					</view>
 					<view class="title">账号ID</view>
 					<view class="url">
-						<input name="id" model:value="{{data.accountId}}" disabled="{{disabled}}"></input>
+						<input name="id" model:value="{{accountId}}" disabled="{{disabled}}"></input>
 					</view>
 					<view class="title">主页链接</view>
 					<view class="url">
@@ -33,17 +33,17 @@
 					</view>
 					<view class="title">头像</view>
 					<view class="upload_container">
-						<text class="upload" wx:if="{{!data.headImg}}" catchtap="onUpdate">点击上传</text>
-						<image class="upload" wx:if="{{data.headImg}}" src="{{data.headImg}}" catchtap="{{disabled? '': 'onUpdate'}}"></image>
+						<text class="upload" wx:if="{{!headImg}}" catchtap="onUpdate">点击上传</text>
+						<image class="upload" wx:if="{{headImg}}" src="{{headImg}}" catchtap="{{disabled? '': 'onUpdate'}}"></image>
 						<text>请上传100M以内的头像</text>
 					</view>
 					<view class="title">账号简介</view>
 					<view class="area">
-						<textarea name="desc" maxlength="-1" model:value="{{data.accountDesc}}" disabled="{{disabled}}"></textarea>
+						<textarea name="desc" maxlength="-1" model:value="{{accountDesc}}" disabled="{{disabled}}"></textarea>
 					</view>
 					<text class="title">粉丝数</text>
 					<view class="url">
-						<input name="fans" model:value="{{data.fansNum}}" type="number" disabled="{{disabled}}"></input>
+						<input name="fans" model:value="{{fansNum}}" type="number" disabled="{{disabled}}"></input>
 					</view>
 					<text class="title">账号分类</text>
 					<view class="url">

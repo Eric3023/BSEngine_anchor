@@ -17,18 +17,18 @@ Page({
     },
     //主页链接
     url: '',
-    data: {
-      //账号简介
-      accountDesc: "",
-      //账号ID
-      accountId: "",
-      //账号名称
-      accountName: "",
-      //粉丝数量
-      fansNum: 0,
-      //用户头像
-      headImg: ""
-    },
+
+    //账号简介
+    accountDesc: "",
+    //账号ID
+    accountId: "",
+    //账号名称
+    accountName: "",
+    //粉丝数量
+    fansNum: 0,
+    //用户头像
+    headImg: "",
+
     //报价
     prices: [],
     //账号分类
@@ -60,13 +60,14 @@ Page({
    * 解析主页信息
    */
   onAnylise(event) {
-    this.setData({
-      url: 'https://v.douyin.com/JS55rtx/',
-    })
     mediaModel.getMsgForUrl(this.data.url).then(res => {
       this.data.isModify = false
       this.setData({
-        data: res.data,
+        accountName: res.data.accountName,
+        accountDesc: res.data.accountDesc,
+        headImg: res.data.headImg,
+        fansNum: res.data.fansNum,
+        accountId: res.data.accountId,
         disabled: true,
       })
     }).catch(e => {
@@ -86,9 +87,7 @@ Page({
 
         if (res) {
           this.setData({
-            data: {
-              headImg: res.data.url
-            },
+            headImg: res.data.url,
           });
         } else {
         }
@@ -168,11 +167,51 @@ Page({
    * 提交添加账号 
    */
   _addAcount() {
+    let mediaAccount = {}
+    //账号名称
+    if (this.data.accountName) {
+      mediaAccount.accountName = this.data.accountName
+    } else {
+      wx.showToast({
+        title: '账号名称不符合规范',
+        icon: 'none',
+      })
+      return
+    }
+    //账号ID
+    if (this.data.accountId) {
+      mediaAccount.accountId = this.data.accountId
+    } else {
+      wx.showToast({
+        title: '账号ID不符合规范',
+        icon: 'none',
+      })
+      return
+    }
+    //头像
+    if (this.data.headImg) {
+      mediaAccount.headImg = this.data.headImg
+    } else {
+      wx.showToast({
+        title: '账号头像不符合规范',
+        icon: 'none',
+      })
+      return
+    }
+    //账号简介
+    if (this.data.accountDesc) {
+      mediaAccount.accountDesc = this.data.accountDesc
+    }
+    //粉丝
+    if (this.data.fansNum) {
+      mediaAccount.fansNum = this.data.fansNum
+    }
+
     let mediaType = parseInt(this.data.plateform.id)
     mediaModel.addAccount({
       indexUrl: this.data.url,
       liveType: '',
-      mediaAccountMsg: this.data.data,
+      mediaAccountMsg: mediaAccount,
       prices: this.data.prices,
       mediaType: mediaType,
       liveType: this.data.types[this.data.index].id

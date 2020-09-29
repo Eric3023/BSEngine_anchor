@@ -21,7 +21,7 @@ Page({
    */
   onClickItem: function (event) {
     let item = event.currentTarget.dataset.item
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/addAccount/addAccount?name=${item.name}&icon=${encodeURIComponent(item.icon)}&id=${item.id}`,
     })
   },
