@@ -3,7 +3,7 @@ const util = require('../utils/util.js');
 const check = require('../models/check.js');
 
 /**
- * 修改密码
+ * 获取分享链接
  */
 function getShareUrl() {
   return check.checkResult(util.request(config.shareUrl));

@@ -131,15 +131,6 @@ Page({
   },
 
   /**
-   * 实名认证
-   */
-  onAuthor(event) {
-    wx.navigateTo({
-      url: `/pages/author/author?isAuth=${this.data.authored}`,
-    })
-  },
-
-  /**
    * 检查登录
    */
   _checkLogin() {
