@@ -2,12 +2,27 @@
 	<view class="sub_container">
 		<view class="title">
 			<image class="icon" src="/img/icon/icon_date.png"></image>
-			<text>日期、收益(元)</text>
+			<text>日期</text>
+			<view class="time_container">
+				<picker class="center" mode="multiSelector" model:value="{{index}}" range="{{date}}">
+					<view class="time">
+						<text class="margin">{{year}} - {{mouth>9?mouth:'0'+mouth}}</text>
+						<image class="pull" src="/img/login/icon_pull.png"></image>
+					</view>
+				</picker>
+			</view>
 		</view>
-		<text class="num profit">口播总收益5000元</text>
-		<view class="chart">
-
-		</view>
+		<text class="num profit">播报总收益50000元</text>
+		<text class="num2 profit">选中日期播报收益5000元</text>
+		<scroll-view scroll-x="false" scroll-y="false">
+			<view class="list">
+				<view class="item" wx:for="{{list}}" wx:key="index">
+					<text>{{item.data}}</text>
+					<view class="pillar" style="height: {{360*item.money/max}}rpx;"></view>
+					<view class="number">{{item.money?item.money:0}}</view>
+				</view>
+			</view>
+		</scroll-view>
 	</view>
 
 	<view class="sub_container">
