@@ -4,7 +4,6 @@
 const util = require('../utils/util.js');
 const api = require('../config/api.js');
 
-
 /**
  * Promise封装wx.checkSession
  */
@@ -85,15 +84,20 @@ function wxLoginPhone(e, that) {
     shareUserId = 1;
   }
   return new Promise(function (resolve, reject) {
-    //登录远程服务器
-    util.request(api.AuthPhoneLoginByWeixin, {
+    let param = {
       type: 0,
       sessionKey: that.data.sessionKey,
       openId: that.data.openId,
       iv: e.detail.iv,
       encryptedData: e.detail.encryptedData,
-      shareUserId: shareUserId
-    }, 'POST').then(res => {
+      shareUserId: shareUserId,
+    }
+    let shareUser = wx.getStorageSync('inviter')
+    if (shareUser) {
+      shareUser: shareUser
+    }
+    //登录远程服务器
+    util.request(api.AuthPhoneLoginByWeixin, param, 'POST').then(res => {
       console.log(res);
       if (res.errno === 0) {
         //存储用户信息

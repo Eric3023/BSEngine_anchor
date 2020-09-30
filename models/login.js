@@ -27,15 +27,20 @@ function regCaptcha(mobile) {
 /**
  * 用户注册
  */
-function register({ type = 0, username, password, mobile, code, wxCode }) {
+function register({ type = 0, username, password, mobile, code, wxCode, shareUser }) {
+
+  let param = {
+    type: type,
+    password: password,
+    mobile: mobile,
+    code: code,
+    wxCode: wxCode,
+  }
+  if(shareUser){
+    param.shareUser = shareUser
+  }
   return check.checkResult(util.request(config.register,
-    {
-      type: type,
-      password: password,
-      mobile: mobile,
-      code: code,
-      wxCode: wxCode,
-    },
+    param,
     'POST'));
 }
 

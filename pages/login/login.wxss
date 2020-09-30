@@ -24,7 +24,13 @@
   padding: 0;
   text-align: center;
   letter-spacing: 3rpx;
+  background-color: #ffbb00;
 }
+
+.wx-login-btn[disabled] {
+  background-color: #f1c445 !important;
+}
+
 .inputphone-color-agree{
   color: #000000;
 }

@@ -86,6 +86,7 @@ Page({
         mobile: this.data.phone,
         code: this.data.code,
         wxCode: this.data.wxCode,
+        shareUser: wx.getStorageSync('inviter')
       })
     }).then(res => {
       wx.showToast({
@@ -95,7 +96,7 @@ Page({
       setTimeout(_ => wx.navigateBack(), 1000)
     }).catch(exp => {
       wx.showToast({
-        title: exp.errmsg,
+        title: exp.errmsg ? exp.errmsg : '注册失败',
         icon: 'none'
       })
     })

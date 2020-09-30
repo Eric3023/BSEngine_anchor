@@ -22,7 +22,12 @@ Page({
   /**
    * 加载页面
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    let inviter = options.inviter
+    if(inviter){
+      wx.setStorageSync('inviter', inviter)
+    }
+
     this._getBanners();//请求轮播图
     this._getPublicity();//获取宣传图片
     this._getCouponing();//显示优惠券
