@@ -78,6 +78,8 @@ module.exports = {
   changePassword: BaseApi + '/wx/auth/reset',
   //分享验证码
   shareUrl: BaseApi + '/wx/user/getSharedUrl',
+  //邀请好友记录
+  inviteFriend: BaseApi + '/api/statistics/getInviteFriend',
 
   //上传图片接口
   Upload: WxApiRoot + 'storage/upload',

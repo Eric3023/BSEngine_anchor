@@ -77,15 +77,15 @@ page {
 }
 
 .item .icon {
-  width: 75rpx;
-  height: 75rpx;
+  width: 90rpx;
+  height: 90rpx;
   border-radius: 50%;
 }
 
 .item .info {
   display: flex;
   flex-direction: column;
-  width: 310rpx;
+  width: 280rpx;
   margin: 0 15rpx;
 }
 

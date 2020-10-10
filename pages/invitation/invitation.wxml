@@ -6,14 +6,14 @@
 		<view class="num_container">
 			<image class="background" src="/img/background/invitation_num.png"></image>
 			<text>已邀请好友数</text>
-			<text class="num">61人</text>
+			<text class="num">{{data.nums}}人</text>
 		</view>
 		<view class="list">
 			<view class="title">我的好友</view>
-			<view class="item" wx:for="{{3}}" wx:key="index">
+			<view class="item" wx:for="{{data.shares}}" wx:key="index">
 				<image class="icon" src="/img/icon/icon_header.png"></image>
 				<view class="info">
-					<text class="phone">1363****727</text>
+					<text class="phone">{{item.nickname}}</text>
 					<text class="tip">已登录注册成功</text>
 				</view>
 				<text class="state">奖励已得</text>
