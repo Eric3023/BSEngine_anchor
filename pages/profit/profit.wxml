@@ -1,25 +1,26 @@
+<wxs src="../../utils/format.wxs" module="format" />
 <view class="container">
 	<view class="sub_container">
 		<view class="title">
 			<image class="icon" src="/img/icon/icon_date.png"></image>
 			<text>日期</text>
 			<view class="time_container">
-				<picker class="center" mode="multiSelector" model:value="{{index}}" range="{{date}}">
+				<picker class="center" mode="multiSelector" model:value="{{index}}" range="{{date}}" bindchange="onMonthChanged">
 					<view class="time">
-						<text class="margin">{{year}} - {{mouth>9?mouth:'0'+mouth}}</text>
+						<text class="margin">{{year}} - {{month>9?month:'0'+month}}</text>
 						<image class="pull" src="/img/login/icon_pull.png"></image>
 					</view>
 				</picker>
 			</view>
 		</view>
-		<text class="num profit">播报总收益50000元</text>
-		<text class="num2 profit">选中日期播报收益5000元</text>
+		<text class="num profit">播报总收益{{data.TotalProfit}}元</text>
+		<text class="num2 profit">选中日期播报收益{{data.profitMonthSum}}元</text>
 		<scroll-view scroll-x="false" scroll-y="false">
 			<view class="list">
-				<view class="item" wx:for="{{list}}" wx:key="index">
-					<text>{{item.data}}</text>
-					<view class="pillar" style="height: {{360*item.money/max}}rpx;"></view>
-					<view class="number">{{item.money?item.money:0}}</view>
+				<view class="item" wx:for="{{data.profitMonthEveryDay}}" wx:key="index">
+					<text>{{format.substring(item.day,2)}}</text>
+					<view class="pillar" style="height: {{360*item.profit/max}}rpx;"></view>
+					<view class="number">{{item.profit?item.profit:0}}</view>
 				</view>
 			</view>
 		</scroll-view>
@@ -29,9 +30,9 @@
 		<text class="title">邀请好友汇总</text>
 		<view class="num_container">
 			<image class="background" src="/img/background/invitation_num.png"></image>
-			<text class="num">邀请好友总收益2000元</text>
+			<text class="num">邀请好友总收益{{data.profitInvite}}元</text>
 		</view>
 	</view>
 
-	<text class="total">总收益7000元</text>
+	<text class="total">总收益{{data.profitAllSum}}元</text>
 </view>

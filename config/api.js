@@ -93,6 +93,8 @@ module.exports = {
   NoUserInvoice: WxApiRoot + 'pay/noUseInvoice',
   //开具发票
   OpenInvoice: WxApiRoot + 'pay/openInvoice',
+  //收益统计
+  profit: BaseApi + '/api/statistics/getProfitEveryDay',
 
   //用户余额接口
   UserBalance: WxApiRoot + 'recharge/userBalance',
