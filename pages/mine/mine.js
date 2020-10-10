@@ -20,8 +20,8 @@ Page({
     },
     user_datas: [
       { icon: "/img/mine/icon_mine_collection.jpg", title: "银行卡" },
-      { icon: "/img/mine/icon_mine_rmb.jpg", title: "订单规则" },
-      // { icon: "/img/mine/icon_mine_quan.jpg", title: "意见反馈" },
+      { icon: "/img/mine/icon_mine_rmb.jpg", title: "提现记录" },
+      { icon: "/img/mine/icon_mine_quan.jpg", title: "订单规则" },
       { icon: "/img/mine/icon_mine_proxy.jpg", title: "意见反馈" },
       { icon: "/img/mine/icon_mine_setting.png", title: "设置" }
     ],
@@ -72,6 +72,11 @@ Page({
           url: `/pages/webview/webview?url=${config.BaseImgApi + "html/policy.html"}`,
         })
         break;
+      case '提现记录':
+        wx.navigateTo({
+          url: `/pages/records/records`,
+        })
+        break;
       case '设置':
         wx.navigateTo({
           url: '/pages/setting/setting',
@@ -90,7 +95,7 @@ Page({
 
   onWithdraw: function () {
     wx.navigateTo({
-      url: '/pages/withdraw/withdraw',
+      url: `/pages/withdraw/withdraw?totalAmount=${this.data.data.totalAmount}`,
     })
   },
 

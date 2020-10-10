@@ -1,33 +1,14 @@
-// pages/withdraw/withdraw.js
-Page({
+const bankModel = require('../../models/bank.js')
+const accountModel = require('../../models/account.js')
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
+    totalAmount: 0,
     selectIndex: 0,
-    banks: [
-      {
-        icon: '/img/icon/icon_header.png',
-        name: '农业储蓄卡(3478)'
-      },
-      {
-        icon: '/img/icon/icon_header.png',
-        name: '建设储蓄卡(9876)'
-      },
-      {
-        icon: '/img/icon/icon_header.png',
-        name: '交通储蓄卡(4538)'
-      },
-      {
-        icon: '/img/icon/icon_header.png',
-        name: '招商储蓄卡(2367)'
-      },
-      {
-        icon: '/img/icon/icon_header.png',
-        name: '北京储蓄卡(9478)'
-      },
-    ],
+    banks: [],
     //提现金额
     money: '',
     maxlength: -1
@@ -37,7 +18,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let totalAmount = parseFloat(options.totalAmount)
+    if (totalAmount) {
+      this.setData({
+        totalAmount: totalAmount,
+      })
+    }
 
+    this._getBanks()
   },
 
   /**
@@ -63,5 +51,52 @@ Page({
       maxlength,
       money
     })
-  }
+  },
+
+  /**
+   * 提现
+   */
+  onWithdraw: function (event) {
+    let money = parseFloat(this.data.money)
+    if (!money || money < 0) {
+      wx.showToast({
+        title: '输入金额不合法',
+        icon: 'none',
+      })
+      return
+    }
+
+    let bank = this.data.banks[this.data.selectIndex]
+    console.log(bank);
+
+    accountModel.withdraw({ amount: money, bankId: bank.id }).then(res => {
+      wx.showToast({
+        title: '提现成功，请等待入账',
+        icon: 'none',
+      })
+      setTimeout(_ => wx.navigateBack(1), 1000)
+    }).catch(exp => {
+      wx.showToast({
+        title: '提现失败，请稍后重试',
+        icon: 'none',
+      })
+    })
+  },
+
+  /**
+   * 获取银行卡列表
+   */
+  _getBanks() {
+    bankModel.listBank().then(res => {
+      for (var i = 0; i < res.data.length; i++) {
+        res.data[i].name = res.data[i].bankName + '(' + res.data[i].bankCardNo + ')'
+      }
+      this.setData({
+        banks: res.data
+      })
+    }).catch(exp => {
+
+    })
+  },
+
 })

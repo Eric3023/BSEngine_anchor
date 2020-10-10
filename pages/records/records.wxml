@@ -1,0 +1,21 @@
+<wxs src="../../utils/format.wxs" module="util" />
+<view class="container" wx:if="{{records&&records.length!=0}}">
+	<block wx:for="{{records}}" wx:key="index">
+		<view class="mouth_container" wx:if="{{item.first}}">
+			<text class="mouth">{{item.mouth}}</text>
+		</view>
+		<view class="record_container" catchtap="onRechargeDatail" data-value="{{item}}">
+			<image class="icon" src="/img/icon/icon_wallet.png"></image>
+			<view class="content">
+				<text class="person">{{item.message}}</text>
+				<text class="time">{{item.createTime}}</text>
+			</view>
+			<text class="money">￥{{util.numberFormat(item.actualPrice, 2)}}</text>
+			<text class="isInvoice">{{item.orderStatus==303? '审核失败': (item.orderStatus == 302? '已提现':'待审核')}}</text>
+		</view>
+	</block>
+</view>
+
+<view class="empty" wx:if="{{!(records&&records.length!=0)&&!lock}}">
+	<text>暂时没有提现记录~~~</text>
+</view>

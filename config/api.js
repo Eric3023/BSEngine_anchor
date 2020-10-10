@@ -105,4 +105,9 @@ module.exports = {
 
   RechargePrepay: WxApiRoot + 'pay/prepay', //订单的预支付会话
 
+  //提现接口
+  withdraw: BaseApi + '/wx/pay/withdrawDeposit',
+  //提现记录
+  withdrawRecord: BaseApi + '/wx/pay/withdrawRecord'
+
 };

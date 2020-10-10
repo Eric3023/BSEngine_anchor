@@ -14,6 +14,6 @@
 				<image class="background" src="/img/plateform/acfun.png" mode="aspectFill"></image>
 			</view>
 		</view>
-		<view class="add" catchtap="onAdd">+ 添加银行卡</view>
+		<view class="add" catchtap="onAdd" wx:if="{{list.length<20}}">+ 添加银行卡</view>
 	</view>
 </scroll-view>

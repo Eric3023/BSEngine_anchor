@@ -1,0 +1,16 @@
+<wxs src="../../utils/format.wxs" module="format" />
+<view class="container">
+	<image class="icon" src="/img/icon/icon_wallet.png"></image>
+	<text class="title">{{data.message}}</text>
+	<text class="price">￥{{format.numberFormat(data.actualPrice, 2)}}</text>
+	<view class="line"></view>
+	<view class="content">提现状态
+		<text class="param">{{data.orderStatus == 303? '提现失败':(data.orderStatus == 302? '提现成功':'待审核')}}</text>
+	</view>
+	<view class="content">提现时间
+		<text class="param">{{data.createTime}}</text>
+	</view>
+	<view class="content">转账单号
+		<text class="param">{{data.orderSn}}</text>
+	</view>
+</view>

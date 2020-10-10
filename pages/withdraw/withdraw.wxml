@@ -1,3 +1,4 @@
+<wxs src="../../utils/format.wxs" module="format" />
 <view class="container">
 	<view class="section_first">
 		<view class="section_first_box">
@@ -21,9 +22,9 @@
 		</view>
 		<view class="line"></view>
 		<view class="remain">
-			零钱余额￥7000，
+			收益余额￥{{format.numberFormat(totalAmount, 2)}}，
 			<text class="all">全部提现</text>
 		</view>
 	</view>
-	<view class="section_third {{money?'active':'disactive'}}">提现</view>
+	<view class="section_third {{money?'active':'disactive'}}" catchtap="{{money?'onWithdraw':''}}">提现</view>
 </view>

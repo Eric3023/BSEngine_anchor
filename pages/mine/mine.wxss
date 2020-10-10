@@ -88,6 +88,7 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 80rpx;
+  margin-bottom: 20rpx;
   font-size: 24rpx;
   color: #7c7c7c;
 }

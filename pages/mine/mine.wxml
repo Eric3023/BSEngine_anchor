@@ -1,3 +1,4 @@
+<wxs src="../../utils/format.wxs" module="format" />
 <!-- 我的 -->
 <scroll-view class="scroll" scroll-x="false" scroll-y="true">
 	<view class="container">
@@ -21,7 +22,7 @@
 					<text>已经播报</text>
 				</view>
 				<view class="item" catchtap="onWithdraw" data-index="我的收益">
-					<text>{{data.totalAmount}}</text>
+					<text>{{format.numberFormat(data.totalAmount, 2)}}</text>
 					<text>收益（元）</text>
 				</view>
 			</view>
