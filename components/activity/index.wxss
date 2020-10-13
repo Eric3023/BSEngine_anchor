@@ -1,7 +1,7 @@
 .ell {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: pre-wrap;
+  white-space: nowrap;
 }
 
 .mask {
@@ -87,7 +87,7 @@ progress {
 }
 
 .section_down .goods {
-  width: 60%;
+  width: 168rpx;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -102,7 +102,7 @@ progress {
 }
 
 .section_down .price {
-  width: 36%;
+  width: 108rpx;
   color: #ff595c;
   font-size: 24rpx;
   padding: 0 6rpx;
@@ -115,4 +115,5 @@ progress {
   align-items: center;
   margin-right: 10rpx;
   margin-bottom: 10rpx;
+  margin-left: 10rpx;
 }

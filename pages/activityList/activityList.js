@@ -20,8 +20,11 @@ Page({
     this.setData({
       type,
     })
+  },
 
-    this._getOrders();
+  onShow: function(option){
+    this._reset()
+    this._getOrders()
   },
 
   onReachBottom: function(){
@@ -48,7 +51,7 @@ Page({
         this._exeOrder(order.id)
         break
       case 2:
-        this._qualityOrder(order.id)
+        // this._qualityOrder(order.id)
         wx.navigateTo({
           url: `/pages/liveData/liveData?id=${order.id}`,
         })
@@ -125,7 +128,7 @@ Page({
   /**
    * 重置数据
    */
-  _reset(status) {
+  _reset() {
     this.setData({
       items: [],
       page: 1,
@@ -250,6 +253,7 @@ Page({
       })
 
       //刷新页面
+      this._reset()
       this._getOrders()
     }).catch(exp => {
       wx.showToast({

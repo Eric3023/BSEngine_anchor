@@ -2,9 +2,9 @@
 <view class="item">
 	<view class="section_up">
 		<image class="img" src="{{img}}" mode="widthFix" />
-		<image class="flag" wx:if="{{first}}" src="img/icon_first.png" />
+		<!-- <image class="flag" wx:if="{{first}}" src="img/icon_first.png" />
 		<image class="flag" wx:if="{{chance}}" src="img/icon_chance.png" />
-		<image class="hot" wx:if="{{hot}}" src="img/icon_hot.png" />
+		<image class="hot" wx:if="{{hot}}" src="img/icon_hot.png" /> -->
 		<view class="mask"></view>
 		<view class="container_progress">
 			<view class="container_progress_sub">

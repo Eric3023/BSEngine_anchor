@@ -2,8 +2,23 @@ page {
   background-color: #f9fcfc;
 }
 
+.feed{
+  max-width: 454rpx;
+}
+
 .container {
   align-items: center;
+}
+
+.img{
+  width: 640rpx;
+  margin-top: 10rpx;
+}
+
+.mediaIcon {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 10rpx;
 }
 
 .txt {
@@ -11,9 +26,15 @@ page {
   display: flex;
   flex-direction: column;
   margin: 10rpx 50rpx 28rpx 50rpx;
-  padding: 0 20rpx 120rpx 20rpx;
+  padding: 0 10rpx 120rpx 10rpx;
   border: 2rpx #ffbb00 solid;
   font-size: 28rpx;
+}
+
+.txt_container{
+  display: flex;
+  flex-direction: column;
+  padding: 0 10rpx;
 }
 
 .icon {

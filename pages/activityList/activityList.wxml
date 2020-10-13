@@ -23,5 +23,5 @@
 			<view class="del" wx:if="{{!(type==3||type==4)}}" catchtap="del" data-index="{{index}}" data-item="{{item}}">删除</view>
 		</view>
 	</view>
-	<empty show="{{!(list&&list.length!=0)&&!lock}}" message="未查询到订单~~~" />
+	<empty show="{{!(items&&items.length!=0)&&!lock}}" message="未查询到订单~~~" />
 </view>

@@ -1,34 +1,58 @@
 <wxs src="../../utils/date.wxs" module="date" />
+<wxs src="../../utils/format.wxs" module="format" />
 <view class="container">
 	<view class="like_container" catchtap="onCollection">
 		<text>收藏</text>
 		<image src="{{data.isLiving==1? '/img/icon/icon_like_selected.png':'/img/icon/icon_like_normal.png'}}"></image>
 	</view>
 	<view class="txt">
-		<!-- 需求名称 -->
-		<view class="title">
-			<text>需求名称：</text>
-			<text class="box">{{data.name}}</text>
-		</view>
-		<!-- 需求描述 -->
-		<view class="desc">
-			<text>需求描述：</text>
-			<text class="box desc_box">{{data.desc}}</text>
-		</view>
-		<!-- 推广时间 -->
-		<view class="time">
-			<text>推广时间：</text>
-			<text class="box">{{data.startTime}}至{{data.endTime}}</text>
-		</view>
-		<!-- 反馈时间 -->
-		<view class="end">
-			<text>结束反馈时间：</text>
-			<text class="box">{{date.trim(data.feedbackTime)}}</text>
-		</view>
-		<!-- 活动标的行业 -->
-		<view class="category">
-			<text>活动标的行业：</text>
-			<text class="box">不限</text>
+		<image class="img" src="{{data.picUrl}}" mode="widthFix" />
+		<view class="txt_container">
+			<!-- 需求名称 -->
+			<view class="title">
+				<text>需求名称：</text>
+				<text class="box feed">{{data.name}}</text>
+			</view>
+			<!-- 活动价格 -->
+			<view class="category">
+				<text>活动价格：</text>
+				<text class="box">{{format.numberFormat(data.unitPrice,2)}}元</text>
+			</view>
+			<!-- 媒体平台 -->
+			<view class="time">
+				<text>媒体平台：</text>
+				<image class="mediaIcon" src="{{data.mediaIcon}}"></image>
+			</view>
+			<!-- 需求描述 -->
+			<view class="desc">
+				<text>需求描述：</text>
+				<text class="box desc_box">{{data.desc}}</text>
+			</view>
+			<!-- 推广时间 -->
+			<view class="time">
+				<text>推广时间：</text>
+				<text class="box">{{data.startTime}}至{{data.endTime}}</text>
+			</view>
+			<!-- 反馈时间 -->
+			<view class="end">
+				<text>结束反馈时间：</text>
+				<text class="box">{{date.trim(data.feedbackTime)}}</text>
+			</view>
+			<!-- 活动标的行业 -->
+			<view class="category">
+				<text>活动标的行业：</text>
+				<text class="box">{{data.liveTypeName?data.liveTypeName:'不限'}}</text>
+			</view>
+			<!-- 播报类型 -->
+			<view class="category">
+				<text>播报类型：</text>
+				<text class="box">{{data.broadcastName}}</text>
+			</view>
+			<!-- 播报数量 -->
+			<view class="category">
+				<text>播报数量：</text>
+				<text class="box">{{data.broadcastTimes}}</text>
+			</view>
 		</view>
 	</view>
 	<image class="icon" src="{{data.isReceiving!=0? '/img/icon/icon_rob_disabled.png':'/img/icon/icon_rob.png'}}" catchtap="{{data.isReceiving!=0? '':'onRob'}}"></image>
