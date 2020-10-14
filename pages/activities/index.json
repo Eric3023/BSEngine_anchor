@@ -3,5 +3,6 @@
     "activity": "/components/activity/index",
     "empty": "/components/empty/index"
   },
-  "navigationBarTitleText": "待接单列表"
+  "navigationBarTitleText": "待接单列表",
+  "enablePullDownRefresh": true
 }

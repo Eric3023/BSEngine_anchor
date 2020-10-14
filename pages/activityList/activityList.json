@@ -2,5 +2,6 @@
   "usingComponents": {
     "empty": "/components/empty/index"
   },
-  "navigationBarTitleText": "活动列表"
+  "navigationBarTitleText": "订单列表",
+  "enablePullDownRefresh": true
 }

@@ -43,6 +43,16 @@
 				<text>活动标的行业：</text>
 				<text class="box">{{data.liveTypeName?data.liveTypeName:'不限'}}</text>
 			</view>
+			<!-- 总订单单 -->
+			<view class="category">
+				<text>总订单数：</text>
+				<text class="box">{{data.orderNum}}</text>
+			</view>
+			<!-- 剩余订单 -->
+			<view class="category">
+				<text>剩余订单：</text>
+				<text class="box">{{data.orderNum-data.orderNumUse}}</text>
+			</view>
 			<!-- 播报类型 -->
 			<view class="category">
 				<text>播报类型：</text>

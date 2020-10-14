@@ -65,6 +65,12 @@ Page({
     this._getActivities();
   },
 
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+    this._reset();
+    this._getActivities();
+  },
+
   /**
    * 滑动到页面底部
    */

@@ -19,6 +19,12 @@ Page({
     this._getActivities();
   },
 
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+    this._reset();
+    this._getActivities();
+  },
+
   /**
    * 点击订单列表，进入订单详情
    */
@@ -52,6 +58,11 @@ Page({
       page: 1,
       lock: false,
       hasMore: true,
+
+      leftData: [],
+      rightData: [],
+      leftHeight: 0,
+      rightHeight: 0,
     });
   },
 

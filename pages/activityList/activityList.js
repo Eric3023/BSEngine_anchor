@@ -27,6 +27,12 @@ Page({
     this._getOrders()
   },
 
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+    this._reset()
+    this._getOrders()
+  },
+
   onReachBottom: function(){
     this._getOrders()
   },
