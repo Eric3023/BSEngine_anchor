@@ -2,5 +2,6 @@
   "usingComponents": {
     "empty":"/components/empty/index"
   },
-  "navigationBarTitleText": "媒体"
+  "navigationBarTitleText": "媒体",
+  "enablePullDownRefresh": true
 }

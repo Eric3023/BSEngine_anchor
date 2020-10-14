@@ -37,6 +37,12 @@ Page({
   onShareAppMessage: function () {
 
   },
+  
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+    this._reset(this.data.type)
+    this._getMediaList()
+  },
 
   /**
    * 到达页面底部加载更多
@@ -92,7 +98,7 @@ Page({
     })
   },
 
-  /**
+ /**
  * 重置数据
  */
   _reset(type) {

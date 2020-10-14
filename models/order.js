@@ -47,10 +47,20 @@ function qualityOrder({ id, url, code, imgs }) {
   }, 'POST'));
 }
 
+/**
+ * 获取订单质检信息
+ */
+function qualityAssessment({ id }) {
+  return check.checkResult(util.request(config.qualityAssessment, {
+    "orderId": id,
+  }));
+}
+
 module.exports = {
   getLiveOrders: getLiveOrders,
   cancelOrder: cancelOrder,
   delOrder: delOrder,
   exeOrder: exeOrder,
   qualityOrder: qualityOrder,
+  qualityAssessment: qualityAssessment,
 };

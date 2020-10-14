@@ -59,7 +59,7 @@ Page({
       case 2:
         // this._qualityOrder(order.id)
         wx.navigateTo({
-          url: `/pages/liveData/liveData?id=${order.id}`,
+          url: `/pages/liveData/liveData?id=${order.id}&isUpload=${order.isUpload}`,
         })
         break
     }

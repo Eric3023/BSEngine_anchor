@@ -25,6 +25,10 @@ Page({
    */
   onLoad: function (options) {
     this.data.id = options.id;
+    let isUpload = options.isUpload
+    if (isUpload == 1) {
+      this._getQualityInfo()
+    }
   },
 
   /**
@@ -157,5 +161,27 @@ Page({
         icon: 'none'
       })
     })
-  }
+  },
+
+  /**
+   * 已提交的质检信息
+   */
+  _getQualityInfo: function () {
+    orderModel.qualityAssessment({ id: this.data.id }).then(res => {
+      let screenshot = res.data.screenshot
+      let imgs = []
+      if (screenshot) {
+        imgs = screenshot.split(',')
+      }
+
+      this.setData({
+        pan: res.data.cloudUrl,
+        code: res.data.extractionCode,
+        imgs: imgs,
+      })
+    }).catch(exp => {
+
+    })
+  },
+
 })
