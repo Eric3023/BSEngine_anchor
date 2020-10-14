@@ -7,6 +7,26 @@ page {
   flex-direction: column;
 }
 
+.upload{
+  width: 204rpx;
+  height: 204rpx;
+  border-radius: 50%;
+  background-color: #e1e1e1;
+  color: #767676;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48rpx;
+  margin: 0 36rpx 48rpx 36rpx;
+}
+
+.add{
+  width: 120rpx;
+  height: 80rpx;
+  margin-top: 50rpx;
+}
+
 .layout{
   width: 650rpx;
   display: flex;
@@ -16,11 +36,23 @@ page {
   font-size: 36rpx;
 }
 
+.imgContainer{
+  margin-top: 18rpx;
+  max-width: 560rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .screenshot{
   width: 650rpx;
-  height: 354rpx;
   margin-top: 24rpx;
   box-shadow: 0 0 4rpx #efefef;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .code{

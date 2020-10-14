@@ -2,10 +2,16 @@
 	<!-- 直播数据截图 -->
 	<view class="layout">
 		<text>直播数据截图</text>
-		<block class="item" wx:for="{{imgs}}" wx:key="index">
-			<image class="screenshot" src="{{item}}" catchtap="onPreview" catchlongtap="onDelete" data-src="{{item}}" data-index="{{index}}"></image>
-		</block>
-		<text class="guide center" catchtap="onUpdate">上传数据截图</text>
+		<view class="screenshot">
+			<view class="imgContainer">
+				<image class="upload" catchtap="onUpdate" wx:for="{{imgs}}" wx:key="index" src="{{item}}" catchtap="onPreview" catchlongtap="onDelete" data-src="{{item}}" data-index="{{index}}">
+				</image>
+				<view class="upload" catchtap="onUpdate">
+					<image class="add" src="{{imgs.length>0?'/img/icon/icon_add.png':'/img/icon/icon_car.png'}}"></image>
+					<text>上传图片</text>
+				</view>
+			</view>
+		</view>
 	</view>
 	<!-- 云盘 -->
 	<view class="layout">
