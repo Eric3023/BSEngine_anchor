@@ -27,6 +27,16 @@ Page({
   },
 
   /**
+   * 查看详情
+   */
+  onClickItem: function(e){
+    let order = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${order.id}`,
+    })
+  },
+
+  /**
    * 重置数据
    */
   _reset(status) {

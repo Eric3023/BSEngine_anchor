@@ -29,7 +29,8 @@
     "pages/activities/index",
     "pages/register/index",
     "pages/records/records",
-    "pages/recordDetail/recordDetail"
+    "pages/recordDetail/recordDetail",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

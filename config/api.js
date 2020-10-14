@@ -58,6 +58,8 @@ module.exports = {
   qualityOrder: BaseApi + '/api/activity/qualityAssessment',
   //获取订单质检信息
   qualityAssessment: BaseApi + '/api/activity/getQualityAssessment',
+  //获取订单详情
+  orderDetail: BaseApi + '/api/activity/getOrderDeatil',
 
   //用户信息接口
   UserInfo: BaseApi + '/wx/user/index',

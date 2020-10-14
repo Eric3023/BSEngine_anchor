@@ -4,7 +4,7 @@
 <scroll-view class="scroll" scroll-x="false" scroll-y="true">
 	<view class="container">
 		<view class="list">
-			<view class="item" wx:for="{{list}}" wx:key="index">
+			<view class="item" wx:for="{{list}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" catchtap="onClickItem">
 				<view class="content">
 					<image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
 					<view class="sub_container">

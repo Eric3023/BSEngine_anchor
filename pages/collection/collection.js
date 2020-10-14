@@ -24,6 +24,12 @@ Page({
     this._getActivities()
   },
 
+  onPullDownRefresh: function(){
+    wx.stopPullDownRefresh()
+    this._reset()
+    this._getActivities()
+  },
+
   onReachBottom: function () {
     this._getActivities()
   },

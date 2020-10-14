@@ -56,6 +56,15 @@ function qualityAssessment({ id }) {
   }));
 }
 
+/**
+ * 获取订单详情
+ */
+function getOrderDetail({ id }) {
+  return check.checkResult(util.request(config.orderDetail, {
+    "orderId": id,
+  }));
+}
+
 module.exports = {
   getLiveOrders: getLiveOrders,
   cancelOrder: cancelOrder,
@@ -63,4 +72,5 @@ module.exports = {
   exeOrder: exeOrder,
   qualityOrder: qualityOrder,
   qualityAssessment: qualityAssessment,
+  getOrderDetail: getOrderDetail,
 };
