@@ -1,2 +1,31 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<wxs src="../../utils/date.wxs" module="date" />
+<wxs src="../../utils/format.wxs" module="format" />
+<wxs src="./util.wxs" module="util"/>
+<view class="container">
+  <view class="header">
+    <view class="point yellow"></view>
+    <view class="status_container">
+      <view class="status">{{util.getTitle(data.status)}}状态中</view>
+      <view class="statusTime">{{data.timeLines[0].createTime}}</view>
+    </view>
+    <image class="enter" src="/img/mine/icon_mine_enter.png"></image>
+  </view>
+  <view class="header">
+    <view class="point blue"></view>
+    <image class="media" src="{{data.mediaIcon}}"></image>
+  </view>
+	<view class="content">
+		<view class="title">{{data.name}}订单标题</view>
+		<view class="desc_container">
+			<image class="img" src="{{data.picUrl}}" mode="widthFix"></image>
+			<text class="desc">{{data.desc}}</text>
+		</view>
+		<text class="param">活动时间：{{date.parse(data.startTime)}} - {{date.parse(data.endTime)}}</text>
+		<text class="param">反馈时间：{{date.parse(data.feedbackTime)}}</text>
+		<text class="param">活动行业：{{data.liveTypeName}}</text>
+		<text class="param">播报类型：{{data.broadcastName}}</text>
+		<text class="param">播报数量：{{data.broadcastTimes}}</text>
+		<text class="param" wx:if="{{data.adUrl}}">活动链接：{{data.adUrl}}</text>
+		<text class="param">订单价格：{{format.numberFormat(data.unitPrice, 2)}}元</text>
+	</view>
+</view>

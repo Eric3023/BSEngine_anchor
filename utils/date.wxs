@@ -6,7 +6,7 @@ var trim = function (date) {
 }
 
 var parse = function (date) {
-  while (date.indexOf('-') != -1) {
+  while (date&&date.indexOf('-') != -1) {
     date = date.replace('-', '/')
   }
   return date

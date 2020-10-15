@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    data: {}
   },
 
   /**
@@ -22,7 +22,9 @@ Page({
    */
   _getDetail: function (id) {
     orderModel.getOrderDetail({ id: id }).then(res => {
-
+      this.setData({
+        data: res.data
+      })
     }).catch(exp => {
 
     })
