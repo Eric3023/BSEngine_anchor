@@ -1,0 +1,29 @@
+<wxs src="./util.wxs" module="util" />
+<wxs src="../../utils/date.wxs" module="date" />
+<view class="container">
+	<view class="header">
+    <image class="img" src="{{picUrl}}"></image>
+    <view class="column">
+      <text class="name ell">{{name}}</text>
+      <text class="status">{{util.getTitle(times[0].status)}}</text>
+    </view>
+  </view>
+	<view class="lines">
+    <image class="background" src="/img/background/background_timeline.png"></image>
+  </view>
+	<view class="content">
+    <block wx:for="{{times}}" wx:key="index">
+      <view class="item {{index==0?'focus':'noFocus'}}">
+        <view class="column time container">
+          <text class="second">{{date.trimFirst(item.createTime)}}</text>
+          <text class="date">{{date.trim(item.createTime)}}</text>
+        </view>
+        <view class="column icon container">
+          <image class="upper" src="{{index==0?'/img/icon/icon_up_select.png':'/img/icon/icon_up_normal.png'}}"></image>
+          <view class="line" wx:if="{{index!=times.length-1}}"></view>
+        </view>
+        <view class="column desc">{{util.getDesc(item.status)}}</view>
+      </view>
+    </block>
+  </view>
+</view>

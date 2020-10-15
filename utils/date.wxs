@@ -11,8 +11,17 @@ var parse = function (date) {
   }
   return date
 }
+
+var trimFirst = function (date) {
+  if (date)
+    return date.split(' ')[1]
+  else
+    return date
+}
+
 module.exports = {
   trim: trim,
   parse: parse,
+  trimFirst: trimFirst,
 }
 

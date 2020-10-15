@@ -2,7 +2,7 @@
 <wxs src="../../utils/format.wxs" module="format" />
 <wxs src="./util.wxs" module="util"/>
 <view class="container">
-  <view class="header">
+  <view class="header" catchtap="onTimeLines">
     <view class="point yellow"></view>
     <view class="status_container">
       <view class="status">{{util.getTitle(data.status)}}状态中</view>
