@@ -40,11 +40,87 @@
   width: 100%;
   height: 190rpx;
   margin-top: 28rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .background {
   width: 100%;
   height: 100%;
+  position: absolute;
+  z-index: -9;
+}
+
+.lines_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.statusLine{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statusName{
+  font-size: 28rpx;
+  margin-top: 24rpx;
+  margin-top: 24rpx;
+}
+
+.statusNameNormal{
+  color: #ffffff;
+}
+
+.statusNameSelected{
+  color: #ffbb00;
+}
+
+.statusTop{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12rpx;
+  position: relative;
+}
+
+.statusPoint{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+}
+
+.statusNormal{
+  background-color: #ffffff;
+}
+
+.statusSelected{
+  background-color: #ffbb00;
+}
+
+.statusLeftLine{
+  width: 50%;
+  height: 2rpx;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: -9;
+}
+
+.statusRightLine{
+  width: 50%;
+  height: 2rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: -9;
 }
 
 .content {

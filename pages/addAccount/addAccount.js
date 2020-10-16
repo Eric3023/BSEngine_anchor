@@ -69,6 +69,7 @@ Page({
         fansNum: res.data.fansNum,
         accountId: res.data.accountId,
         disabled: true,
+        accountMsg: res.data,
       })
     }).catch(e => {
       console.log(e);
@@ -168,6 +169,9 @@ Page({
    */
   _addAcount() {
     let mediaAccount = {}
+    if(this.data.accountMsg){
+      mediaAccount = this.data.accountMsg
+    }
     //账号名称
     if (this.data.accountName) {
       mediaAccount.accountName = this.data.accountName

@@ -10,6 +10,16 @@
   </view>
 	<view class="lines">
     <image class="background" src="/img/background/background_timeline.png"></image>
+    <view class="lines_container">
+      <view class="statusLine" wx:for="{{array}}" wx:key="index">
+        <view class="statusTop">
+          <view class="statusLeftLine {{item.status>status? 'statusNormal':'statusSelected'}}" wx:if="{{index!=0}}"></view>
+          <view class="statusPoint {{item.status>status? 'statusNormal':'statusSelected'}}"></view>
+          <view class="statusRightLine {{item.status>=status? 'statusNormal':'statusSelected'}}" wx:if="{{index!=array.length-1}}"></view>
+        </view>
+        <text class="statusName {{item.status>status? 'statusNameNormal':'statusNameSelected'}}">{{item.desc}}</text>
+      </view>
+    </view>
   </view>
 	<view class="content">
     <block wx:for="{{times}}" wx:key="index">
